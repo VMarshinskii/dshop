@@ -1,0 +1,122 @@
+{% extends "main.html" %}
+{% load static %}
+
+
+{% block head %}
+    <title>Darya-Shop | {{ product.name }}</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="CatalogProductBox">
+    <div class="CatalogProductBoxCont">
+        <h1>{{ product.name }}</h1>
+
+        <div class="CatalogPriceBox">
+            {% if product.sale_status %}
+            <p class="CatalogPriceBoxPrice">Цена: <span>{{ product.price_sale }} руб.</span></p>
+            <p class="CatalogPriceOld">{{ product.price }} руб.</p>
+            {% else %}
+            <p class="CatalogPriceBoxPrice">Цена: <span>{{ product.price }} руб.</span></p>
+            {% endif %} 
+
+            <a href="#" data-id="{{ product.id }}">Купить</a>
+        </div>
+        <div class="CatalogProductBoxContent">
+
+            <table class="sizes_list_table">
+                <tr>
+                    <td width="90px"><p>Размеры: </p></td>
+                    <td>
+                        <ul class="sizes_list">
+                            {% for size in sizes %}
+                                {% if forloop.first %}
+                                    <li data-size="{{ size.title }}" class="sizes_list_active">{{ size.title }}</li>
+                                 {% else %}
+                                     <li data-size="{{ size.title }}">{{ size.title }}</li>
+                                 {% endif %}
+                             {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>Цвета: </p></td>
+                    <td>
+                         <select id="id_colors" class="product_colors">
+                             {% for color in colors %}
+                             <option>{{ color.title }}</option>
+                             {% endfor %}
+                         </select>
+                    </td>
+                </tr>
+            </table>
+
+            {% if product.structure %}
+            <p class="product_structure">Состав: {{ product.structure }}</p>
+            {% endif %}
+
+            {{ product.text|safe }}
+        </div>
+        <div style="clear: both"></div>
+    </div>
+
+    <div class="galeryBox">
+        <div class="galeryBoxImg">
+            <img src="/static/uploads/{{ product.image }}">
+        </div>
+        <div class="your-class">
+            <a data-fancybox-group="thumb" href="/static/uploads/{{ product.image }}" class="product_image prev_head"><img src="/static/uploads/{{ product.image }}"></a>
+            {% for img in images %}
+                <a data-fancybox-group="thumb" href="/static/uploads/{{ img }}" class="product_image"><img src="/static/uploads/{{ img }}"></a>
+            {% endfor %}
+        </div>
+	</div>
+
+    {% if related_products %}
+    <div class="relatedProducts">
+        <h3>Сопутствующие товары</h3>
+
+        {% for pr in related_products %}
+        <div class="relatedProductsItem">
+            <a href="/catalog/product/{{ pr.id }}/">
+                <div class="relatedProductsItemImg">
+                    <img src="/static/uploads/{{ pr.image }}">
+                </div>
+                <h4>{{ pr.name }}</h4>
+            </a>
+            {% if pr.sale_status %}
+            <p class="price">{{ pr.price_sale }} руб.</p>
+            <p class="price" style="float: right; color: #999; text-decoration: line-through">{{ pr.price }} руб.</p>
+            {% else %}
+            <p class="price">{{ pr.price }} руб.</p>
+            {% endif %}
+            <div class="good-c">
+                <a data-id="{{ pr.id }}" href="#">В корзину</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div style="clear: both"></div>
+</div>
+{% endblock %}
+
+
+{% block script %}
+<link rel="stylesheet" type="text/css" href="{% static "slick/slick.css" %}"/>
+<script type="text/javascript" src="{% static "slick/slick.min.js" %}"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.your-class').slick({
+          slidesToShow: 3,
+          infinite: false,
+          slidesToScroll: 1,
+          autoplaySpeed: 2000,
+          arrows: true,
+          prevArrow: '<button type="button" class="slick-prev"><</button>',
+          nextArrow: '<button type="button" class="slick-next">></button>'
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+
+{% block head %}
+<title>Darya-Shop | Заказ {{ order.id }}</title>
+{% endblock %}
+
+{% block content %}
+<div class="ContentBox">
+    <div class="ContentBoxHead">
+        <h1>Заказ #{{ order.id }}</h1>
+    </div>
+    <div class="ContentBoxPage">
+        <h5 style="font-weight: bold">Доставка - {{ order.delivery}}</h5>
+        <p>{{ order.user.name }} {{ order.user.surname }}</p>
+        <p>{{ order.index }}, {{ order.region }}, {{ order.city }}, {{ order.address }}</p>
+
+        <table>
+            {% for product in products %}
+            <tr>
+                <td>
+                    <div style="width: 40px; height: 35px; float: left; margin-right: 10px; overflow: hidden;">
+                        <img style="width: 40px;" src="/static/uploads/{{ product.image }}" alt="{{ product.name }}"/>
+                    </div>
+                    <p>{{ product.name }}</p>
+                </td>
+                {% if product.sale_status %}
+                    <td align="center">{{ product.price_sale }} руб. x {{ product.cart_count }}</td>
+                {% else %}
+                    <td align="center">{{ product.price }} руб. x {{ product.cart_count }}</td>
+                {% endif %}
+                <td align="center">{{ product.price_all }} руб.</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="2" align="right">Доставка ({{ order.delivery }})</td>
+                <td align="center">{{ order.delivery_price }} руб.</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold" colspan="2" align="right">Итого</td>
+                <td style="font-weight: bold" align="center">{{ order.sum }} руб.</td>
+            </tr>
+        </table>
+	</div>
+</div>
+{% endblock %}

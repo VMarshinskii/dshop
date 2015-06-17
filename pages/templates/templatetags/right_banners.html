@@ -1,0 +1,5 @@
+<div class="banners-r">
+    {% for banner in banners %}
+    <a href="{{ banner.link }}"><img src="/{{ banner.image }}" alt="{{ banner.title }}"/></a>
+    {% endfor %}
+</div>

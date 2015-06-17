@@ -1,0 +1,15 @@
+{% load static %}
+<div id="header">
+    <div class="logo">Darya-A-Shop</div>
+    <div class="cart"><p>Корзина: <a href="/cart/">пусто</a></p></div>
+    <div class="header-info">
+        <span class="header-info-one">Магазин модной, молодежной одежды, обуви и аксессуаров.</span>
+        <span class="motto"><img src="{% static "images/motto.png" %}" alt="С нами быть модной легко!"/></span>
+    </div>
+    <div class="contact-info">
+        <p>Пишите, звоните. Мы рады Вам помочь!</p>
+        <div class="number">{{ model.phone }}</div>
+        <div class="mail"><a href="mailto:darya-a-shop@yandex.ru">{{ model.email }}</a></div>
+        <div class="button"><a href="#">Заказать звонок</a></div>
+    </div>
+</div>

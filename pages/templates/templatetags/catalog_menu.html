@@ -1,0 +1,18 @@
+<div class="categories">
+    <div class="header-of-block">Разделы каталога:</div>
+    <div class="categ-list">По категориям:</div>
+    <div class="cat-menu">
+        <ul>
+            {% for parent,childrens in mass_categ.items %}
+            <li>
+                <a href="/catalog/{{ parent.url }}/">{{ parent.title }}:</a>
+                <ul>
+                    {% for child in childrens %}
+                    <li><a href="/catalog/{{ child.url }}/">{{ child.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

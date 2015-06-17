@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load catalog_menu %}
+
+
+{% block content %}
+<div id="left-block">
+    {% catalog_menu %}
+</div>
+<div id="center-block" class="orders">
+    <h1 class="title_h1">Оформление заказа</h1>
+
+    <div class="page">
+        <p>Спасибо! Ваш заказ оформлен и вы зарегистрированы на FamilyTrend. Информация по регистрации отправлена на вашу почту.</p>
+        <p>Статус заказа вы можете посмотреть в <a href="#">личном кабинете</a></p>
+    </div>
+</div>
+{% endblock %}

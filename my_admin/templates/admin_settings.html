@@ -1,0 +1,202 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block extrahead %}{{ block.super }}
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="/static/admin/js/jquery.js"></script>
+    <script src="{% static "ajaxuploader/js/fileuploader.js" %}" ></script>
+    <link href="{% static "ajaxuploader/css/fileuploader.css" %}" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/static/redactor/css/redactor.css" type="text/css" media="all" rel="stylesheet" />
+    <link href="/static/redactor/css/django_admin.css" type="text/css" media="all" rel="stylesheet" />
+
+    <link href="/static/redactor/css/redactor.css" type="text/css" media="all" rel="stylesheet" />
+    <link href="/static/redactor/css/django_admin.css" type="text/css" media="all" rel="stylesheet" />
+    <script type="text/javascript" src="/static/admin/js/core.js"></script>
+    <script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+    <script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+    <script type="text/javascript" src="/static/admin/js/actions.js"></script>
+    <script type="text/javascript" src="/static/redactor/jquery.redactor.init.js"></script>
+    <script type="text/javascript" src="/static/redactor/redactor.js"></script>
+    <script type="text/javascript" src="/static/redactor/langs/ru.js"></script>
+    <style>
+    .breadcrumb {
+        display: none;
+    }
+    #product_form input[type="text"] {
+        width: 450px;
+    }
+    </style>
+{% endblock %}
+{% block extrastyle %}{{ block.super }}
+{% endblock %}
+{% block bodyclass %}{{ opts.app_label }}-{{ opts.object_name.lower }} change-form{% endblock %}
+
+{% block my_left_menu %}
+<div class="left-nav" id="left-nav">
+	<ul>
+		<li>
+			<a href="/admin/"><i class="icon-home"></i>Начало
+			</a>
+		</li>
+		<li>
+			<a href="/admin/accounts/user/"><i class="icon-chevron-right"></i>Accounts
+			</a>
+			<ul>
+				<li>
+					<a href="/admin/accounts/user/">Пользователи</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="/admin/banners/rightbanner/"><i class="icon-chevron-right"></i>Banners
+			</a>
+			<ul>
+				<li>
+					<a href="/admin/banners/rightbanner/">Баннеры справа</a>
+				</li>
+				<li>
+					<a href="/admin/banners/slider/">Слайдер</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="/admin/catalog/category/"><i class="icon-chevron-right"></i>Catalog
+			</a>
+			<ul>
+				<li>
+					<a href="/admin/catalog/category/">Категории</a>
+				</li>
+				<li>
+					<a href="/admin/catalog/product/">Товары</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="/admin/pages/page/"><i class="icon-chevron-right"></i>Pages
+			</a>
+			<ul>
+				<li>
+					<a href="/admin/pages/page/">Страницы</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="/admin/shop/typedelivery/"><i class="icon-chevron-right"></i>Shop
+			</a>
+			<ul>
+				<li>
+					<a href="/admin/shop/typedelivery/">Варианты доставки</a>
+				</li>
+				<li>
+					<a href="/admin/shop/order/">Заказы</a>
+				</li>
+				<li>
+					<a href="/admin/shop/clients/">Клиенты</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="/admin/auth/group/"><i class="icon-lock"></i>Пользователи и группы
+			</a>
+			<ul>
+				<li>
+					<a href="/admin/auth/group/">Группы</a>
+				</li>
+			</ul>
+		</li>
+        <li class="active">
+			<a href="/admin/settings/"><i class="icon-home"></i>Настройки</a>
+		</li>
+        <li>
+			<a href="/admin/email/"><i class="icon-home"></i>Рассылка</a>
+		</li>
+	</ul>
+</div>
+{% endblock %}
+
+{% block content %}
+    <ul class="breadcrumb" style="display: block">
+        <li>
+            <a href="/admin/">Начало</a>
+            <span class="divider">»</span>
+        </li>
+        <li class="active">
+            Настройки
+        </li>
+    </ul>
+
+    <div id="content" class="colM row-fluid">
+       <h2 class="content-title">Email рассылка</h2>
+       <div id="content-main" class="inner-two-columns">
+       <form enctype="multipart/form-data" action="" method="post" id="product_form" class="form-horizontal">
+             <div class="inner-right-column">
+                <div class="box save-box">
+                   <div class="submit-row clearfix">
+                      <button type="submit" class="btn btn-high btn-info" name="_save">Отправить</button>
+                   </div>
+                </div>
+             </div>
+             <div class="inner-center-column">
+                {% csrf_token %}
+                <div class="tab-content tab-content-main">
+
+                    <fieldset class="module aligned first ">
+                        <div class="control-group form-row field-site_name ">
+                            <div>
+                                <div class="control-label"><label class="required" for="id_site_name">Название сайта:</label></div>
+                                <div class="controls">{{ form.site_name }}</div>
+                            </div>
+                        </div>
+                        <div class="control-group form-row field-description ">
+                            <div>
+                                <div class="control-label"><label class="required" for="id_description">Description:</label></div>
+                                <div class="controls">{{ form.description }}</div>
+                            </div>
+                        </div>
+                        <div class="control-group form-row field-keywords ">
+                            <div>
+                                <div class="control-label"><label class="required" for="id_keywords">Keywords:</label></div>
+                                <div class="controls">{{ form.keywords }}</div>
+                            </div>
+                        </div>
+                        <div class="control-group form-row field-phone ">
+                            <div>
+                                <div class="control-label"><label class="required" for="id_phone">Телефон:</label></div>
+                                <div class="controls">{{ form.phone }}</div>
+                            </div>
+                        </div>
+                        <div class="control-group form-row field-email ">
+                            <div>
+                                <div class="control-label"><label class="required" for="id_email">E-mail:</label></div>
+                                <div class="controls">{{ form.email }}</div>
+                            </div>
+                        </div>
+                        <div class="control-group form-row field-vk ">
+                            <div>
+                                <div class="control-label"><label class="required" for="id_vk">Вк:</label></div>
+                                <div class="controls">{{ form.vk }}</div>
+                            </div>
+                        </div>
+                        <div class="control-group form-row field-inst ">
+                            <div>
+                                <div class="control-label"><label class="required" for="id_inst">Instagram:</label></div>
+                                <div class="controls">{{ form.inst }}</div>
+                            </div>
+                        </div>
+                        <div class="control-group form-row field-head_banner ">
+                            <div>
+                                <div class="control-label"><label for="id_head_banner">Баннер (главный):</label></div>
+
+                                <div class="controls">
+                                    <div class="file-upload">{{ form.head_banner }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </div>
+             </div>
+          </form>
+       </div>
+    </div>
+{% endblock %}

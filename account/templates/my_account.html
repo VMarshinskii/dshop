@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load catalog_menu %}
+
+
+{% block content %}
+<div id="left-block">
+    {% catalog_menu %}
+</div>
+<div id="center-block" class="orders">
+    <h1 class="title_h1">Оформление заказа</h1>
+
+    {% if user_active %}
+    <div class="user_information">
+        <img src="/static/images/user91.png" alt="">
+        <p>Вы авторизованы
+            {% if user.first_name %}
+            как <a href="/account/">{{ user.last_name }} {{ user.first_name }}</a>
+            {% endif %}
+            .Здесь вы можете обновить вашу личную информацию. Все изменения будут сохранены в вашем профиле.
+        </p>
+    </div>
+
+    <form action="/account/" method="post">
+        {% csrf_token %}
+
+        <div class="form_group" style="width: 664px; border-bottom: 1px solid #eee;">
+            <h3>Личные данные</h3>
+
+            {% if error %}
+                <span style="display:block; margin: 10px 0; color:#ff0000;">Заполните обязательные поля</span>
+            {% endif %}
+
+            {% if user_inform_error %}
+            <span style="display:block; margin: 10px 0; color:#ff0000;">Заполните обязательные поля</span>
+            {% endif %}
+            <div class="form_group_item account {{ first_name_error }}">
+                <label for="id_first_name">Ваше имя * </label>
+                <input type="text" name="first_name" value="{{ user.first_name }}" id="id_first_name"/>
+            </div>
+            <div class="form_group_item account {{ last_name_error }}">
+                <label for="id_last_name">Фамилия * </label>
+                <input type="text" name="last_name" value="{{ user.last_name }}" id="id_last_name"/>
+            </div>
+            <div class="form_group_item account {{ email_error }}">
+                <label for="id_email">Email * </label>
+                <input type="text" name="email" value="{{ user.email }}" id="id_email"/>
+            </div>
+            <div class="form_group_item account {{ phone_error }}">
+                <label for="id_phone">Телефон </label>
+                <input type="text" name="phone" value="{{ user.phone }}" id="id_phone"/>
+            </div>
+            <div style="clear: both"></div>
+
+            <div class="time-item">
+                <input type="submit" style="float: right" value="Сохранть изменения" class="yellow_button account"/>
+            </div>
+        </div>
+    </form>
+
+    <form action="/account/change_password/" method="post">
+        {% csrf_token %}
+        <div class="form_group" style="width: 664px; margin-top: 10px">
+            <h3>Изменить пароль</h3>
+
+            <div class="form_group_item account">
+                <label for="id_old_password">Старый пароль</label>
+                <input type="password" name="old_password" id="id_old_password"/>
+            </div>
+
+            <div class="form_group_item account">
+                <label for="id_new_password">Новый пароль</label>
+                <input type="password" name="new_password" id="id_new_password"/>
+            </div>
+        </div>
+
+        <div class="time-item">
+            <input type="button" style="float: right; margin-right: 249px;" value="Изменить пароль" id="change_password" class="yellow_button account"/>
+        </div>
+    </form>
+
+    <div style="clear: both"></div>
+
+
+    {% else %}
+     <div class="user_information">
+        <p>Вы не вошли в систему - <a href="#" class="login_show">войти</a></p>
+     </div>
+    {% endif %}
+
+
+</div>
+{% endblock %}

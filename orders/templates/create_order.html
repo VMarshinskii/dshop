@@ -1,0 +1,147 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+
+{% block head %}
+<title>Darya-Shop | Оформление заказа</title>
+{% endblock %}
+
+{% block content %}
+<div class="ContentBox">
+    <div class="ContentBoxHead">
+        <h1>Форма заказа</h1>
+    </div>
+    <div class="OrderBox">
+        <form action="/orders/create/" method="post">
+            {% csrf_token %}
+
+            {% if user_active %}
+                <div class="UserInformation">
+                    <img src="/static/images/user91.png" alt=""/>
+                    <p>Вы авторизованы как
+                        <a href="#">{{ user.first_name }} {{ user.last_name }}</a>.
+                        Пожалуйста, подтвердите или обновите вашу контактную информацию. Изменения будут автоматически сохранены в вашем профиле.
+                    </p>
+                </div>
+            {% else %}
+                <h3>У меня уже есть акаунт в интернет-магазине Darya-Shop -
+                    <a class="login_order" data-link="http://85.143.216.11/cart/order/" href="#">войти</a>
+                </h3>
+            {% endif %}
+
+            <div class="OrderBoxUserData">
+                <h4>Контактная информация</h4>
+
+                {% if user_inform_error %}
+                    <span style="display:block; margin: 10px 0; color:#ff0000;">Заполните обязательные поля</span>
+                {% endif %}
+
+                <label>Имя <span style="color: #ff0000">{{ first_name_error }}</span></label>
+                {{ form.first_name}}
+
+                <label>Фамилия <span style="color: #ff0000">{{ last_name_error }}</span></label>
+                {{ form.last_name }}
+
+                <label>Электронная почта <span style="color: #ff0000">{{ email_error }}</span></label>
+                {{ form.email }}
+
+                <label>Телефон <span style="color: #ff0000">{{ phone_error }}</span></label>
+                {{ form.phone }}
+            </div>
+
+            <div class="OrderBoxAddressData">
+                <h4>Адрес доставки</h4>
+
+                {% if address_inform_error %}
+                    <span style="display:block; margin: 10px 0; color:#ff0000;">Заполните обязательные поля</span>
+                {% endif %}
+
+                <label>Область <span style="color: #ff0000">{{ region_error }}</span></label>
+                {{ form.region }}
+
+                <label>Город <span style="color: #ff0000">{{ city_error }}</span></label>
+                {{ form.city }}
+
+                <label>Индекс <span style="color: #ff0000">{{ index_error }}</span></label>
+                {{ form.index }}
+
+                <label>Адрес <span style="color: #ff0000">{{ address_error }}</span></label>
+                {{ form.address }}
+            </div>
+
+
+            <div class="OrderBoxAddressType">
+                <h4>Вариант доставки <span style="color: #ff0000; font-weight: 200">{{ delivery_error }}</span></h4>
+
+                {% for type_delivery in delivery_mass %}
+                <div class="OrderBoxAddressTypeItem">
+                    <input type="radio" data-price="{{ type_delivery.price }}" name="delivery" id="id_type_delivery"  value="{{ type_delivery.id }}"/>
+                    <h5>{{ type_delivery.title }} - <span style="color: #ed145b">{{ type_delivery.price }} руб.</span></h5>
+                    <p>{{ type_delivery.description }}</p>
+                </div>
+                {% endfor %}
+
+                <div style="clear: both"></div>
+            </div>
+
+            <div class="OrderBoxAddressType">
+                <div class="reg_client">
+                    <input type="checkbox" name="register" id="id_register"/>
+                    <label for="id_register">Зарегистрироваться как постоянный покупатель</label>
+                </div>
+
+                {% if register_error %}
+                    <span style="display:block; margin: 10px 0 0 25px; color:#ff0000;">Пользователь с таким email уже разегистрирован</span>
+                {% endif %}
+
+                {% if password_error %}
+                    <span style="display:block; margin: 10px 0 0 25px; color:#ff0000;">{{ password_error }}</span>
+                {% endif %}
+
+                {% if register_error or password_error %}
+                    <div class="OrderBoxAddressData OrderBoxPassword" style="margin-left: 15px; display: block">
+                {% else %}
+                    <div class="OrderBoxAddressData OrderBoxPassword" style="margin-left: 15px;">
+                {% endif %}
+                    <label>Пароль</label>
+                    <input type="password" name="password"/>
+                </div>
+
+                {% if register_error or password_error %}
+                    <div class="OrderBoxAddressData OrderBoxPassword" style="display: block">
+                {% else %}
+                    <div class="OrderBoxAddressData OrderBoxPassword">
+                {% endif %}
+                    <label>Ещё раз пароль</label>
+                    <input type="password" name="password2"/>
+                </div>
+
+                <div style="clear: both"></div>
+            </div>
+
+            <div class="OrderBoxConfirmation">
+                <h4>Подьверждение заказа</h4>
+
+                <table>
+                    <tr>
+                        <td width="150px">Сумма заказа:</td>
+                        <td align="right" class="OrderBoxConfirmationPrice" id="OrderBoxConfirmationPriceSum"><span>{{ cart_sum }}</span> руб.</td>
+                    </tr>
+                    <tr>
+                        <td>Доставка:</td>
+                        <td align="right" class="OrderBoxConfirmationPrice" id="OrderBoxConfirmationPriceCurrent"><span>0</span> руб.</td>
+                    </tr>
+                    <tr style="border-top: 1px solid #eee">
+                        <td>Итого:</td>
+                        <td align="right" class="OrderBoxConfirmationPrice" id="OrderBoxConfirmationPriceAll"><span>{{ cart_sum }}</span> руб.</td>
+                    </tr>
+                </table>
+
+                <input type="submit" class="OrderSubmit" value="Оформить заказ" />
+
+            </div>
+
+            <div style="clear: both"></div>
+        </form>
+	</div>
+</div>
+{% endblock %}

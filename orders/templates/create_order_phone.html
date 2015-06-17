@@ -1,0 +1,30 @@
+<h4>Заказ звонка</h4>
+
+<table class="orderPhone">
+    <tr>
+        <td width="260px">
+            <label for="orderPhoneName">Ваше имя <span style="color: #ff0000; font-weight: 200">{{ name_error }}</span></label>
+        </td>
+        <td>
+            <label for="orderPhoneNumber">Ваш телефон <span style="color: #ff0000; font-weight: 200">{{ number_error }}</span></label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input id="orderPhoneName" type="text"/>
+        </td>
+        <td>
+            <input id="orderPhoneNumber" type="text"/>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <a class="popupBoxOrder" id="orderPhoneButton" style="margin: 25px 15px 0 7px" href="#">Заказать звонок</a>
+        </td>
+    </tr>
+</table>
+
+
+
+<img class="popupBoxLoginFormClose" src="/static/images/cross97.png">

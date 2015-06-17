@@ -1,0 +1,40 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+
+{% block head %}
+<title>Darya-Shop | Мои заказы</title>
+{% endblock %}
+
+{% block content %}
+<div class="ContentBox">
+    <div class="ContentBoxHead">
+        <h1>Личный кабинет</h1>
+    </div>
+    <div class="ContentBoxPage">
+        {% if orders %}
+        <table>
+            <tr>
+                <td>Номер</td>
+                <td>Статус заказа</td>
+                <td>Сумма заказа</td>
+                <td>Доставка</td>
+                <td>Дата заказа</td>
+            </tr>
+            {% for order in orders %}
+            <tr>
+                <td align="center"><a href="/orders/view/{{ order.id }}/">#{{ order.id }}</a></td>
+                <td><p style="background: #ed145b;padding: 2px 4px;color: #fff; display: inline;">{{ order.status_name }}</p></td>
+                <td>{{ order.sum }} руб.</td>
+                <td>{{ order.delivery }}</td>
+                <td>{{ order.date_create }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% elif user_active %}
+        <p>Вы ещё ничего не заказывали</p>
+        {% else %}
+            <p>Вы не авторизованиы - войдите в систему</p>
+        {% endif %}
+	</div>
+</div>
+{% endblock %}

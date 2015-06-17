@@ -1,0 +1,20 @@
+<div class="main-slider">
+    <div class="sliderkit photoslider-bullets">
+        <div class="sliderkit-nav">
+            <div class="sliderkit-nav-clip">
+                <ul>
+                    {% for slider in sliders %}
+                    <li><a href="#" title="{{ slider.title }}"></a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="sliderkit-panels">
+            {% for slider in sliders %}
+            <div class="sliderkit-panel">
+                <img src="/{{ slider.image }}" alt="[{{ slider.title }}]" />
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

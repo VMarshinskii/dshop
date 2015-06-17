@@ -1,0 +1,5 @@
+<select multiple="multiple" id="id_ajax_size_colors" style="display: none;">
+    {% for color in colors %}
+    <option value="{{ color.id }}" {{ color.selected }}>{{ color.title }}</option>
+    {% endfor %}
+</select>
