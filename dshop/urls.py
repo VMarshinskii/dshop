@@ -10,5 +10,4 @@ urlpatterns = [
     url(r'^cart/', include('cart.urls')),
     url(r'^orders/', include('orders.urls')),
     url(r'', include('pages.urls')),
-
 ]
