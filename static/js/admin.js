@@ -34,6 +34,14 @@ $(document).ready(function(){
         });
     }
 
+    if($("select").is("#id_parent"))
+    {
+        var val = $("#id_parent").val();
+        $("#id_parent").load("/admin/tree_categories/" + val + "/", function(){
+            $("#id_parent").val(val);
+        });
+    }
+
     if($("select").is("#id_category"))
     {
         var val = $("#id_category").val();

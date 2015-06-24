@@ -302,10 +302,12 @@ $(document).ready(function (){
 
 
     $(".goods-img img").each(function(index, element){
-        if ($(element).width() > $(element).height())
-        {
-            $(element).css({'width': 'auto', 'height': '100%'});
-        }
+        $(this).load(function(){
+            if ($(element).width() > $(element).height())
+            {
+                $(element).css({'width': 'auto', 'height': '100%'});
+            }
+        });
     });
 
 });
