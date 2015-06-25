@@ -224,12 +224,11 @@ body {
 }
 #left-block .categories .cat-menu > ul > li > ul > li > a {
     background: #fff;
-    padding: 14px;
     height: 15px;
-    padding-left: 30px;
+    padding: 14px 14px 14px 30px;
     font-size: 14px;
     font-weight: 400;
-    color: #5c5c5c;
+    color: #000;
     text-decoration: none;
     display: block;
     border: 1px solid #9c2251;
@@ -260,7 +259,7 @@ body {
 .action_sticker {
     position: absolute;
     padding: 5px;
-    background: #F72F71;
+    background: #FF0000;
     left: -2px;
     top: 20px;
     z-index: 100;
@@ -282,7 +281,7 @@ body {
 #center-block .goodss .good .about-goods {
     height: 44px;
     font-size: 14px;
-    color: #ed145b;
+    color: #000;
     text-overflow: ellipsis;
     overflow: hidden;
     margin-top: 10px;
@@ -522,7 +521,7 @@ body {
     font-size: 14px;
 }
 .CatalogPriceBoxPrice span {
-    color: #CF0748;
+    color: #FF0000;
     font-size: 16px;
     font-weight: bold;
 }
@@ -535,7 +534,7 @@ body {
 .CatalogPriceBox a {
     float: right;
     padding: 8px 35px;
-    background: #F72F71;
+    background: #FF0000;
     color: #ffffff;
     border-radius: 22px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.54);
@@ -1179,7 +1178,7 @@ label.popupBoxLoginFormZap {
     margin-bottom: 10px;
 }
 .sizes_list li.sizes_list_active {
-    background-color: #F72F71;
+    background-color: #FF0000;
     border: 1px solid #CF0748;
     color: #fff;
 }
