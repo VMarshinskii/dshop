@@ -11,9 +11,9 @@
         </div>
         <div class="sliderkit-panels">
             {% for slider in sliders %}
-            <div class="sliderkit-panel">
+            <a href="{{ slider.link }}" class="sliderkit-panel">
                 <img src="/{{ slider.image }}" alt="[{{ slider.title }}]" />
-            </div>
+            </a>
             {% endfor %}
         </div>
     </div>
