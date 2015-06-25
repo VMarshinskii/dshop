@@ -14,6 +14,7 @@ if (typeof redactor_custom_options === 'undefined') {
             if (typeof redactor_options.imageUploadErrorCallback === 'undefined') {
                 redactor_options.imageUploadErrorCallback = function (json) {
                     alert(json.error);
+                    alert("ok");
                 }
             }
             $(this).redactor(redactor_options);
