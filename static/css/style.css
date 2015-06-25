@@ -1199,6 +1199,26 @@ label.popupBoxLoginFormZap {
 }
 
 
+.delivery_mail {
+    margin-top: 25px;
+    background-color: #FAFAFA;
+    padding: 10px;
+}
+.delivery_mail h3 {
+    color: #9c2251;
+    font-size: 20px;
+}
+.delivery_mail form {
+    margin-top: 10px;
+}
+.delivery_mail form input {
+    margin: 5px 0;
+    width: 190px;
+    padding: 4px 3px;
+    border: 1px solid #CDCCCC;
+    border-radius: 3px;
+}
+
 
 @media screen and (max-width:1347px) {
     #center-block {
