@@ -76,7 +76,7 @@ class Product(models.Model):
     count_status = models.BooleanField("Под заказ", default=False)
     count = models.IntegerField("Товар в наличии")
     status = models.IntegerField("Рекламные метки", default=0, choices=MARKET)
-    text = RedactorField(verbose_name="Описание", redactor_options={'upload_to': '/static/uploads'})
+    text = RedactorField(verbose_name="Описание", redactor_options={'upload_to': 'static/uploads'})
     color = models.ManyToManyField(Color, verbose_name="Цвет", max_length=200, blank=True)
     size = models.CharField("Размер", max_length=200, blank=True)
     structure = models.CharField("Состав", max_length=200, blank=True)
