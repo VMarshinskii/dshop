@@ -1219,6 +1219,16 @@ label.popupBoxLoginFormZap {
     padding: 4px 3px;
     border: 1px solid #CDCCCC;
     border-radius: 3px;
+    outline: none;
+}
+.delivery_mail form input[type="button"] {
+    width: 198px;
+    box-shadow: 0 0 3px rgba(153, 153, 153, 0.39);
+    border: 1px solid #11C314;
+    color: #ffffff;
+    background-color: #50F025;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 
