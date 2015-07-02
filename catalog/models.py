@@ -96,5 +96,5 @@ class Product(models.Model):
 
     def save(self, *args, **kwargs):
         if self.sale_status is True:
-            self.price_sale = self.price / 100 * (100 - self.sale)
+            self.price_sale = self.price / 100.0 * (100.0 - self.sale)
         super(Product, self).save(*args, **kwargs)
