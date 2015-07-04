@@ -1230,6 +1230,9 @@ label.popupBoxLoginFormZap {
     font-size: 16px;
     cursor: pointer;
 }
+.delivery_mail form input[type="button"]:hover {
+    box-shadow: 0 0 3px rgba(153, 153, 153, 0.60);
+}
 
 
 @media screen and (max-width:1347px) {

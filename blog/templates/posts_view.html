@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+
+
+{% block head %}
+    <title>Darya-Shop | {{ page.title }}</title>
+{% endblock %}
+
+{% block content %}
+<div class="ContentBox">
+    <div class="ContentBoxHead">
+        <h1>LookBook</h1>
+    </div>
+    <div class="ContentBoxPage">
+        {% for post in posts %}
+            {{ post.title }}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

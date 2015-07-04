@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^catalog/', include('catalog.urls')),
     url(r'^cart/', include('cart.urls')),
     url(r'^orders/', include('orders.urls')),
+    url(r'^blog/', include('blog.urls')),
     url(r'', include('pages.urls')),
 ]
