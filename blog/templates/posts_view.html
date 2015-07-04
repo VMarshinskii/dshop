@@ -13,7 +13,10 @@
     </div>
     <div class="ContentBoxPage">
         {% for post in posts %}
-            {{ post.title }}
+            <h4>{{ post.title }}</h4>
+            <div>{{ post.text|safe|truncatewords_html:25 }}</div>
+            <a href="/blog/{{ post.id }}/">Читать..</a>
+            <hr/>
         {% endfor %}
     </div>
 </div>
