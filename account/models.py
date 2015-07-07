@@ -29,3 +29,10 @@ class Fun(models.Model):
     email = models.CharField(verbose_name="E-mail", max_length=250)
     phone = models.CharField(verbose_name="Телефон", max_length=250, blank=True)
     date_create = models.DateTimeField(verbose_name="Дата подписки", auto_now_add=True, editable=False)
+
+    class Meta:
+        verbose_name = "Подписчик"
+        verbose_name_plural = "Подписчики"
+
+    def __unicode__(self):
+        return self.first_name + u" : " + self.email
