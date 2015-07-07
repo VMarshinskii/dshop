@@ -314,12 +314,12 @@ $(document).ready(function (){
     $(document).on('click', '.delivery_mail_button', function(){
         alert("ok");
         var first_name = $("#id_first_name").val();
-        var phone = $("#id_phone").val();
+        var email = $("#id_email").val();
 
         $.get("/account/fun_add_view/",
             {
                 first_name: first_name,
-                phone: phone
+                email: email
             },
             function(data) {
                 alert(data)
