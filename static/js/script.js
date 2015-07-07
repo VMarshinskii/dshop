@@ -16,6 +16,22 @@ $(document).ready(function(){
 
     $("#top_count_cart").load("/cart/get_count_cart/");
 
+    $(document).on('click', '.delivery_mail .send', function(){
+        alert("ok");
+        var first_name = $("#id_first_name").val();
+        var phone = $("#id_phone").val();
+
+        $.get("/account/fun_add_view/",
+            {
+                first_name: first_name,
+                phone: phone
+            },
+            function(data) {
+                alert(data)
+            }
+        );
+    });
+
     //$(".img-block img").each(function(){
     //    $(this).load(function(){
     //        var width = $(this).width();
@@ -238,23 +254,5 @@ $(document).ready(function(){
         $(".jq-selectbox__dropdown ul").css('width', '152px');
 
     });
-
-
-    $(".delivery_mail .send").click(function(){
-        alert("ok");
-        //var first_name = $("#id_first_name").val();
-        //var phone = $("#id_phone").val();
-        //
-        //$.get("/account/fun_add_view/",
-        //    {
-        //        first_name: first_name,
-        //        phone: phone
-        //    },
-        //    function(data) {
-        //        alert(data)
-        //    }
-        //);
-    });
-
 
 });
