@@ -241,6 +241,7 @@ $(document).ready(function(){
 
 
     $(".delivery_mail .send").click(function(){
+        alert("ok");
         var first_name = $("#id_first_name").val();
         var phone = $("#id_phone").val();
 
