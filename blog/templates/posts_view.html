@@ -14,8 +14,8 @@
     <div class="ContentBoxPage">
         {% for post in posts %}
             <div class="post">
-                <h4>{{ post.title }}</h4>
-                <div class="text">{{ post.text|safe|truncatewords_html:25 }}</div>
+                <a href="/blog/post/{{ post.id }}/" class="title"><h4>{{ post.title }}</h4></a>
+                <div class="text">{{ post.text|safe|truncatewords_html:80 }}</div>
                 <a href="/blog/{{ post.id }}/" class="more">Читать..</a>
                 <div style="clear: both"></div>
             </div>

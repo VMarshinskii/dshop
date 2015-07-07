@@ -1236,6 +1236,7 @@ label.popupBoxLoginFormZap {
 
 .post {
     border-bottom: 1px solid #eeeeee;
+    padding: 10px 0 15px 0;
 }
 .post a.title {
     color: #9c2251;
@@ -1246,7 +1247,7 @@ label.popupBoxLoginFormZap {
 .post .text {
     padding: 10px 0;
 }
-.post .read {
+.post .more {
     float: right;
     margin-right: 27px;
 }

@@ -9,10 +9,14 @@
 {% block content %}
 <div class="ContentBox">
     <div class="ContentBoxHead">
-        <h1>{{ page.title }}</h1>
+        <h1>LookBook</h1>
     </div>
     <div class="ContentBoxPage">
-        {{ page.text|safe }}
+        <div class="post">
+            <a href="/blog/post/{{ post.id }}/" class="title"><h4>{{ post.title }}</h4></a>
+            <div class="text">{{ post.text|safe }}</div>
+            <div style="clear: both"></div>
+        </div>
     </div>
 </div>
 {% endblock %}
