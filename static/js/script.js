@@ -240,4 +240,20 @@ $(document).ready(function(){
     });
 
 
+    $(".delivery_mail .send").click(function(){
+        var first_name = $("#id_first_name").val();
+        var phone = $("#id_phone").val();
+
+        $.get("/account/fun_add_view/",
+            {
+                first_name: first_name,
+                phone: phone
+            },
+            function(data) {
+                alert(data)
+            }
+        );
+    });
+
+
 });

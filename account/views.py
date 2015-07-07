@@ -3,8 +3,8 @@ from django.shortcuts import render_to_response, HttpResponse
 from django.core.context_processors import csrf
 from django.contrib import auth
 from models import User
-from forms import RegistrationForm
-from ftrend.additions import random_str, translit
+from forms import RegistrationForm, AddFunForm
+from dshop.additions import random_str, translit
 from additions import registration_valid
 
 
@@ -108,3 +108,13 @@ def change_password(request):
             return HttpResponse("Старый пароль не верный!")
     else:
         return HttpResponse("Ошибка")
+
+
+def fun_add_view(request):
+    if request.GET:
+        form = AddFunForm(request.GET)
+        if form.is_valid():
+            form.save()
+            return HttpResponse("Спасибо! Вы подписаны на наши новости!")
+        return HttpResponse("Данные введены не верно!")
+    return HttpResponse("false")
