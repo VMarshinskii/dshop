@@ -1234,6 +1234,24 @@ label.popupBoxLoginFormZap {
     box-shadow: 0 0 3px rgba(153, 153, 153, 0.60);
 }
 
+.post {
+    border-bottom: 1px solid #eeeeee;
+}
+.post a.title {
+    color: #9c2251;
+}
+.post h4 {
+    font-size: 24px;
+}
+.post .text {
+    padding: 10px 0;
+}
+.post .read {
+    float: right;
+    margin-right: 27px;
+}
+
+
 
 @media screen and (max-width:1347px) {
     #center-block {

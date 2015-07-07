@@ -26,7 +26,7 @@ class User(AbstractUser):
 class Fun(models.Model):
     first_name = models.CharField(verbose_name="Имя", max_length=250)
     last_name = models.CharField(verbose_name="Фамилия", max_length=250, blank=True)
-    email = models.CharField(verbose_name="E-mail", max_length=250)
+    email = models.CharField(verbose_name="E-mail", max_length=250, unique=True)
     phone = models.CharField(verbose_name="Телефон", max_length=250, blank=True)
     date_create = models.DateTimeField(verbose_name="Дата подписки", auto_now_add=True, editable=False)
 
