@@ -310,4 +310,21 @@ $(document).ready(function (){
         });
     });
 
+
+    $(document).on('click', '.delivery_mail_button', function(){
+        alert("ok");
+        var first_name = $("#id_first_name").val();
+        var phone = $("#id_phone").val();
+
+        $.get("/account/fun_add_view/",
+            {
+                first_name: first_name,
+                phone: phone
+            },
+            function(data) {
+                alert(data)
+            }
+        );
+    });
+
 });
