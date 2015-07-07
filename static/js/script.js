@@ -16,7 +16,7 @@ $(document).ready(function(){
 
     $("#top_count_cart").load("/cart/get_count_cart/");
 
-    $(document).on('click', '.delivery_mail .send', function(){
+    $(document).on('click', '.send', function(){
         alert("ok");
         var first_name = $("#id_first_name").val();
         var phone = $("#id_phone").val();
