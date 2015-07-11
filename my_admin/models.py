@@ -20,3 +20,7 @@ class SiteSettings(models.Model):
             model = SiteSettings.objects.get(id=self.id)
             self.head_banner = model.head_banner
         super(SiteSettings, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = 'Настройки'
+        verbose_name_plural = 'Настройки'
