@@ -2,17 +2,16 @@
 
 
 {% block head %}
-    <title>Darya-Shop | skdjnsdk</title>
+    <title>Darya-Shop | {{ post.title }}</title>
 {% endblock %}
 
 {% block content %}
 <div class="ContentBox">
     <div class="ContentBoxHead">
-        <h1>LookBook</h1>
+        <h1>{{ post.title }}</h1>
     </div>
     <div class="ContentBoxPage">
         <div class="post">
-            <a href="/blog/post/{{ post.id }}/" class="title"><h4>{{ post.title }}</h4></a>
             <div class="text">{{ post.text|safe }}</div>
             <div style="clear: both"></div>
         </div>
