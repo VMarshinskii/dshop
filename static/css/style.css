@@ -1157,6 +1157,7 @@ label.popupBoxLoginFormZap {
     text-align: center;
     float: left;
     margin-right: 10px;
+    margin-bottom: 4px;
     border: 1px solid #D8D8D8;
     border-radius: 2px;
     font-size: 14px;
