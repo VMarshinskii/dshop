@@ -25,7 +25,7 @@
         <div class="CatalogProductBoxContent">
 
             <table class="sizes_list_table">
-                {% if sizes.count > 0 %}
+                {% if sizes %}
                 <tr>
                     <td width="90px"><p>Размеры: - {{ sizes.count }}</p></td>
                     <td>
@@ -41,7 +41,7 @@
                     </td>
                 </tr>
                 {% endif %}
-                {% if colors.count > 0 %}
+                {% if colors %}
                 <tr>
                     <td><p>Цвета: </p></td>
                     <td>
@@ -53,13 +53,11 @@
                     </td>
                 </tr>
                 {% endif %}
-                {% if product.brand %}
-                <tr>
-                    <td><p>Производитель: </p></td>
-                    <td>{{ product.brand }}</td>
-                </tr>
-                {% endif %}
             </table>
+
+            {% if product.brand %}
+            <p class="product_structure">Производитель: { product.brand }}</p>
+            {% endif %}
 
             {% if product.structure %}
             <p class="product_structure">Состав: {{ product.structure }}</p>

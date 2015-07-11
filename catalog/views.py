@@ -32,8 +32,6 @@ def product_view(request, id=-1):
             if size != '':
                 sizes.append(size)
 
-        print sizes.__len__()
-
         return render_to_response("product.html", {
             'product': product,
             'images': images,
