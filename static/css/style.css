@@ -440,6 +440,7 @@ body {
     background: #ffffff;
     border: 1px solid #974d68;
     padding: 10px;
+    float: left;
 }
 .CatalogProductBoxContent {
     margin: 15px 5px 10px 5px;
@@ -871,6 +872,7 @@ p.CartSumLabel {
 }
 .catalogCategPath {
     margin: 10px 0;
+    float: left;
 }
 .catalogCategPath li {
     float: left;
