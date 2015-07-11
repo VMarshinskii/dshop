@@ -11,6 +11,6 @@ def post_view(request, id=-1):
     try:
         post = Post.objects.get(id=int(id))
         # return render_to_response("post_view.html", {'post', post})
-        return HttpResponse(post.title)
+        return render_to_response("post_view.html", {'post': post})
     except Post.DoesNotExist:
         raise Http404
