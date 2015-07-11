@@ -1150,6 +1150,7 @@ label.popupBoxLoginFormZap {
     padding-top: 10px;
 }
 .sizes_list li {
+    min-width: 60px;
     height: 16px;
     padding: 3px;
     background: #F7F7F7;
