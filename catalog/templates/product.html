@@ -27,7 +27,7 @@
             <table class="sizes_list_table">
                 {% if sizes %}
                 <tr>
-                    <td width="90px"><p>Размеры: - {{ sizes.count }}</p></td>
+                    <td width="90px"><p>Размеры: {{ sizes.count }}</p></td>
                     <td>
                         <ul class="sizes_list">
                             {% for size in sizes %}
@@ -56,7 +56,7 @@
             </table>
 
             {% if product.brand %}
-            <p class="product_structure">Производитель: { product.brand }}</p>
+            <p class="product_structure">Производитель: {{ product.brand }}</p>
             {% endif %}
 
             {% if product.structure %}

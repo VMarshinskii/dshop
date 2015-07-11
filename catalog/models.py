@@ -71,7 +71,7 @@ class Product(models.Model):
     price = models.IntegerField("Цена")
     price_sale = models.IntegerField("Цена со скидкой", default=0)
     category = models.ForeignKey(Category, verbose_name="Категория", blank=True, null=True)
-    sale = models.IntegerField("Скидка, %")
+    sale = models.IntegerField("Скидка, %", blank=True)
     sale_status = models.BooleanField("Сделать скидку", default=False)
     count_status = models.BooleanField("Под заказ", default=False)
     count = models.IntegerField("Товар в наличии")
@@ -95,7 +95,7 @@ class Product(models.Model):
     def __unicode__(self):
         return self.name
 
-    def save(self, *args, **kwargs):
-        if self.sale_status is True:
-            self.price_sale = self.price / 100.0 * (100.0 - self.sale)
-        super(Product, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     if self.sale_status is True:
+    #         self.price_sale = self.price / 100.0 * (100.0 - self.sale)
+    #     super(Product, self).save(*args, **kwargs)
