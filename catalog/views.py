@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response, redirect
 from django.http import Http404
 from catalog.models import Product, Category
 
-sticker = ['нет', 'Хит', 'Новинка', 'Акция', 'Распродажа', 'Товар дня', 'Товар недели', 'Товар месяца']
+sticker = ['нет', 'Хит', 'Новинка', 'Акция', 'Распродажа', 'Товар дня', 'Товар недели', 'Товар месяца', 'Хит сезона']
 
 
 def index_view(request):
