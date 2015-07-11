@@ -12,7 +12,7 @@ class ProductAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Основное', {
             'fields': ('name', 'price', 'category', 'sale',
-               'sale_status', 'count', 'count_status',
+               'sale_status', 'count', 'count_status', 'brand',
                'text', 'image', 'images', 'home_status'
                )
         }),
