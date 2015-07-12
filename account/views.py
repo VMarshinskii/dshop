@@ -23,7 +23,7 @@ def login(request):
                 args['form_error'] = "Данные введены не верно!"
         except User.DoesNotExist:
             args['form_error'] = "Пользователя с таким email не существует!"
-    return render_to_response("login.html", args)
+    return render_to_response("ajax_login.html", args)
 
 
 def registration(request):
