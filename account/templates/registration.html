@@ -16,21 +16,21 @@
 
                 <div class="form_group_item account ">
                     <label for="id_first_name">Ваше имя * </label>
-                    <input type="text" name="first_name" value="{{ form.first_name.value }}" id="id_first_name">
+                    {{ form.first_name }}
                 </div>
                 <div class="form_group_item account ">
                     <label for="id_last_name">Фамилия * </label>
-                    <input type="text" name="last_name" value="{{ form.last_name.value }}" id="id_last_name">
+                    {{ form.last_name }}"
                 </div>
                 <div class="form_group_item account ">
                     <label for="id_email">Email * </label>
-                    <input type="text" name="email" value="{{ form.email.value }}" id="id_email">
+                    {{ form.email }}
                 </div>
                 <div class="form_group_item account ">
                     <label for="id_phone">Телефон </label>
-                    <input type="text" name="phone" value="{{ form.phone.value }}" id="id_phone">
+                    {{ form.phone.value }}
                 </div>
-                <input type="submit" style="float: right" value="Сохранть изменения" class="form_bottom">
+                <input type="submit" style="float: right" value="Зарегистрироваться" class="form_bottom">
             </div>
 
             <div style="clear: both"></div>

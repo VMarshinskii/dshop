@@ -1256,6 +1256,7 @@ label.popupBoxLoginFormZap {
 .form_group {
     width: 664px;
     border-bottom: 1px solid #eee;
+    margin: 15px 30px;
 }
 .form_group h3 {
     font: 16px/16pt sans-serif;
@@ -1264,31 +1265,32 @@ label.popupBoxLoginFormZap {
     margin-bottom: 10px;
 }
 .form_group_item label {
-    display: block;
-    margin: 7px 0 5px 0;
+    display: inline-block;
+    margin: 7px 0 5px 42px;
     color: #555;
-    float: left;
+    width: 140px;
 }
 .form_group_item input,
 .form_group_item textarea {
-  padding: 3px;
-  width: 190px;
-  background: #fff;
-  border: 1px solid #CACACA;
-  border-radius: 3px;
-  float: left;
-  margin-left: 20px;
-  font-size: 14px;
+    padding: 5px 4px;
+    width: 250px;
+    background: #fff;
+    border: 1px solid #CACACA;
+    border-radius: 3px;
+    font-size: 14px;
+    display: inline-block;
+    margin: 2px 0;
 }
 .form_bottom {
     display: inline-block;
-    padding: 10px 30px;
+    padding: 8px 25px;
     background: #ed145b;
     color: #fff;
     border-radius: 2px;
     text-decoration: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     border: 1px solid #CA0B4A;
+    margin: 10px 0 10px 267px;
 }
 
 
