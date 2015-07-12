@@ -1263,6 +1263,7 @@ label.popupBoxLoginFormZap {
     color: #9c2251;
     font-weight: bold;
     margin-bottom: 10px;
+    float: left;
 }
 .form_group_item {
     clear: both;
@@ -1271,7 +1272,7 @@ label.popupBoxLoginFormZap {
     display: inline-block;
     margin: 7px 0 5px 42px;
     color: #555;
-    width: 140px;
+    width: 155px;
 }
 .form_group_item input,
 .form_group_item textarea {
@@ -1293,7 +1294,7 @@ label.popupBoxLoginFormZap {
     text-decoration: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     border: 1px solid #CA0B4A;
-    margin: 10px 0 15px 270px;
+    margin: 10px 0 15px 286px;
 }
 .form_group .error {
     color: #FF0000;
