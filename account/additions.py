@@ -4,10 +4,10 @@ from models import User
 
 def registration_valid(request):
     errors = {}
-    first_name = request.GET['first_name']
-    email = request.GET['email']
-    password = request.GET['password']
-    password_again = request.GET['password_again']
+    first_name = request.POST['first_name']
+    email = request.POST['email']
+    password = request.POST['password']
+    password_again = request.POST['password_again']
 
     if first_name == '':
         errors['first_name_error'] = "обязательное поле"
