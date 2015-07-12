@@ -29,14 +29,14 @@ def login(request):
 def registration(request):
     args = {'form': RegistrationForm()}
     args.update(csrf(request))
-    if request.GET:
-        form = RegistrationForm(request.GET)
-        password = request.GET['password']
+    if request.POST:
+        form = RegistrationForm(request.POST)
+        password = request.POST['password']
         errors = registration_valid(request)
         if len(errors) == 0:
             new_user = User()
-            new_user.first_name = request.GET['first_name']
-            new_user.email = request.GET['email']
+            new_user.first_name = request.POST['first_name']
+            new_user.email = request.POST['email']
             new_user.username = translit(new_user.first_name) + "_" + random_str(6)
             new_user.set_password(password)
             new_user.save()
