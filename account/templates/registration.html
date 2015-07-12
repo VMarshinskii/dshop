@@ -11,43 +11,26 @@
             {% csrf_token %}
             {{ form.non_field_errors }}
 
-            <div class="OrderBoxUserData RegistrationBox">
+            <div class="form_group">
+                <h3>Личные данные</h3>
 
-                <div class="OrderBoxAddressTypeItem" style="width: 303px;">
-                    <label>Имя <span style="color: #ff0000">{{ first_name_error }}</span></label>
-                    {{ form.first_name }}
+                <div class="form_group_item account ">
+                    <label for="id_first_name">Ваше имя * </label>
+                    <input type="text" name="first_name" value="{{ form.first_name.value }}" id="id_first_name">
                 </div>
-
-                <div class="OrderBoxAddressTypeItem" style="width: 303px;">
-                    <label>Электронная почта <span style="color: #ff0000">{{ email_error }}</span></label>
-                    {{ form.email }}
+                <div class="form_group_item account ">
+                    <label for="id_last_name">Фамилия * </label>
+                    <input type="text" name="last_name" value="{{ form.last_name.value }}" id="id_last_name">
                 </div>
-
-                <div class="OrderBoxAddressTypeItem" style="width: 303px;">
-                    <label>Фамилия <span style="color: #ff0000">{{ last_name_error}}</span></label>
-                    {{ form.last_name }}
+                <div class="form_group_item account ">
+                    <label for="id_email">Email * </label>
+                    <input type="text" name="email" value="{{ form.email.value }}" id="id_email">
                 </div>
-
-                <div class="OrderBoxAddressTypeItem" style="width: 303px;">
-                    <label>Телефон <span style="color: #ff0000">{{ phone_error }}</span></label>
-                    {{ form.phone }}
+                <div class="form_group_item account ">
+                    <label for="id_phone">Телефон </label>
+                    <input type="text" name="phone" value="{{ form.phone.value }}" id="id_phone">
                 </div>
-
-                <div class="OrderBoxAddressTypeItem" style="width: 303px;">
-                    <label>Пароль <span style="color: #ff0000">{{ password_error }}</span></label>
-                    <input id="id_password" maxlength="30" name="password" type="text">
-                </div>
-
-                <div class="OrderBoxAddressTypeItem" style="width: 303px;">
-                    <label>Ещё раз пароль <span style="color: #ff0000">{{ password_again_error}}</span></label>
-                    <input id="id_password_again" maxlength="30" name="password_again" type="text">
-                </div>
-
-                <div class="OrderBoxAddressTypeItem" style="width: 303px; float: right">
-                    <input type="submit" class="OrderSubmit" style="margin: 25px 40px 0 17px;" value="Зарегистрироваться"/>
-                </div>
-
-                <div style="clear: both"></div>
+                <input type="submit" style="float: right" value="Сохранть изменения" class="form_bottom">
             </div>
 
             <div style="clear: both"></div>

@@ -1117,7 +1117,6 @@ label.popupBoxLoginFormZap {
 }
 .RegistrationBox {
     width: 607px;
-    height: 230px;
 }
 
 .video_file {
@@ -1251,6 +1250,45 @@ label.popupBoxLoginFormZap {
 .post .more {
     float: right;
     margin-right: 27px;
+}
+
+
+.form_group {
+    width: 664px;
+    border-bottom: 1px solid #eee;
+}
+.form_group h3 {
+    font: 16px/16pt sans-serif;
+    color: #9c2251;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.form_group_item label {
+    display: block;
+    margin: 7px 0 5px 0;
+    color: #555;
+    float: left;
+}
+.form_group_item input,
+.form_group_item textarea {
+  padding: 3px;
+  width: 190px;
+  background: #fff;
+  border: 1px solid #CACACA;
+  border-radius: 3px;
+  float: left;
+  margin-left: 20px;
+  font-size: 14px;
+}
+.form_bottom {
+    display: inline-block;
+    padding: 10px 30px;
+    background: #ed145b;
+    color: #fff;
+    border-radius: 2px;
+    text-decoration: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border: 1px solid #CA0B4A;
 }
 
 
