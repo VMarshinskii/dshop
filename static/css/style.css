@@ -1292,6 +1292,15 @@ label.popupBoxLoginFormZap {
     border: 1px solid #CA0B4A;
     margin: 10px 0 15px 270px;
 }
+.form_group .error {
+    color: #FF0000;
+}
+.error_field label {
+    color: #FF0000;
+}
+.error_field input {
+    border: 1px solid #FF0000;
+}
 
 
 
