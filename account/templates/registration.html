@@ -15,20 +15,40 @@
                 <h3>Личные данные</h3>
 
                 <div class="form_group_item account ">
-                    <label for="id_first_name">Ваше имя * </label>
+                    <label for="id_first_name">Ваше имя: * </label>
+                    {% if first_name_error %}
+                        <p class="error">first_name_error</p>
+                    {% endif %}
                     {{ form.first_name }}
                 </div>
                 <div class="form_group_item account ">
-                    <label for="id_last_name">Фамилия * </label>
+                    <label for="id_last_name">Фамилия: * </label>
+                    {% if last_name_error %}
+                        <p class="error">last_name_error</p>
+                    {% endif %}
                     {{ form.last_name }}
                 </div>
                 <div class="form_group_item account ">
-                    <label for="id_email">Email * </label>
+                    <label for="id_email">Email: * </label>
+                    {% if email_error %}
+                        <p class="error">email_error</p>
+                    {% endif %}
                     {{ form.email }}
                 </div>
                 <div class="form_group_item account ">
-                    <label for="id_phone">Телефон </label>
-                    {{ form.phone.value }}
+                    <label for="id_phone">Телефон: </label>
+                    {{ form.phone }}
+                </div>
+                <div class="form_group_item account ">
+                    <label for="id_password">Пароль: * </label>
+                    {% if password_error %}
+                        <p class="error">password_error</p>
+                    {% endif %}
+                    <input id="id_password" maxlength="254" name="password" type="password">
+                </div>
+                <div class="form_group_item account ">
+                    <label for="id_password_again">Ещё раз пароль: * </label>
+                    <input id="id_password_again" maxlength="254" name="password_again" type="password">
                 </div>
                 <input type="submit" value="Зарегистрироваться" class="form_bottom">
             </div>
