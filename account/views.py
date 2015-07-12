@@ -28,6 +28,7 @@ def login(request):
 
 def registration(request):
     args = {'form': RegistrationForm()}
+    args.update(csrf(request))
     if request.GET:
         form = RegistrationForm(request.GET)
         password = request.GET['password']
