@@ -9,6 +9,8 @@ AbstractUser._meta.get_field('email').blank = False
 AbstractUser._meta.get_field('email').default = ""
 AbstractUser._meta.get_field('first_name').blank = False
 AbstractUser._meta.get_field('first_name').default = ""
+AbstractUser._meta.get_field('last_name').blank = False
+AbstractUser._meta.get_field('last_name').default = ""
 
 
 class User(AbstractUser):

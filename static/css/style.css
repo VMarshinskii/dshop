@@ -1264,6 +1264,9 @@ label.popupBoxLoginFormZap {
     font-weight: bold;
     margin-bottom: 10px;
 }
+.form_group_item {
+    clear: both;
+}
 .form_group_item label {
     display: inline-block;
     margin: 7px 0 5px 42px;
@@ -1294,6 +1297,9 @@ label.popupBoxLoginFormZap {
 }
 .form_group .error {
     color: #FF0000;
+  display: inline;
+  font-size: 15px;
+  margin-left: 5px;
 }
 .error_field label {
     color: #FF0000;
