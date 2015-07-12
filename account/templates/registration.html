@@ -1,48 +1,46 @@
-<div id="popup_head">
-    <a href="#">Зарегистрироваться</a>
-    <span>или</span>
-    <a href="#" class="popup_head_link login_show">Войти</a>
+{% extends "main.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="ContentBox">
+    <div class="ContentBoxHead">
+        <h1>Регистрация</h1>
+    </div>
+    <div class="OrderBox">
+        <form action="/registration/" method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            <div class="OrderBoxUserData RegistrationBox">
+
+                <div class="OrderBoxAddressTypeItem" style="width: 303px;">
+                    <label>Имя <span style="color: #ff0000">{{ form.first_name.errors }}</span></label>
+                    {{ form.first_name }}
+                </div>
+
+                <div class="OrderBoxAddressTypeItem" style="width: 303px;">
+                    <label>Электронная почта <span style="color: #ff0000">{{ form.email.errors }}</span></label>
+                    {{ form.email }}
+                </div>
+
+                <div class="OrderBoxAddressTypeItem" style="width: 303px;">
+                    <label>Фамилия <span style="color: #ff0000">{{ form.last_name.errors }}</span></label>
+                    {{ form.last_name }}
+                </div>
+
+                <div class="OrderBoxAddressTypeItem" style="width: 303px;">
+                    <label>Телефон <span style="color: #ff0000">{{ form.phone.errors }}</span></label>
+                    {{ form.phone }}
+                </div>
+                <div class="OrderBoxAddressTypeItem" style="width: 303px; float: right">
+                    <input type="submit" class="OrderSubmit" style="margin: 25px 40px 0 17px;" value="Зарегистрироваться"/>
+                </div>
+
+                <div style="clear: both"></div>
+            </div>
+
+            <div style="clear: both"></div>
+        </form>
+	</div>
 </div>
-<form class="login_form" action="/login/" method="get">
-    {% if errors %}
-        {% for field,error  in errors.items %}
-        <p class="error">{{ error }}</p>
-        {% endfor %}
-    {% endif %}
-
-    <div class="login_form_item" style="width: 380px">
-        <label for="first_name" class="login_form_item_email">Ваше имя *
-            {% if first_name %}
-                <span style="color: #ff0000;">{{ first_name }}</span>
-            {% endif %}
-        </label>
-        <input type="text" name="first_name" id="first_name" value="{{ form.first_name.value }}" style="width: 360px"/>
-    </div>
-    <div class="login_form_item" style="width: 380px">
-        <label for="first_name" class="login_form_item_email">Email *
-            {% if email %}
-                <span style="color: #ff0000;">{{ email }} </span>
-            {% endif %}
-        </label>
-        <input type="email" name="email" id="email" value="{{ form.email.value }}" style="width: 360px"/>
-    </div>
-    {% if password %}
-    <div style="clear: both"></div>
-    <div style="margin-top: 5px">
-        <span style="font-size: 14px;">Пароль - <span style="color: #ff0000;">{{ password }}</span></span>
-    </div>
-    {% endif %}
-    <div class="login_form_item">
-        <label for="password" class="login_form_item_password">Пароль *</label>
-        <input type="password" id="password" name="password" placeholder=""/>
-    </div>
-    <div class="login_form_item">
-        <label for="password" class="login_form_item_password">Ещё раз пароль *</label>
-        <input type="password" id="password_again" name="password_again" placeholder=""/>
-    </div>
-
-    <a class="restore_access" href="#">Восстановить доступ</a>
-
-    <input type="button" class="button yellow_button" id="registration_button" value="Зарегистрироваться"/>
-    <div style="clear: both"></div>
-</form>
+{% endblock %}
