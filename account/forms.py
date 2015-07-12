@@ -6,7 +6,7 @@ from models import User, Fun
 class RegistrationForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'email']
+        fields = ['first_name', 'last_name', 'phone', 'email']
 
 
 class AddFunForm(forms.ModelForm):

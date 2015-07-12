@@ -10,18 +10,18 @@ def registration_valid(request):
     password_again = request.GET['password_again']
 
     if first_name == '':
-        errors['first_name'] = "обязательное поле"
+        errors['first_name_error'] = "обязательное поле"
     if email == '':
-        errors['email'] = "обязательное поле"
+        errors['email_error'] = "обязательное поле"
     else:
         try:
             user = User.objects.get(email=email)
-            errors['email'] = "пользователь с таким email уже существует"
+            errors['email_error'] = "пользователь с таким email уже существует"
         except User.DoesNotExist:
             pass
     if password == '':
-        errors['password'] = "обязательное поле"
+        errors['password_error'] = "обязательное поле"
     if password != password_again:
-        errors['password'] = "пароли не совпадают"
+        errors['password_error'] = "пароли не совпадают"
 
     return errors

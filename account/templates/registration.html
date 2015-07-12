@@ -14,24 +14,35 @@
             <div class="OrderBoxUserData RegistrationBox">
 
                 <div class="OrderBoxAddressTypeItem" style="width: 303px;">
-                    <label>Имя <span style="color: #ff0000">{{ form.first_name.errors }}</span></label>
+                    <label>Имя <span style="color: #ff0000">{{ first_name_error }}</span></label>
                     {{ form.first_name }}
                 </div>
 
                 <div class="OrderBoxAddressTypeItem" style="width: 303px;">
-                    <label>Электронная почта <span style="color: #ff0000">{{ form.email.errors }}</span></label>
+                    <label>Электронная почта <span style="color: #ff0000">{{ email_error }}</span></label>
                     {{ form.email }}
                 </div>
 
                 <div class="OrderBoxAddressTypeItem" style="width: 303px;">
-                    <label>Фамилия <span style="color: #ff0000">{{ form.last_name.errors }}</span></label>
+                    <label>Фамилия <span style="color: #ff0000">{{ last_name_error}}</span></label>
                     {{ form.last_name }}
                 </div>
 
                 <div class="OrderBoxAddressTypeItem" style="width: 303px;">
-                    <label>Телефон <span style="color: #ff0000">{{ form.phone.errors }}</span></label>
+                    <label>Телефон <span style="color: #ff0000">{{ phone_error }}</span></label>
                     {{ form.phone }}
                 </div>
+
+                <div class="OrderBoxAddressTypeItem" style="width: 303px;">
+                    <label>Пароль <span style="color: #ff0000">{{ password_error }}</span></label>
+                    <input id="id_password" maxlength="30" name="password" type="text">
+                </div>
+
+                <div class="OrderBoxAddressTypeItem" style="width: 303px;">
+                    <label>Ещё раз пароль <span style="color: #ff0000">{{ password_again_error}}</span></label>
+                    <input id="id_password_again" maxlength="30" name="password_again" type="text">
+                </div>
+
                 <div class="OrderBoxAddressTypeItem" style="width: 303px; float: right">
                     <input type="submit" class="OrderSubmit" style="margin: 25px 40px 0 17px;" value="Зарегистрироваться"/>
                 </div>

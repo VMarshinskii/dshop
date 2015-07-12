@@ -12,5 +12,7 @@ urlpatterns = [
     url(r'^orders/', include('orders.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^login/', 'account.views.login'),
+    url(r'^registration/', 'account.views.registration'),
     url(r'', include('pages.urls')),
+
 ]
