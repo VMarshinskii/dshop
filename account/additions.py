@@ -22,8 +22,8 @@ def registration_valid(request):
     else:
         try:
             user = User.objects.get(email=email)
-            errors['email_error'] = "- пользователь с таким email уже существует"
-            errors['email_field_error'] = "error_field"
+            errors['user_error'] = "- пользователь с таким email уже существует"
+            errors['email_error'] = "error_field"
         except User.DoesNotExist:
             pass
     if password == '':
