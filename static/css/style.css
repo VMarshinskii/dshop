@@ -1247,8 +1247,9 @@ label.popupBoxLoginFormZap {
 .post h4 {
     font-size: 24px;
 }
-.post .text {
+.text {
     padding: 10px 0;
+    font: 16px/16pt sans-serif;
 }
 .post .more {
     float: right;

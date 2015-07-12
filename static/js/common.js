@@ -312,7 +312,7 @@ $(document).ready(function (){
 
 
     $(document).on('click', '.delivery_mail_button', function(){
-        alert("ok");
+
         var first_name = $("#id_first_name").val();
         var email = $("#id_email").val();
 
@@ -325,6 +325,17 @@ $(document).ready(function (){
                 alert(data)
             }
         );
+    });
+
+
+    $(".login_order").live('click', function(){
+        $.get("/login/", function(data){
+            $(".popupBox").html(data);
+            $(".background").css('display', 'block');
+            $(".popupBox").css('display', 'block');
+            $("#id_login").mask("+7 (999) 999-9999");
+        });
+        return false;
     });
 
 });

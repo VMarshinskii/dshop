@@ -1,0 +1,18 @@
+<h4>Вход в личный кабинет DaryaShop</h4>
+
+<form class="popupBoxLoginForm" action="" style="position: relative">
+    {% csrf_token %}
+    <label for="">Ваш номер телефона</label>
+    {{ form.login }}
+    <label for="">Ваш пароль</label>
+    {{ form.password }}
+    {{ form.is_remember }}
+    <label class="popupBoxLoginFormZap" for="">Запомнить меня</label>
+    <a href="#" class="popupBoxLoginFormVos">Забыли пароль?</a>
+    {% if error %}
+    <p style="color: #ff0000; position: absolute; top: 120px; left: -30px;">{{ error }}</p>
+    {% endif %}
+    <a class="popupBoxBottom loginSubmit" href="#">Войти</a>
+</form>
+
+<img class="popupBoxLoginFormClose" src="/static/images/cross97.png">
