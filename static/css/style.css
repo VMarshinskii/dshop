@@ -689,7 +689,7 @@ p.CartSumLabel {
 .OrderBox {
     padding-top: 1px;
 }
-.OrderBox h3 {
+.UserInformationRed {
     padding: 5px;
     text-align: center;
     border-radius: 2px;
@@ -698,7 +698,7 @@ p.CartSumLabel {
     color: #FFFFFF;
     background: #ED145B;
 }
-.OrderBox h3 a {
+.UserInformationRed a {
     color: #fff;
 }
 .OrderBoxUserData, .OrderBoxAddressData {
