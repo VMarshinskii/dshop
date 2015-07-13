@@ -9,22 +9,22 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'category', 'home_status')
     search_fields = ['name', 'category']
 
-    fieldsets = (
-        ('Основное', {
-            'fields': (
-                'name', 'price', 'category',
-                'sale_status', 'count', 'count_status', 'brand',
-                'text', 'image', 'images', 'home_status')
-        }),
-        ('Дополнительные поля', {
-            # 'classes': ('collapse',),
-            'fields': ('status', 'color', 'size', 'structure', 'related_products')
-        }),
-        ('SEO', {
-            # 'classes': ('collapse',),
-            'fields': ('keywords', 'description')
-        }),
-    )
+    # fieldsets = (
+    #     ('Основное', {
+    #         'fields': (
+    #             'name', 'price', 'category',
+    #             'sale_status', 'count', 'count_status', 'brand',
+    #             'text', 'image', 'images', 'home_status')
+    #     }),
+    #     ('Дополнительные поля', {
+    #         # 'classes': ('collapse',),
+    #         'fields': ('status', 'color', 'size', 'structure', 'related_products')
+    #     }),
+    #     ('SEO', {
+    #         # 'classes': ('collapse',),
+    #         'fields': ('keywords', 'description')
+    #     }),
+    # )
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -70,6 +70,6 @@ def select_res(categoryes):
         str_res += smart_str(category.title) + ":" + smart_str(category.id) + ";"
     return str_res
 
-admin.site.register(Product)
+admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Color)
