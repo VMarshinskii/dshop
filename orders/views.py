@@ -106,6 +106,8 @@ def create_order(request):
             if cart:
                 for pr in CartProduct.objects.filter(cart=cart):
                     order.products.add(pr)
+                    pr.cart = None
+                    pr.save()
             else:
                 args['cart_error'] = "в вашей корзине ничего нет"
             order.save()
@@ -137,7 +139,6 @@ def create_order(request):
                 request.user.index = request.POST.get('index', "")
                 request.user.save()
 
-            cart.delete()
             return redirect("/orders/thanks/")
 
         args['form'] = form
