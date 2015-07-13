@@ -9,22 +9,22 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'category', 'home_status')
     search_fields = ['name', 'category']
 
-    # fieldsets = (
-    #     ('Основное', {
-    #         'fields': (
-    #             'name', 'price', 'category',
-    #             'sale_status', 'count', 'count_status', 'brand',
-    #             'text', 'image', 'images', 'home_status')
-    #     }),
-    #     ('Дополнительные поля', {
-    #         # 'classes': ('collapse',),
-    #         'fields': ('status', 'color', 'size', 'structure', 'related_products')
-    #     }),
-    #     ('SEO', {
-    #         # 'classes': ('collapse',),
-    #         'fields': ('keywords', 'description')
-    #     }),
-    # )
+    fieldsets = (
+        ('Основное', {
+            'fields': (
+                'name', 'price', 'category',
+                'sale_status', 'count', 'count_status', 'brand',
+                'image', 'images', 'home_status')
+        }),
+        ('Дополнительные поля', {
+            # 'classes': ('collapse',),
+            'fields': ('status', 'color', 'size', 'structure', 'related_products')
+        }),
+        ('SEO', {
+            # 'classes': ('collapse',),
+            'fields': ('keywords', 'description')
+        }),
+    )
 
 
 class CategoryAdmin(admin.ModelAdmin):
