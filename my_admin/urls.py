@@ -4,4 +4,5 @@ from django.contrib import admin
 urlpatterns = patterns('',
     url(r'^upload_image/$', 'my_admin.views.video_upload'),
     url(r'^tree_categories/(?P<id>\d+)/', 'my_admin.views.tree_categories'),
+    url(r'^get_products_list/', 'my_admin.views.get_products_list'),
 )

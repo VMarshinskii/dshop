@@ -223,5 +223,17 @@ $(document).ready(function(){
         }
     }
 
+    if($("div").is(".field-delivery_price"))
+    {
+        var mass = [];
+
+        $("#id_products option:selected").each(function(){
+            var val = $(this).val();
+            mass.push(val);
+        });
+
+        $(".field-products .controls").load("/admin/get_products_list/?mass_id=," + mass.join(","));
+    }
+
 
 });

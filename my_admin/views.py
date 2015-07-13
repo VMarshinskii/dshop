@@ -2,6 +2,7 @@
 from django.shortcuts import render_to_response, HttpResponse, Http404, redirect
 from django.template.context_processors import csrf
 from django.utils.encoding import smart_str
+from cart.models import CartProduct
 from dshop.additions import upload_file
 from catalog.models import Category
 from models import SiteSettings
@@ -67,3 +68,21 @@ def admin_settings(request):
         return render_to_response("admin_settings.html", args)
     else:
         return redirect('/admin/')
+
+
+def get_products_list(request):
+    mass_id = []
+
+    for id in request.GET.get("mass_id", "").split(","):
+        if id != "":
+            mass_id.append(int(id))
+
+    sum_all = 0
+
+    products = []
+    for product in CartProduct.objects.filter(id__in=mass_id):
+        product.sum = product.price_order * product.count
+        sum_all += product.price_order * product.count
+        products.append(product)
+
+    return render_to_response("get_products_list.html", {'products': products, 'sum': sum_all})

@@ -1,0 +1,34 @@
+<table class="table-cart table-order">
+	<tbody>
+		<tr>
+			<th colspan="2" style="text-align: left; padding-left: 10px;">Наименование товара</th>
+			<th width="110px">Цена</th>
+			<th width="110px">Количество</th>
+			<th width="110px">Сумма</th>
+		</tr>
+        {% for product in products %}
+		<tr class="product_item">
+			<td>
+				<a target="_blank" href="/catalog/product/{{ product.product.id }}/"><img src="/static/uploads/{{ product.image }}" alt="" width="60px"></a>
+			</td>
+			<td>
+				<a target="_blank" href="/catalog/product/{{ product.product.id }}/">{{ product.title }}</a>
+                <p>Цвер: {{ product.color }}</p>
+                <p>Размер: {{ product.size }}</p>
+			</td>
+			<td align="center">
+				{{ product.price_order }} руб.
+			</td>
+			<td align="center">{{ product.count }} шт.</td>
+			<td align="center">
+				{{ product.sum }} руб.
+			</td>
+		</tr>
+        {% endfor %}
+		<tr class="result">
+			<td colspan="3" align="right" style="font-weight: bold">Итого без учёта доставки:</td>
+			<td></td>
+			<td align="center"><span style="font-weight: bold">{{ sum }} руб.</span></td>
+		</tr>
+	</tbody>
+</table>
