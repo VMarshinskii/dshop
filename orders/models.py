@@ -16,7 +16,7 @@ class Order(models.Model):
     status = models.IntegerField("Статус заказа", choices=STATUSES)
 
     first_name = models.CharField("Имя", max_length=200, default="")
-    patronymic = models.CharField("Отчество", max_length=200, default="")
+    patronymic = models.CharField("Отчество", max_length=200, default="", blank=True)
     last_name = models.CharField("Фамилия", max_length=200, default="")
     email = models.CharField("Email", max_length=200, default="")
     phone = models.CharField("Телефон", max_length=200, default="")
