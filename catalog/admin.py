@@ -10,10 +10,12 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ['name', 'category']
 
     fieldsets = (
-        ('Основное', dict(fields=('name', 'price', 'price_sale', 'category',
-                                  'sale_status', 'count', 'count_status', 'brand',
-                                  'text', 'image', 'images', 'home_status'
-                                  ))),
+        ('Основное', {
+            'fields': (
+                'name', 'price', 'category',
+                'sale_status', 'count', 'count_status', 'brand',
+                'text', 'image', 'images', 'home_status')
+        }),
         ('Дополнительные поля', {
             # 'classes': ('collapse',),
             'fields': ('status', 'color', 'size', 'structure', 'related_products')
