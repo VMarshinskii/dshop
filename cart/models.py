@@ -28,4 +28,8 @@ class CartProduct(models.Model):
         self.price_sale = product.price_sale
         self.sale_status = product.sale_status
         self.image = product.image
+        if product.sale_status:
+            self.cart_price = product.price_sale
+        else:
+            self.cart_price = product.price
         return self
