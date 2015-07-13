@@ -137,6 +137,7 @@ def create_order(request):
                 request.user.index = request.POST.get('index', "")
                 request.user.save()
 
+            cart.delete()
             return redirect("/orders/thanks/")
 
         args['form'] = form
