@@ -12,14 +12,14 @@
 				<a target="_blank" href="/catalog/product/{{ product.product.id }}/"><img src="/static/uploads/{{ product.image }}" alt="" width="60px"></a>
 			</td>
 			<td>
-				<a target="_blank" href="/catalog/product/{{ product.product.id }}/">{{ product.title }}</a>
-                <p>Цвер: {{ product.color }}</p>
-                <p>Размер: {{ product.size }}</p>
+				<a target="_blank" href="/catalog/product/{{ product.product.id }}/">{{ product.name }}</a>
+                <p>Цвер: {{ product.cart_color }}</p>
+                <p>Размер: {{ product.cart_size }}</p>
 			</td>
 			<td align="center">
-				{{ product.price_order }} руб.
+				{{ product.cart_price }} руб.
 			</td>
-			<td align="center">{{ product.count }} шт.</td>
+			<td align="center">{{ product.cart_count }} шт.</td>
 			<td align="center">
 				{{ product.sum }} руб.
 			</td>
