@@ -72,7 +72,7 @@ class Product(models.Model):
     price = models.IntegerField("Цена")
     price_sale = models.IntegerField("Цена со скидкой", default=0)
     category = models.ForeignKey(Category, verbose_name="Категория", blank=True, null=True)
-    sale = models.IntegerField("Скидка, %", blank=True)
+    sale = models.IntegerField("Скидка, %", blank=True, default=0)
     sale_status = models.BooleanField("Сделать скидку", default=False)
     count_status = models.BooleanField("Под заказ", default=False)
     count = models.IntegerField("Товар в наличии")
