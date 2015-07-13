@@ -31,7 +31,6 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"url": ("title",)}
 
     def changelist_view(self, request, extra_context=None):
-        print("sdfkmskdmsdmcmlsdkmklsd")
         list_category = sort_list()
         select_res(list_category)
         vars = {'categories': list_category}
@@ -71,6 +70,6 @@ def select_res(categoryes):
         str_res += smart_str(category.title) + ":" + smart_str(category.id) + ";"
     return str_res
 
-admin.site.register(Product, ProductAdmin)
+admin.site.register(Product)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Color)
