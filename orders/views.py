@@ -105,9 +105,9 @@ def create_order(request):
             cart = get_cart(request)
             if cart:
                 for pr in CartProduct.objects.filter(cart=cart):
-                    order.products.add(pr)
                     pr.cart = None
                     pr.save()
+                    order.products.add(pr)
             else:
                 args['cart_error'] = "в вашей корзине ничего нет"
             order.save()
