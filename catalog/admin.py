@@ -7,7 +7,8 @@ from django.utils.encoding import smart_str
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'category', 'home_status')
-    search_fields = ['name', 'category']
+    list_filter = ['category', 'home_status']
+    search_fields = ['name']
 
     fieldsets = (
         ('Основное', {
