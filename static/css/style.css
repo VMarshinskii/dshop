@@ -445,6 +445,7 @@ body {
 .CatalogProductBoxContent {
     margin: 15px 5px 10px 5px;
     float: left;
+    max-width: 435px;
 }
 .CatalogProductBoxContent p {
     font: 16px/16pt sans-serif;
@@ -1405,5 +1406,8 @@ label.popupBoxLoginFormZap {
     }
     #center-block .goodss .good .price {
         font-size: 15px;
+    }
+    .CatalogProductBoxContent {
+        max-width: 375px;
     }
 }
