@@ -258,7 +258,7 @@ $(document).ready(function(){
                     sort_new[id] = sort_old[i];
                 }
 
-                $.post('/admin/update_product_sort/', {
+                $.get('/admin/update_product_sort/', {
                     'sorts': JSON.stringify(sort_new)
                 }, function(data){
                     alert(data);

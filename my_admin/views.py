@@ -92,7 +92,7 @@ def get_products_list(request):
 
 def update_product_sort(request):
     if request.user.is_authenticated() and request.POST:
-        sorts = request.POST['sorts']
+        sorts = request.GET['sorts']
         io = StringIO()
         json.dump(sorts, io)
         for pr_id, pr_sort in io.getvalue().items():
