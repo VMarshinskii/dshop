@@ -15,11 +15,13 @@
     <li><a href="/catalog/{{ cat.url }}/">{{ cat.title }}</a></li>
     {% endfor %}
 </ul>
+{% if categ.text %}
 <div class="ContentBox">
     <div class="ContentBoxPage">
         {{ categ.text|safe }}
     </div>
 </div>
+{% endif %}
 <div class="goodss">
     {% for product in products %}
     <div class="good">
