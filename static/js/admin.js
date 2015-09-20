@@ -259,7 +259,7 @@ $(document).ready(function(){
                 }
 
                 $.post('/admin/update_product_sort/', {
-                    'sorst': JSON.stringify(sort_new)
+                    'sorts': JSON.stringify(sort_new)
                 }, function(data){
                     alert(data);
                 });
