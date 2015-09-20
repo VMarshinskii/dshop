@@ -4,7 +4,7 @@ from django.template.context_processors import csrf
 from django.utils.encoding import smart_str
 from cart.models import CartProduct
 from dshop.additions import upload_file
-from catalog.models import Category
+from catalog.models import Category, Product
 from models import SiteSettings
 from forms import SiteSettingsForm
 import simplejson as json
@@ -94,7 +94,12 @@ def update_product_sort(request):
     if request.user.is_authenticated() and request.GET:
         sorts = request.GET['sorts']
         for pr_id, pr_sort in json.loads(sorts).items():
-            print pr_id + " : " + pr_sort
-        return HttpResponse('123')
+            try:
+                product = Product.objects.get(id=pr_id)
+                product.sort = pr_sort
+                product.save()
+            except Product.DoesNotExist:
+                pass
+        return HttpResponse('ok')
 
     raise Http404()

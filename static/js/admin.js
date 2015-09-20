@@ -260,8 +260,6 @@ $(document).ready(function(){
 
                 $.get('/admin/update_product_sort/', {
                     'sorts': JSON.stringify(sort_new)
-                }, function(data){
-                    alert(data);
                 });
             }
         }).disableSelection();
