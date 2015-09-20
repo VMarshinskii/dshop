@@ -91,7 +91,7 @@ def get_products_list(request):
 
 
 def update_product_sort(request):
-    if request.user.is_authenticated() and request.POST:
+    if request.user.is_authenticated() and request.GET:
         sorts = request.GET['sorts']
         io = StringIO()
         json.dump(sorts, io)
@@ -99,4 +99,4 @@ def update_product_sort(request):
             print pr_id + " : " + pr_sort
         return HttpResponse('123')
 
-    return Http404()
+    raise Http404()
