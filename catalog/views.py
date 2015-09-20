@@ -59,8 +59,3 @@ def category_view(request, url="none"):
         return Http404
     return render_to_response("category.html", {'path': path, 'categ': categ, 'products': products})
 
-
-def update_products(request):
-    for product in Product.objects.all():
-        product.sort = product.id
-        product.save()
