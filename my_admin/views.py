@@ -93,9 +93,12 @@ def get_products_list(request):
 def update_product_sort(request):
     if request.user.is_authenticated() and request.GET:
         sorts = request.GET['sorts']
+        print sorts
         io = StringIO()
         json.dump(sorts, io)
-        for pr_id, pr_sort in io.getvalue().items():
+        data = io.getvalue()
+        print data
+        for pr_id, pr_sort in data.items():
             print pr_id + " : " + pr_sort
         return HttpResponse('123')
 
