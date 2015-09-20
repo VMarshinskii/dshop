@@ -251,7 +251,7 @@ $(document).ready(function(){
         $("#result_list tbody").sortable({
             stop: function(event, ui){
                 var sort = {};
-                $("#result_list .admin_sort").each(function(el){
+                $("#result_list .admin_sort").each(function(index, el){
                     var id = el.attr('id');
                     var sort_value = el.attr('sort_value');
                     sort[id] = sort_value;
