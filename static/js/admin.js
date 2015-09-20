@@ -238,27 +238,20 @@ $(document).ready(function(){
 
     if($('span').is("#result_list .admin_sort"))
     {
-        var id_products = [];
-        var sort_old = {};
+        var sort_old = [];
         $("#result_list .admin_sort").each(function(){
             var id = $(this).attr('id');
             var sort_value = $(this).attr('sort_value');
-            id_products.push(id);
-            sort_old[id] = sort_value;
+            sort_old.push(sort_value);
         });
 
 
         $("#result_list tbody").sortable({
             stop: function(event, ui){
-                var sort = {};
-                $("#result_list .admin_sort").each(function(){
-                    var id = $(this).attr('id');
-                    sort[id] = $(this).attr('sort_value');
-                });
-
-                alert(id_products);
-                alert(sort_old);
-                alert(sort);
+                for (var i = 0; i < sort_old.length; i++)
+                {
+                    $("#result_list .admin_sort").eq(i).attr('sort_value', sort_old[i]);
+                }
             }
         }).disableSelection();
     }
