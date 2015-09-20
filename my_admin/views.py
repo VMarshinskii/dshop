@@ -7,6 +7,8 @@ from dshop.additions import upload_file
 from catalog.models import Category
 from models import SiteSettings
 from forms import SiteSettingsForm
+import simplejson as json
+from simplejson.compat import StringIO
 
 
 def video_upload(request):
@@ -86,3 +88,15 @@ def get_products_list(request):
         products.append(product)
 
     return render_to_response("get_products_list.html", {'products': products, 'sum': sum_all})
+
+
+def update_product_sort(request):
+    if request.user.is_authenticated() and request.POST:
+        sorts = request.POST['sorts']
+        io = StringIO()
+        json.dump(sorts, io)
+        for pr_id, pr_sort in io.getvalue().items():
+            print pr_id + " : " + pr_sort
+        return HttpResponse('123')
+
+    return Http404()

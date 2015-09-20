@@ -239,6 +239,7 @@ $(document).ready(function(){
     if($('span').is("#result_list .admin_sort"))
     {
         var sort_old = [];
+        var sort_new = {};
         $("#result_list .admin_sort").each(function(){
             var id = $(this).attr('id');
             var sort_value = $(this).attr('sort_value');
@@ -252,7 +253,16 @@ $(document).ready(function(){
                 {
                     $("#result_list .admin_sort").eq(i).attr('sort_value', sort_old[i]);
                     $("#result_list .admin_sort").eq(i).html(sort_old[i]);
+
+                    var id = $("#result_list .admin_sort").eq(i).attr('id');
+                    sort_new[id] = sort_old[i];
                 }
+
+                $.post('/admin/update_product_sort/', {
+                    'sorst': JSON.stringify(sort_new)
+                }, function(data){
+                    alert(data);
+                });
             }
         }).disableSelection();
     }
