@@ -243,7 +243,7 @@ $(document).ready(function(){
         $("#result_list .admin_sort").each(function(){
             var id = $(this).attr('id');
             var sort_value = $(this).attr('sort_value');
-            id_products.append(id);
+            id_products.push(id);
             sort_old[id] = sort_value;
         });
 
