@@ -28,17 +28,21 @@
 
     {% header_show %}
 
-    {% top_menu %}
-
     <div id="main-content">
+
+        {% top_menu %}
+
         <div id="left-block">
             {% banner_head %}
             {% catalog_menu %}
         </div>
+
+        {% block center_block %}
         <div id="center-block">
-            {% main_slider %}
             {% block content %}{% endblock %}
         </div>
+        {% endblock %}
+
         <div id="right-block">
             <div class="header-of-right-block"><p>Будь в курсе! Подпишись на нас в соц. сетях!</p></div>
             <div class="block-vk">

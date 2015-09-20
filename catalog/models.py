@@ -6,7 +6,8 @@ from redactor.fields import RedactorField
 class Category(models.Model):
     title = models.CharField(max_length=250, verbose_name="Название")
     parent = models.ForeignKey("self", verbose_name="Родительская категория", blank=True, null=True, default="-1")
-    url = models.CharField("Url", max_length=200, blank=True)
+    text = RedactorField(verbose_name="Описание", redactor_options={'upload_to': 'static/uploads'}, blank=True)
+    url = models.CharField("Url", max_length=200, unique=True)
     description = models.CharField("Description", max_length=200, blank=True)
     keywords = models.CharField("Ключевые слова", max_length=200, blank=True)
     step = models.IntegerField("Вложенность", blank=True)

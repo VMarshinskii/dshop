@@ -6,29 +6,38 @@
     <title>Darya-Shop</title>
 {% endblock %}
 
-{% block content %}
-<div class="goodss">
-    {% for product in products %}
-    <div class="good">
-        {% if product.status != 0 %}
-        <div class="action_sticker">{{ product.sticker }}</div>
-        {% endif %}
-        <a href="/catalog/product/{{ product.id }}/">
-            <div class="goods-img">
-                <img src="/static/uploads/{{ product.image }}" alt="img"/>
+
+{% block center_block %}
+<div id="center-block">
+    {% main_slider %}
+
+    {% block content %}
+    <div class="goodss">
+        {% for product in products %}
+        <div class="good">
+            {% if product.status != 0 %}
+            <div class="action_sticker">{{ product.sticker }}</div>
+            {% endif %}
+            <a href="/catalog/product/{{ product.id }}/">
+                <div class="goods-img">
+                    <img src="/static/uploads/{{ product.image }}" alt="img"/>
+                </div>
+                <div class="about-goods">{{ product.name }}</div>
+            </a>
+            {% if product.sale_status %}
+            <div class="price">{{ product.price_sale }} руб.</div>
+            <div class="price" style="float: right; color: #999; text-decoration: line-through">{{ product.price }} руб.</div>
+            {% else %}
+            <div class="price">{{ product.price }} руб.</div>
+            {% endif %}
+            <div class="good-c">
+                <a data-id="{{ product.id }}" href="#">В корзину</a>
             </div>
-            <div class="about-goods">{{ product.name }}</div>
-        </a>
-        {% if product.sale_status %}
-        <div class="price">{{ product.price_sale }} руб.</div>
-        <div class="price" style="float: right; color: #999; text-decoration: line-through">{{ product.price }} руб.</div>
-        {% else %}
-        <div class="price">{{ product.price }} руб.</div>
-        {% endif %}
-        <div class="good-c">
-            <a data-id="{{ product.id }}" href="#">В корзину</a>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+    {% endblock %}
+
 </div>
 {% endblock %}
+
