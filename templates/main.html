@@ -30,15 +30,15 @@
 
     <div id="main-content">
 
-        {% top_menu %}
-
         <div id="left-block">
             {% banner_head %}
             {% catalog_menu %}
         </div>
 
         {% block center_block %}
+
         <div id="center-block">
+            {% top_menu %}
             {% block content %}{% endblock %}
         </div>
         {% endblock %}
