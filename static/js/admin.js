@@ -236,7 +236,7 @@ $(document).ready(function(){
     }
 
 
-    if($('div').is("#result_list .admin_sort"))
+    if($('span').is("#result_list .admin_sort"))
     {
         var id_products = [];
         var sort_old = {};
