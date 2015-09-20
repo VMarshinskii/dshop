@@ -236,4 +236,33 @@ $(document).ready(function(){
     }
 
 
+    if($('div').is("#result_list .admin_sort"))
+    {
+        var id_products = [];
+        var sort_old = {};
+        $("#result_list .admin_sort").each(function(el){
+            var id = el.attr('id');
+            var sort_value = el.attr('sort_value');
+            id_products.append(id);
+            sort_old[id] = sort_value;
+        });
+
+
+        $("#result_list tbody").sortable({
+            stop: function(event, ui){
+                var sort = {};
+                $("#result_list .admin_sort").each(function(el){
+                    var id = el.attr('id');
+                    var sort_value = el.attr('sort_value');
+                    sort[id] = sort_value;
+                });
+
+                alert(id_products);
+                alert(sort_old);
+                alert(sort);
+            }
+        }).disableSelection();
+    }
+
+
 });

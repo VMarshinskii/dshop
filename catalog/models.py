@@ -88,7 +88,8 @@ class Product(models.Model):
     images = models.TextField(blank=True)
     image = models.CharField(max_length=200, blank=True)
     related_products = models.ManyToManyField("self", verbose_name="Сопутствующие товары", max_length=200, blank=True)
-    home_status = models.BooleanField("На главной", default=False)
+    home_status = models.BooleanField("На главной", default=id)
+    sort = models.ImageField("Сортировка")
 
     class Meta:
         verbose_name_plural = u"Товары"
@@ -97,7 +98,12 @@ class Product(models.Model):
     def __unicode__(self):
         return self.name
 
-    # def save(self, *args, **kwargs):
-    #     if self.sale_status is True:
-    #         self.price_sale = self.price / 100.0 * (100.0 - self.sale)
-    #     super(Product, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        if not self.sort:
+            self.sort = self.id
+        super(Product, self).save(*args, **kwargs)
+
+    def admin_sort(self):
+        return '<span class="admin_sort" id="' + str(self.id) + '" sort_value="' + str(self.sort) + '">' + str(self.sort) + '</span>'
+    admin_sort.allow_tags = True
+    admin_sort.short_description = 'Сортировка'
