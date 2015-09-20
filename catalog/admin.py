@@ -9,6 +9,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'category', 'admin_sort', 'home_status')
     list_filter = ['category', 'home_status']
     search_fields = ['name']
+    ordering = ('sort',)
 
     fieldsets = (
         ('Основное', {
