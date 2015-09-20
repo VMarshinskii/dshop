@@ -5,7 +5,11 @@
         <ul>
             {% for parent,childrens in mass_categ.items %}
             <li>
+                {% if childrens.count > 0 %}
                 <a href="/catalog/{{ parent.url }}/">{{ parent.title }}:</a>
+                {% else %}
+                <a href="/catalog/{{ parent.url }}/">{{ parent.title }}</a>
+                {% endif %}
                 <ul>
                     {% for child in childrens %}
                     <li><a href="/catalog/{{ child.url }}/">{{ child.title }}</a></li>

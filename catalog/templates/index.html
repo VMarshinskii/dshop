@@ -1,6 +1,7 @@
 {% extends "main.html" %}
 {% load staticfiles %}
 {% load main_slider %}
+{% load top_menu %}
 
 {% block head %}
     <title>Darya-Shop</title>
@@ -9,6 +10,7 @@
 
 {% block center_block %}
 <div id="center-block">
+    {% top_menu %}
     {% main_slider %}
 
     {% block content %}

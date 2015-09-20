@@ -549,6 +549,7 @@ body {
     background: #ffffff;
     box-shadow: 0 0 15px #5E5E5E;
     color: #444;
+    margin: 10px 0;
     clear: both;
 }
 .ContentBox h1 {
@@ -567,6 +568,9 @@ body {
 }
 .ContentBoxPage {
     padding: 15px 20px;
+}
+.ContentBoxPage img {
+    width: 100%;
 }
 
 
