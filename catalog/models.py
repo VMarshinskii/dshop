@@ -109,4 +109,4 @@ class Product(models.Model):
     admin_sort.short_description = ''
 
     def get_str_sort(self):
-        return "{0:0=12}".format(8749203)
+        return "{0:0=12}".format(int(self.sort))
