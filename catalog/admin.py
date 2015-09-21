@@ -6,10 +6,10 @@ from django.utils.encoding import smart_str
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'category', 'admin_sort', 'home_status')
+    list_display = ('id', 'name', 'category', 'admin_sort', 'home_status', 'get_str_sort')
     list_filter = ['category', 'home_status']
     search_fields = ['name']
-    ordering = ('-get_str_sort',)
+    # ordering = ('-get_str_sort',)
 
     fieldsets = (
         ('Основное', {
