@@ -8,6 +8,12 @@ function resize() {
         $(".header-info .header-info-one").css({"width":"585px"});
     }*/
 
+    if ($('iframe').is('.ContentBoxPage iframe')) {
+        var frame_width = $(".ContentBoxPage iframe").width();
+        $(".ContentBoxPage iframe").height(frame_width * 0.56);
+        $(".ContentBoxPage iframe").contents().find(".wrap").height((frame_width * 0.56) - 2);
+    }
+
     if($(document).width() > 1340) {
         $("#all-content").css({"width":"1285px"});
         $(".all-content").css({"width":"1285px"});
