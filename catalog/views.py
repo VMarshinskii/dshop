@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response, redirect
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from catalog.models import Product, Category
 
 sticker = ['нет', 'Хит', 'Новинка', 'Акция', 'Распродажа', 'Товар дня', 'Товар недели', 'Товар месяца', 'Хит сезона']
@@ -58,4 +58,10 @@ def category_view(request, url="none"):
     except Category.DoesNotExist:
         return Http404
     return render_to_response("category.html", {'path': path, 'categ': categ, 'products': products})
+
+
+def update_sort_products(request):
+    for product in Product.objects.all():
+        product.save()
+    return HttpResponse("ok")
 

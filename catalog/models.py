@@ -89,7 +89,7 @@ class Product(models.Model):
     image = models.CharField(max_length=200, blank=True)
     related_products = models.ManyToManyField("self", verbose_name="Сопутствующие товары", max_length=200, blank=True)
     home_status = models.BooleanField("На главной")
-    sort = models.IntegerField("Сортировка")
+    sort = models.CharField("Сортировка", max_length=200, default='')
 
     class Meta:
         verbose_name_plural = u"Товары"
@@ -99,14 +99,10 @@ class Product(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        if not self.sort:
-            self.sort = self.id
+        self.sort = "{0:0=12}".format(int(self.id))
         super(Product, self).save(*args, **kwargs)
 
     def admin_sort(self):
         return '<span class="admin_sort" id="' + str(self.id) + '" sort_value="' + str(self.sort) + '"></span>'
     admin_sort.allow_tags = True
     admin_sort.short_description = ''
-
-    def get_str_sort(self):
-        return "{0:0=12}".format(int(self.sort))
