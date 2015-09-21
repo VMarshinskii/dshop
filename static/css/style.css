@@ -572,7 +572,7 @@ body {
 .ContentBoxPage img {
     width: 100%;
 }
-.ContentBoxPage frame {
+.ContentBoxPage iframe {
     width: 100%;
 }
 

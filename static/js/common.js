@@ -8,9 +8,9 @@ function resize() {
         $(".header-info .header-info-one").css({"width":"585px"});
     }*/
 
-    if ($('frame').is('.ContentBoxPage frame')) {
-        var frame_width = $(".ContentBoxPage frame").width();
-        $(".ContentBoxPage frame").height((frame_width / 4) * 3);
+    if ($('iframe').is('.ContentBoxPage iframe')) {
+        var frame_width = $(".ContentBoxPage iframe").width();
+        $(".ContentBoxPage iframe").height((frame_width / 4) * 3);
     }
 
     if($(document).width() > 1340) {
