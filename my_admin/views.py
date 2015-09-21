@@ -98,8 +98,10 @@ def update_product_sort(request):
                 product = Product.objects.get(id=int(pr_id))
                 print str(product.id) + " == " + pr_sort
                 product.sort = pr_sort
-                product.save()
-                print str(product.id) + " == " + product.sort
+                if product.save():
+                    print str(product.id) + " == " + product.sort
+                else:
+                    print "false"
             except Product.DoesNotExist:
                 pass
         return HttpResponse('ok')
