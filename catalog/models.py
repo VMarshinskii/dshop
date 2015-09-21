@@ -99,7 +99,8 @@ class Product(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        self.sort = "{0:0=12}".format(int(self.id))
+        if not self.sort:
+            self.sort = "{0:0=12}".format(int(self.id))
         super(Product, self).save(*args, **kwargs)
 
     def admin_sort(self):
