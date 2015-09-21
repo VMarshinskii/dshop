@@ -107,3 +107,6 @@ class Product(models.Model):
         return '<span class="admin_sort" id="' + str(self.id) + '" sort_value="' + str(self.sort) + '"></span>'
     admin_sort.allow_tags = True
     admin_sort.short_description = ''
+
+    def get_str_sort(self):
+        return "{0:0=12}".format(self.sort)
