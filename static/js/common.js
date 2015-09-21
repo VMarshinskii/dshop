@@ -10,7 +10,8 @@ function resize() {
 
     if ($('iframe').is('.ContentBoxPage iframe')) {
         var frame_width = $(".ContentBoxPage iframe").width();
-        $(".ContentBoxPage iframe").height((frame_width / 4) * 3);
+        $(".ContentBoxPage iframe").height(frame_width * 0.56);
+        $(".ContentBoxPage iframe .wrap").height((frame_width * 0.56) - 2);
     }
 
     if($(document).width() > 1340) {
