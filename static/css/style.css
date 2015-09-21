@@ -573,7 +573,8 @@ body {
     width: 100%;
 }
 .ContentBoxPage iframe {
-    width: 100%;
+    width: 660px;
+    height: 370px;
 }
 
 
@@ -1424,5 +1425,9 @@ label.popupBoxLoginFormZap {
     }
     .CatalogProductBoxContent {
         max-width: 375px;
+    }
+    .ContentBoxPage iframe {
+        width: 375px;
+        height: 210px;
     }
 }
