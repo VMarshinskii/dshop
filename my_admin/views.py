@@ -96,10 +96,10 @@ def update_product_sort(request):
         for pr_id, pr_sort in json.loads(sorts).items():
             try:
                 product = Product.objects.get(id=int(pr_id))
-                print product.id
-                print pr_sort
+                print str(product.id) + " == " + pr_sort
                 product.sort = pr_sort
                 product.save()
+                print str(product.id) + " == " + product.sort
             except Product.DoesNotExist:
                 pass
         return HttpResponse('ok')
