@@ -257,12 +257,14 @@ $(document).ready(function(){
                     var id = $("#result_list .admin_sort").eq(i).attr('id');
                     sort_new[id] = sort_old[i];
                 }
-
-                $.get('/admin/update_product_sort/', {
-                    'sorts': JSON.stringify(sort_new)
-                });
             }
         }).disableSelection();
+
+        $(document).on('click', '.admin_sort_button', function(){
+            $.get('/admin/update_product_sort/', {
+                'sorts': JSON.stringify(sort_new)
+            });
+        });
     }
 
 
