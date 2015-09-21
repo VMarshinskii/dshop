@@ -572,6 +572,9 @@ body {
 .ContentBoxPage img {
     width: 100%;
 }
+.ContentBoxPage frame {
+    width: 100%;
+}
 
 
 .CartItem {

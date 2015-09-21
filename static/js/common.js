@@ -7,6 +7,12 @@ function resize() {
         $("#all-content").css({"width":"1600px"});
         $(".header-info .header-info-one").css({"width":"585px"});
     }*/
+
+    if ($('frame').is('.ContentBoxPage frame')) {
+        var frame_width = $(".ContentBoxPage frame").width();
+        $(".ContentBoxPage frame").height((frame_width / 4) * 3);
+    }
+
     if($(document).width() > 1340) {
         $("#all-content").css({"width":"1285px"});
         $(".all-content").css({"width":"1285px"});
