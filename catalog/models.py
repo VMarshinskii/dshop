@@ -31,7 +31,7 @@ class Category(models.Model):
                 rec_category(category)
 
         rec_category(self)
-        return mass_product
+        return sorted(mass_product, key=lambda x: x['sort'])
 
     def get_path_categ(self):
         mass_pass = []

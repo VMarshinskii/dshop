@@ -9,7 +9,7 @@ sticker = ['нет', 'Хит', 'Новинка', 'Акция', 'Распрода
 def index_view(request):
     products = []
 
-    for product in Product.objects.filter(home_status=True):
+    for product in Product.objects.filter(home_status=True).order_by('sort'):
         product.sticker = sticker[int(product.status)]
         products.append(product)
 
