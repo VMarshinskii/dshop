@@ -102,6 +102,7 @@ class Product(models.Model):
         super(Product, self).save(*args, **kwargs)
         if not self.sort:
             self.sort = "{0:0=12}".format(int(self.id))
+            self.save()
 
     def admin_sort(self):
         return '<span class="admin_sort" id="' + str(self.id) + '" sort_value="' + str(self.sort) + '"></span>'
