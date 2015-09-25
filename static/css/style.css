@@ -597,6 +597,9 @@ body {
     z-index: 10;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.07);
 }
+.CartItem img {
+    width: auto;
+}
 .CartItem h3 {
     float: left;
     width: 220px;
