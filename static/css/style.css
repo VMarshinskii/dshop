@@ -691,7 +691,7 @@ p.CartSumLabel {
     position: absolute;
     top: 14px;
     right: 9px;
-    width: 20px;
+    width: 20px !important;
     opacity: 0.2;
 }
 .CartDelete {
