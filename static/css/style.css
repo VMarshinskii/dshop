@@ -1372,7 +1372,7 @@ label.popupBoxLoginFormZap {
         height: 40px;
     }
     .CartItemDelete {
-        width: 12px;
+        width: 12px !important;
         top: 14px;
         right: 8px;
     }
