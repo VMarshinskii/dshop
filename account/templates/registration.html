@@ -6,15 +6,21 @@
     <div class="ContentBoxHead">
         <h1>Регистрация</h1>
     </div>
-    <div class="OrderBox">
+    <tr class="OrderBox">
         <form action="/registration/" class="site_form registration_form" method="post">
             {% csrf_token %}
+            {{ form.non_field_errors }}
+            <table>
             {% for field in form %}
-                <div class="fieldWrapper">
-                    {{ field.errors }}
-                    {{ field.label_tag }} {{ field }}
-                </div>
+                <tr class="fieldWrapper">
+                    <td>{{ field.label_tag }}</td>
+                    <td>
+                        {{ field }}
+                        {{ field.errors }}
+                    </td>
+                </tr>
             {% endfor %}
+            </table>
             <input type="submit" value="Зарегистрироваться" />
         </form>
 	</div>
