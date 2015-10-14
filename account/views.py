@@ -50,7 +50,7 @@ def registration_view(request):
                 'password': password,
                 'email_confirmation': email_confirmation
             }))
-            new_user.email_user("Подтверждение email", html)
+            new_user.email_user(u"Подтверждение email", html)
 
             email_provider = get_email_provider(new_user.email.split("@")[1])
             return render_to_response('registration_thank', {
