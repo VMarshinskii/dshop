@@ -5,8 +5,8 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class RegistrationForm(forms.ModelForm):
-    password = forms.CharField(max_length=100, widget=forms.PasswordInput(), label=_(str(u'Пароль')))
-    password_repetition = forms.CharField(max_length=100, widget=forms.PasswordInput(), label=_(str(u'Ещё раз')))
+    password = forms.CharField(max_length=100, widget=forms.PasswordInput(), label=_(u'Пароль'))
+    password_repetition = forms.CharField(max_length=100, widget=forms.PasswordInput(), label=_(u'Ещё раз'))
 
     class Meta:
         model = User
