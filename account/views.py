@@ -7,6 +7,7 @@ from django.template import Context
 from models import User, EmailConfirmation
 from forms import RegistrationForm, AddFunForm
 from additions import get_email_provider
+from dshop.additions import translit, random_str
 
 
 def login(request):
@@ -35,6 +36,7 @@ def registration_view(request):
         if form.is_valid():
             new_user = form.save(commit=False)
             password = request.POST.get('password')
+            new_user.username = translit(request.POST.get('first_name')) + "_" + random_str(10)
             new_user.set_password(password)
             new_user.is_active = False
             new_user.save()

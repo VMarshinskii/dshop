@@ -21,8 +21,10 @@ class RegistrationForm(forms.ModelForm):
         password_repetition = cleaned_data.get('password_repetition')
 
         if not first_name or not last_name or not email or not password or not password_repetition:
-            raise forms.ValidationError("Заполните все поля")
+            raise forms.ValidationError("Заполните обязательные поля")
         elif password != password_repetition:
+            self._errors["password"] = self.error_class(["Введите пароль"])
+            self._errors["password_repetition"] = self.error_class(["Повторите пароль"])
             raise forms.ValidationError("Пароли не совпадают")
         else:
             try:
