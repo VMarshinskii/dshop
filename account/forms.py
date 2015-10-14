@@ -1,6 +1,7 @@
 # _*_ coding: utf-8 _*_
 from django import forms
 from models import User, Fun
+from django.utils.translation import ugettext_lazy as _
 
 
 class RegistrationForm(forms.ModelForm):
@@ -33,8 +34,8 @@ class RegistrationForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
-        self.fields['password'].verbose_name = 'Пароль'
-        self.fields['password_repetition'].verbose_name = 'Ещё раз'
+        self.fields['password'].label = _('skdjfjsdakfasldflsd')
+        self.fields['password_repetition'].label = _('Ещё раз')
 
 
 class AddFunForm(forms.ModelForm):
