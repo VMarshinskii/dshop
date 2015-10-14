@@ -1330,8 +1330,8 @@ label.popupBoxLoginFormZap {
     border: 1px solid #FF0000;
 }
 
-.site_form .fieldWrapper {
-    margin: 5px 0;
+.site_form .fieldWrapper td {
+    padding: 8px;
 }
 .site_form .fieldWrapper label {
     display: inline-block;
@@ -1339,6 +1339,7 @@ label.popupBoxLoginFormZap {
     margin: 0 0 2px 0;
     font-size: 14px;
 }
+
 .site_form .fieldWrapper input[type="text"],
 .site_form .fieldWrapper input[type="email"],
 .site_form .fieldWrapper input[type="password"]
@@ -1359,6 +1360,10 @@ label.popupBoxLoginFormZap {
     border: 1px solid #CA0B4A;
     margin: 10px 0 0 220px;
     cursor: pointer;
+}
+.site_form .fieldWrapper .errorlist {
+    display: block;
+    margin-top: 2px;
 }
 .registration_form {
     margin: 20px 30px;
