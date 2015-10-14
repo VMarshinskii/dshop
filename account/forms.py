@@ -4,8 +4,8 @@ from models import User, Fun
 
 
 class RegistrationForm(forms.ModelForm):
-    password = forms.CharField(max_length=100, widget=forms.PasswordInput(), label="Пароль")
-    password_repetition = forms.CharField(max_length=100, widget=forms.PasswordInput(), label="Ещё раз")
+    password = forms.CharField(max_length=100, widget=forms.PasswordInput(), verbose_name="Пароль")
+    password_repetition = forms.CharField(max_length=100, widget=forms.PasswordInput(), verbose_name="Ещё раз")
 
     class Meta:
         model = User

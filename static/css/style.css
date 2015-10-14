@@ -1339,6 +1339,7 @@ label.popupBoxLoginFormZap {
     margin: 0 0 2px 0;
 }
 .site_form .fieldWrapper input[type="text"],
+.site_form .fieldWrapper input[type="email"],
 .site_form .fieldWrapper input[type="password"]
 {
     padding: 6px;
