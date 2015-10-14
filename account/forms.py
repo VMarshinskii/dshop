@@ -4,8 +4,8 @@ from models import User, Fun
 
 
 class RegistrationForm(forms.ModelForm):
-    password = forms.CharField("Пароль", widget=forms.PasswordInput())
-    password_repetition = forms.CharField("Ещё раз", widget=forms.PasswordInput())
+    password = forms.CharField(max_length=100, widget=forms.PasswordInput())
+    password_repetition = forms.CharField(max_length=100, widget=forms.PasswordInput())
 
     class Meta:
         model = User
@@ -30,6 +30,11 @@ class RegistrationForm(forms.ModelForm):
             except User.DoesNotExist:
                 pass
         return cleaned_data
+
+    def __init__(self, *args, **kwargs):
+        super(RegistrationForm, self).__init__(*args, **kwargs)
+        self.fields['password'].label = 'Пароль'
+        self.fields['password_repetition'].label = 'Ещё раз'
 
 
 class AddFunForm(forms.ModelForm):
