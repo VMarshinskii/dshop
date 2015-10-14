@@ -5,8 +5,8 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class RegistrationForm(forms.ModelForm):
-    password = forms.CharField(max_length=100, widget=forms.PasswordInput())
-    password_repetition = forms.CharField(max_length=100, widget=forms.PasswordInput())
+    password = forms.CharField(max_length=100, widget=forms.PasswordInput(), label=_('Пароль'.encode('utf-8')))
+    password_repetition = forms.CharField(max_length=100, widget=forms.PasswordInput(), label=_('Ещё раз'.encode('utf-8')))
 
     class Meta:
         model = User
@@ -31,11 +31,6 @@ class RegistrationForm(forms.ModelForm):
             except User.DoesNotExist:
                 pass
         return cleaned_data
-
-    def __init__(self, *args, **kwargs):
-        super(RegistrationForm, self).__init__(*args, **kwargs)
-        self.fields['password'].label = _('skdjfjsdakfasldflsd')
-        self.fields['password_repetition'].label = _('Ещё раз')
 
 
 class AddFunForm(forms.ModelForm):
