@@ -33,8 +33,8 @@ class RegistrationForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
-        self.fields['password'].label = 'Пароль'
-        self.fields['password_repetition'].label = 'Ещё раз'
+        self.fields['password'].verbose_name = 'Пароль'
+        self.fields['password_repetition'].verbose_name = 'Ещё раз'
 
 
 class AddFunForm(forms.ModelForm):
