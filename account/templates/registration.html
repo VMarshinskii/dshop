@@ -9,7 +9,7 @@
     <div class="OrderBox">
         <form action="/registration/" method="post">
             {% csrf_token %}
-            {{ form }}
+            {{ form.as_table }}
         </form>
 	</div>
 </div>
