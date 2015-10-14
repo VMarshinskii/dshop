@@ -9,7 +9,12 @@
     <div class="OrderBox">
         <form action="/registration/" method="post">
             {% csrf_token %}
-            {{ form.as_table }}
+            {% for field in form %}
+                <div class="fieldWrapper">
+                    {{ field.errors }}
+                    {{ field.label_tag }} {{ field }}
+                </div>
+            {% endfor %}
         </form>
 	</div>
 </div>
