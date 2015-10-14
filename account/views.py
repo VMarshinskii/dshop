@@ -55,6 +55,7 @@ def registration_view(request):
                 'email_provider_title': email_provider[0],
                 'email_provider_url': email_provider[1]
             })
+        args['form'] = form
 
     return render_to_response("registration.html", args)
 
