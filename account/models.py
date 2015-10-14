@@ -9,6 +9,7 @@ from dshop.additions import random_str
 AbstractUser._meta.get_field('email')._unique = True
 AbstractUser._meta.get_field('email').blank = False
 AbstractUser._meta.get_field('email').default = ""
+AbstractUser._meta.get_field('email').verbose_name = "E-mail"
 AbstractUser._meta.get_field('first_name').blank = False
 AbstractUser._meta.get_field('first_name').default = ""
 AbstractUser._meta.get_field('last_name').blank = False
