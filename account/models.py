@@ -4,6 +4,8 @@ from django.db import models
 # from catalog.models import Video
 
 # Модифицируем поле email.
+from dshop.additions import random_str
+
 AbstractUser._meta.get_field('email')._unique = True
 AbstractUser._meta.get_field('email').blank = False
 AbstractUser._meta.get_field('email').default = ""
@@ -38,3 +40,13 @@ class Fun(models.Model):
 
     def __unicode__(self):
         return self.first_name + u" : " + self.email
+
+
+class EmailConfirmation(models.Model):
+    user = models.ForeignKey(User, verbose_name="user")
+    hash = models.CharField(verbose_name="Хеш", max_length=200, default='')
+
+    def save(self, *args, **kwargs):
+        if not self.hash:
+            self.hash = random_str(20)
+        super(EmailConfirmation, self).save(*args, **kwargs)

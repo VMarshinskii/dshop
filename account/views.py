@@ -1,11 +1,12 @@
 # _*_ coding: utf-8 _*_
-from django.shortcuts import render_to_response, HttpResponse
+from django.shortcuts import render_to_response, HttpResponse, redirect
 from django.core.context_processors import csrf
 from django.contrib import auth
-from models import User
+from django.template.loader import get_template
+from django.template import Context
+from models import User, EmailConfirmation
 from forms import RegistrationForm, AddFunForm
-from dshop.additions import random_str, translit
-from additions import registration_valid
+from additions import get_email_provider
 
 
 def login(request):
@@ -26,28 +27,39 @@ def login(request):
     return render_to_response("ajax_login.html", args)
 
 
-def registration(request):
+def registration_view(request):
     args = {'form': RegistrationForm()}
     args.update(csrf(request))
     if request.POST:
         form = RegistrationForm(request.POST)
-        password = request.POST['password']
-        errors = registration_valid(request)
-        if len(errors) == 0:
-            new_user = User()
-            new_user.first_name = request.POST['first_name']
-            new_user.email = request.POST['email']
-            new_user.username = translit(new_user.first_name) + "_" + random_str(6)
+        if form.is_valid():
+            new_user = form.save(commit=False)
+            password = request.POST.get('password')
             new_user.set_password(password)
+            new_user.is_active = False
             new_user.save()
-            user = auth.authenticate(username=new_user.username, password=password)
-            if user is not None and user.is_active:
-                auth.login(request, user)
-            return render_to_response("registration_ready.html")
-        else:
-            args['form'] = form
-            args.update(errors)
+
+            email_confirmation = EmailConfirmation(user=new_user)
+            email_confirmation.save()
+
+            t = get_template('email_confirmation.html')
+            html = t.render(Context({
+                'user': new_user,
+                'password': password,
+                'email_confirmation': email_confirmation
+            }))
+            new_user.email_user("Подтверждение email", html)
+
+            email_provider = get_email_provider(new_user.email.split("@")[1])
+            return render_to_response('registration_thank', {
+                'email_provider_title': email_provider[0],
+                'email_provider_url': email_provider[1]
+            })
+
     return render_to_response("registration.html", args)
+
+
+
 
 
 def account_view(request):
