@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls')),
     url(r'^login/', 'account.views.login'),
     url(r'^registration/', 'account.views.registration_view'),
+    url(r'^email_confirmation/', 'account.views.email_confirmation_view'),
     url(r'^redactor/', include('redactor.urls')),
     url(r'', include('pages.urls')),
 ]

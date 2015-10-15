@@ -46,7 +46,7 @@ def registration_view(request):
             email_confirmation = EmailConfirmation(user=new_user)
             email_confirmation.save()
 
-            t = get_template('email_confirmation.html')
+            t = get_template('send_email_confirmation.html')
             html = t.render(Context({
                 'user': new_user,
                 'password': password,
