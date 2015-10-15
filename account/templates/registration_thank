@@ -6,10 +6,14 @@
     <div class="ContentBoxHead">
         <h1>Регистрация</h1>
     </div>
-    <div class="OrderBox">
+    <div class="ContentBoxPage">
         <p>Спасибо за регистрацию!</p>
         <p>На Ваш e-mail отправлено письмо со специальной ссылкой.</p>
-        <p>Для подтверждения регистрации Вы должны пройти по ссылке из письма. <a href="{{ email_provider_url}}">{{ email_provider_title }}</a></p>
+        <p>Для подтверждения регистрации Вы должны пройти по ссылке из письма.
+            {% if email_provider_url %}
+                <a href="{{ email_provider_url}}" target="_blank">{{ email_provider_title }}</a>
+            {% endif %}
+        </p>
         <p>Если письмо не пришло, зайдите на форму восстановления пароля и попробуйте ещё раз.</p>
 	</div>
 </div>

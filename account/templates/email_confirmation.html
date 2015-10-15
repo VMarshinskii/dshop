@@ -1,6 +1,14 @@
-Вы зарегистрированы на сайте: darya-shop.ru
-Логин: {{ user.email }}
-Пароль: {{ password }}
+{% extends "main.html" %}
+{% load staticfiles %}
 
-Для подтверждения регистрации пройдите, пожалуйста, по ссылке:
-http://darya-shop.ru/email_confirmation/?i={{ email_confirmation.id }}&hash={{ email_confirmation.hash }}
+{% block content %}
+<div class="ContentBox">
+    <div class="ContentBoxHead">
+        <h1>Подтверждение регистрации</h1>
+    </div>
+    <div class="ContentBoxPage">
+        <p>Ваш аккаунт успешно активирован. Вы авторизованы!</p>
+        <a href="/">Перейти на главную страницу</a>
+	</div>
+</div>
+{% endblock %}

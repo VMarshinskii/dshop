@@ -1,4 +1,5 @@
 # _*_ coding: utf-8 _*_
+from django.http import Http404
 from django.shortcuts import render_to_response, HttpResponse, redirect
 from django.core.context_processors import csrf
 from django.contrib import auth
@@ -53,17 +54,31 @@ def registration_view(request):
             }))
             new_user.email_user(u"Подтверждение email", html)
 
+            args = {}
             email_provider = get_email_provider(new_user.email.split("@")[1])
-            return render_to_response('registration_thank', {
-                'email_provider_title': _(email_provider[0]),
-                'email_provider_url': _(email_provider[1])
-            })
+            if email_provider:
+                args = {
+                    'email_provider_title': _(email_provider[0]),
+                    'email_provider_url': _(email_provider[1])
+                }
+            return render_to_response('registration_thank', args)
         args['form'] = form
 
     return render_to_response("registration.html", args)
 
 
-
+def email_confirmation_view(request):
+    confirmation_hash = request.GET.get('hash', '')
+    confirmation_id = request.GET.get('i', '-1')
+    try:
+        email_confirmation = EmailConfirmation.objects.get(id=int(confirmation_id), hash=confirmation_hash)
+        email_confirmation.user.is_active = True
+        email_confirmation.user.save()
+        email_confirmation.delete()
+        auth.login(request, request.user)
+        return render_to_response("email_confirmation.html")
+    except EmailConfirmation.DoesNotExist:
+        raise Http404
 
 
 def account_view(request):
