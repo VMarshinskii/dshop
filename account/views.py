@@ -27,7 +27,7 @@ def login_view(request):
                     auth.login(request, user)
                     if next_page:
                         return redirect(next_page)
-                    return request('/')
+                    return redirect('/')
             except User.DoesNotExist:
                 args['form_error'] = "Пользователя с таким email не существует!"
         args['form'] = form
