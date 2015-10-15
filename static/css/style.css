@@ -1385,11 +1385,11 @@ label.popupBoxLoginFormZap {
 }
 .left_on_form h3 {
     text-align: center;
-    margin: 50px 0 10px 0;
+    margin: 20px 0 10px 0;
     font-size: 16px;
 }
-.left_on_form .my_bottom {
-    margin: 10px auto;
+.left_on_form a {
+    font-size: 14px;
 }
 
 .registration_form {
