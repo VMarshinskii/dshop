@@ -54,8 +54,8 @@ def registration_view(request):
 
             email_provider = get_email_provider(new_user.email.split("@")[1])
             return render_to_response('registration_thank', {
-                'email_provider_title': email_provider[0],
-                'email_provider_url': email_provider[1]
+                'email_provider_title': str(email_provider[0]),
+                'email_provider_url': str(email_provider[1])
             })
         args['form'] = form
 
