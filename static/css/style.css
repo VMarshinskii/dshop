@@ -1331,7 +1331,7 @@ label.popupBoxLoginFormZap {
 }
 
 .my_bottom {
-    display: block;
+    display: inline-block;
     padding: 7px 20px;
     background: #ed145b;
     border-radius: 2px;
@@ -1340,6 +1340,7 @@ label.popupBoxLoginFormZap {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     border: 1px solid #CA0B4A;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .site_form .fieldWrapper td {
@@ -1378,9 +1379,9 @@ label.popupBoxLoginFormZap {
 
 .left_on_form {
     width: 290px;
-    min-height: 10px;
     float: right;
     margin: 20px 10px 0 0;
+    text-align: center;
 }
 .left_on_form h3 {
     text-align: center;
@@ -1388,7 +1389,7 @@ label.popupBoxLoginFormZap {
     font-size: 16px;
 }
 .left_on_form .my_bottom {
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .registration_form {
