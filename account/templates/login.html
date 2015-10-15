@@ -1,23 +1,31 @@
-<div id="popup_head">
-    <a href="#">Войти</a>
-    <span>или</span>
-    <a href="#" class="popup_head_link registration_show">Зарегистрироваться</a>
+{% extends "main.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="ContentBox">
+    <div class="ContentBoxHead">
+        <h1>Вход</h1>
+    </div>
+    <div class="OrderBox">
+        <form action="/login/" class="site_form registration_form" method="post">
+            {% csrf_token %}
+            {% if form_error %}
+                <ul class="errorlist nonfield"><li>{{ form_error }}</li></ul>
+            {% endif %}
+            {{ form.non_field_errors }}
+            <table>
+            {% for field in form %}
+                <tr class="fieldWrapper">
+                    <td>{{ field.label_tag }}</td>
+                    <td>
+                        {{ field }}
+                        {{ field.errors }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
+            <input type="submit" value="Войти" />
+        </form>
+	</div>
 </div>
-<form class="login_form" action="/login/" method="get">
-    {% if form_error %}
-        <p class="error">{{ form_error }}</p>
-    {% endif %}
-    <div class="login_form_item" style="">
-        <label for="email" class="login_form_item_email">Ваш email *</label>
-        <input type="email" id="email" placeholder=""/>
-    </div>
-    <div class="login_form_item" style="">
-        <label for="password" class="login_form_item_password">Ваш пароль *</label>
-        <input type="password" id="password" placeholder=""/>
-    </div>
-
-    <a class="restore_access" href="#">Забыли пароль?</a>
-
-    <input type="button" class="button login yellow_button" value="Войти"/>
-    <div style="clear: both"></div>
-</form>
+{% endblock %}

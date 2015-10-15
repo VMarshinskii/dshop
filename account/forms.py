@@ -35,6 +35,24 @@ class RegistrationForm(forms.ModelForm):
         return cleaned_data
 
 
+class LoginForm(forms.ModelForm):
+    email = forms.CharField(max_length=100, label=_(u'Ваш email'))
+    password = forms.CharField(max_length=100, widget=forms.PasswordInput(), label=_(u'Пароль'))
+
+    def clean(self):
+        cleaned_data = super(LoginForm, self).clean()
+        email = cleaned_data.get('email')
+        password = cleaned_data.get('password')
+
+        if not email or not password:
+            self._errors["email"] = self.error_class(["Введите email"])
+            self._errors["password"] = self.error_class(["Введите пароль"])
+            raise forms.ValidationError("Заполните обязательные поля")
+
+        return cleaned_data
+
+
+
 class AddFunForm(forms.ModelForm):
     class Meta:
         model = Fun

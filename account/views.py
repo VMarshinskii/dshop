@@ -6,28 +6,37 @@ from django.contrib import auth
 from django.template.loader import get_template
 from django.template import Context
 from models import User, EmailConfirmation
-from forms import RegistrationForm, AddFunForm
+from forms import RegistrationForm, AddFunForm, LoginForm
 from additions import get_email_provider
 from dshop.additions import translit, random_str
 from django.utils.translation import ugettext_lazy as _
 
 
-def login(request):
-    args = {}
+def login_view(request):
+    args = {'form': LoginForm()}
     if request.GET:
-        email = request.GET['email']
-        password = request.GET['password']
-        try:
-            user = User.objects.get(email=email)
-            user = auth.authenticate(username=user.username, password=password)
-            if user is not None and user.is_active:
-                auth.login(request, user)
-                return HttpResponse("true")
-            else:
-                args['form_error'] = "Данные введены не верно!"
-        except User.DoesNotExist:
-            args['form_error'] = "Пользователя с таким email не существует!"
-    return render_to_response("ajax_login.html", args)
+        form = LoginForm(request.GET)
+        if form.is_valid():
+            email = request.GET['email']
+            password = request.GET['password']
+            next_page = request.GET.get('next', '')
+            try:
+                user = User.objects.get(email=email)
+                user = auth.authenticate(username=user.username, password=password)
+                if user is not None and user.is_active:
+                    auth.login(request, user)
+                    if next_page:
+                        return redirect(next_page)
+                    return request('/')
+            except User.DoesNotExist:
+                args['form_error'] = "Пользователя с таким email не существует!"
+        args['form'] = form
+    return render_to_response("login.html", args)
+
+
+def logout_view(request):
+    auth.logout(request)
+    return redirect("/")
 
 
 def registration_view(request):
