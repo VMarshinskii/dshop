@@ -8,6 +8,7 @@ from models import User, EmailConfirmation
 from forms import RegistrationForm, AddFunForm
 from additions import get_email_provider
 from dshop.additions import translit, random_str
+from django.utils.translation import ugettext_lazy as _
 
 
 def login(request):
@@ -54,8 +55,8 @@ def registration_view(request):
 
             email_provider = get_email_provider(new_user.email.split("@")[1])
             return render_to_response('registration_thank', {
-                'email_provider_title': str(email_provider[0]),
-                'email_provider_url': str(email_provider[1])
+                'email_provider_title': _(email_provider[0]),
+                'email_provider_url': _(email_provider[1])
             })
         args['form'] = form
 
