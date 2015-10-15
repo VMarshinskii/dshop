@@ -761,11 +761,10 @@ p.CartSumLabel {
     padding: 5px 10px 10px 10px;
     margin: 0 10px;
     float: left;
-    width: 660px;
+    /*width: 660px;*/
 }
 .OrderBoxAddressTypeItem {
-    width: 327px;
-    float: left;
+    margin: 12px 0;
 }
 .OrderBoxAddressTypeItem input {
     float: left;
@@ -1391,7 +1390,7 @@ label.popupBoxLoginFormZap {
 .left_on_form a {
     font-size: 14px;
 }
-.left_on_form .reg {
+.left_on_form.reg {
     margin-top: 70px;
 }
 
@@ -1516,7 +1515,7 @@ label.popupBoxLoginFormZap {
 
 
     .left_on_form,
-    .left_on_form .reg {
+    .left_on_form.reg {
         width: 375px;
         margin-top: 0;
     }
