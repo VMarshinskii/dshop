@@ -17,7 +17,7 @@ def login_view(request):
     if request.GET:
         form = LoginForm(request.GET)
         if form.is_valid():
-            email = request.GET['email']
+            email = request.GET['login']
             password = request.GET['password']
             next_page = request.GET.get('next', '')
             try:

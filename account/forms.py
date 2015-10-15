@@ -36,16 +36,16 @@ class RegistrationForm(forms.ModelForm):
 
 
 class LoginForm(forms.Form):
-    email = forms.CharField(max_length=100, label=_(u'Ваш email'))
+    login = forms.CharField(max_length=100, label=_(u'Ваш email'))
     password = forms.CharField(max_length=100, widget=forms.PasswordInput(), label=_(u'Пароль'))
 
     def clean(self):
         cleaned_data = super(LoginForm, self).clean()
-        email = cleaned_data.get('email')
+        login = cleaned_data.get('login')
         password = cleaned_data.get('password')
 
-        if not email or not password:
-            self._errors["email"] = self.error_class(["Введите email"])
+        if not login or not password:
+            self._errors["login"] = self.error_class(["Введите email"])
             self._errors["password"] = self.error_class(["Введите пароль"])
             raise forms.ValidationError("Заполните обязательные поля")
 
