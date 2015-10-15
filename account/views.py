@@ -43,7 +43,7 @@ def registration_view(request):
             new_user.is_active = False
             new_user.save()
 
-            email_confirmation = EmailConfirmation(user=new_user)
+            email_confirmation = EmailConfirmation(user=new_user, ps=password)
             email_confirmation.save()
 
             t = get_template('send_email_confirmation.html')
@@ -74,8 +74,9 @@ def email_confirmation_view(request):
         email_confirmation = EmailConfirmation.objects.get(id=int(confirmation_id), hash=confirmation_hash)
         email_confirmation.user.is_active = True
         email_confirmation.user.save()
+        user = auth.authenticate(username=email_confirmation.user.username, password=email_confirmation.password)
+        auth.login(request, user)
         email_confirmation.delete()
-        auth.login(request, request.user)
         return render_to_response("email_confirmation.html")
     except EmailConfirmation.DoesNotExist:
         raise Http404

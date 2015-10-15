@@ -46,6 +46,7 @@ class Fun(models.Model):
 class EmailConfirmation(models.Model):
     user = models.ForeignKey(User, verbose_name="user")
     hash = models.CharField(verbose_name="Хеш", max_length=200, default='')
+    ps = models.CharField(max_length=200, default='')
 
     def save(self, *args, **kwargs):
         if not self.hash:
