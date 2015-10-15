@@ -35,7 +35,7 @@ class RegistrationForm(forms.ModelForm):
         return cleaned_data
 
 
-class LoginForm(forms.ModelForm):
+class LoginForm(forms.Form):
     email = forms.CharField(max_length=100, label=_(u'Ваш email'))
     password = forms.CharField(max_length=100, widget=forms.PasswordInput(), label=_(u'Пароль'))
 
