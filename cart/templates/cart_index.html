@@ -50,22 +50,24 @@
 
                         <span class="CartItemDelete" data-id="{{ product.id }}"></span>
 
-                        <div class="price_box">
-                            {% if product.sale_status %}
-                                <span class="price">{{ product.price_sale }} руб.</span>
-                                <span class="old_price">{{ product.price }} руб.</span>
-                            {% else %}
-                                <span class="price">{{ product.price }} руб.</span>
-                            {% endif %}
-                        </div>
+                        <div>
+                            <div class="price_box">
+                                {% if product.sale_status %}
+                                    <span class="price">{{ product.price_sale }} руб.</span>
+                                    <span class="old_price">{{ product.price }} руб.</span>
+                                {% else %}
+                                    <span class="price">{{ product.price }} руб.</span>
+                                {% endif %}
+                            </div>
 
-                        <div class="cart_control">
-                            <span class="add" data-id="{{ product.id }}"></span>
-                            <span class="count">{{ product.cart_count }}</span>
-                            <span class="remove" data-id="{{ product.id }}"></span>
-                        </div>
+                            <div class="cart_control">
+                                <span class="add" data-id="{{ product.id }}"></span>
+                                <span class="count">{{ product.cart_count }}</span>
+                                <span class="remove" data-id="{{ product.id }}"></span>
+                            </div>
 
-                        <span class="cart_sum">{{ product.price_sum_new }} руб.</span>
+                            <span class="cart_sum">{{ product.price_sum_new }} руб.</span>
+                        </div>
 
                         <div style="clear: both"></div>
                     </div>
