@@ -6,40 +6,74 @@
     <div class="ContentBoxHead">
         <h1>Корзина</h1>
     </div>
-    <div class="ContentBoxPage" style="background: #eee">
+    <div class="ContentBoxPage" style="">
         {% if products|length > 0 %}
-        <div class="CartLabels">
-            <p class="CartTitleLabel">Наименование</p>
-            <p class="CartPriceLabel">Цена</p>
-            <p class="CartCountLabel">Кол-во</p>
-            <p class="CartSumLabel">Сумма</p>
-        </div>
+            {% for product in products %}
+{#                <div class="CartItem">#}
+{#                    <img class="CartItemImage" src="/static/uploads/{{ product.image }}">#}
+{#                    <a href="/catalog/product/{{ product.product.id }}/"><h3 style="text-decoration: underline">{{ product.name }}</h3></a>#}
+{#                    <p class="CartItemPriceLabel">Цена:</p>#}
+{##}
+{#                    {% if product.sale_status %}#}
+{#                        <p class="CartItemPrice">{{ product.price_sale }} р.</p>#}
+{#                    {% else %}#}
+{#                        <p class="CartItemPrice">{{ product.price }} р.</p>#}
+{#                    {% endif %}#}
+{##}
+{#                    <p class="CartItemCountLabel">Количество</p>#}
+{#                    <p class="CartItemCount">#}
+{#                        <img class="CartAdd" src="{% static "images/rounded54.png" %}">#}
+{#                        {{ product.cart_count }}#}
+{#                        <img class="CartDelete" data-id="{{ product.id }}" src="{% static "images/round56.png" %}">#}
+{#                    </p>#}
+{#                    <p class="CartItemSummLabel">Сумма</p>#}
+{#                    <p class="CartItemSumm">{{ product.price_sum_new }} р.</p>#}
+{#                    <img class="CartItemDelete" data-id="{{ product.id }}" src="{% static "images/cross97.png" %}" />#}
+{#                    <div style="clear:both"></div>#}
+{#                </div>#}
 
-        {% for product in products %}
-        <div class="CartItem">
-            <img class="CartItemImage" src="/static/uploads/{{ product.image }}">
-            <a href="/catalog/product/{{ product.product.id }}/"><h3 style="text-decoration: underline">{{ product.name }}</h3></a>
-            <p class="CartItemPriceLabel">Цена:</p>
+                <div class="cart_item">
+                    <div class="img_box">
+                        <img src="/static/uploads/{{ product.image }}" alt="{{ product.name }}"/>
+                    </div>
 
-            {% if product.sale_status %}
-                <p class="CartItemPrice">{{ product.price_sale }} р.</p>
-            {% else %}
-                <p class="CartItemPrice">{{ product.price }} р.</p>
-            {% endif %}
+                    <div class="inform">
+                        <a href="/catalog/product/{{ product.product.id }}/">
+                            <h3>{{ product.name }}</h3>
+                        </a>
+                        {% if product.cart_color or product.cart_size %}
+                        <p class="color_and_size">
+                            {% if product.cart_color %}Цвет {{ product.cart_color }}{% endif %}
+                            {% if product.cart_size %}размер {{ product.cart_size}}{% endif %}
+                        </p>
+                        {% endif %}
 
-            <p class="CartItemCountLabel">Количество</p>
-            <p class="CartItemCount"><img class="CartAdd" data-id="{{ product.id }}" src="{% static "images/rounded54.png" %}">{{ product.cart_count }}<img class="CartDelete" data-id="{{ product.id }}" src="{% static "images/round56.png" %}"></p>
-            <p class="CartItemSummLabel">Сумма</p>
-            <p class="CartItemSumm">{{ product.price_sum_new }} р.</p>
-            <img class="CartItemDelete" data-id="{{ product.id }}" src="{% static "images/cross97.png" %}" />
-            <div style="clear:both"></div>
-        </div>
-        {% endfor %}
+                        <span class="CartItemDelete" data-id="{{ product.id }}"></span>
 
-        <h4 class="CartSum">Сумма заказа: <span>{{ sum }} руб.</span></h4>
-        <a class="CartOrder" href="/orders/create/">Оформить заказ</a>
+                        <div class="price_box">
+                            {% if product.sale_status %}
+                                <span class="price">{{ product.price_sale }} руб.</span>
+                                <span class="old_price">{{ product.price }} руб.</span>
+                            {% else %}
+                                <span class="price">{{ product.price }} руб.</span>
+                            {% endif %}
+                        </div>
+
+                        <div class="cart_control">
+                            <span class="add" data-id="{{ product.id }}"></span>
+                            <span class="count">{{ product.cart_count }}</span>
+                            <span class="remove" data-id="{{ product.id }}"></span>
+                        </div>
+
+                        <span class="cart_sum">{{ product.price_sum_new }} руб.</span>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <h4 class="CartSum">Сумма заказа: <span>{{ sum }} руб.</span></h4>
+            <a class="CartOrder" href="/orders/create/">Оформить заказ</a>
         {% else %}
-        <p>Корзина пуста</p>
+            <p>Корзина пуста</p>
         {% endif %}
     </div>
 </div>
