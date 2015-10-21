@@ -654,7 +654,7 @@ body {
     height: 12px;
     float: right;
     background: url("/static/images/add64.png") center;
-    margin: 9px 7px;
+    margin: 9px 10px 0 4px;
     background-size: 100%;
 }
 .cart_item .inform .cart_control .remove {
@@ -662,16 +662,17 @@ body {
     height: 12px;
     float: left;
     background: url("/static/images/minus24.png") center;
-    margin: 9px 7px;
+    margin: 9px 4px 0 10px;
     background-size: 100%;
 }
 .cart_item .inform .cart_control .count {
     width: 34px;
     float: left;
-    background: #E084A2;
+    background: #E2758C;
     text-align: center;
-    line-height: 34px;
+    line-height: 29px;
     color: #fff;
+    margin: 0 5px;
 }
 
 .cart_item .inform .cart_sum {
