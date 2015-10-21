@@ -586,40 +586,60 @@ body {
   height: 100%;
 }
 
-
+.cart_item {
+    border-bottom: 1px solid #ddd;
+    padding: 5px 0;
+}
+.cart_item:first-child {
+    border-top: 1px solid #ddd;
+}
 .cart_item .img_box {
-        float: left;
-    width: 100px;
+    float: left;
+    width: 60px;
     overflow: hidden;
 }
 .cart_item .inform {
     margin-left: 10px;
     float: left;
-    width: 550px;
+    width: 590px;
 }
 .cart_item .inform a {
-    color: #ed145b;
+        color: #ed145b;
     float: left;
+    margin-bottom: 5px;
 }
 .cart_item .inform p.color_and_size {
     float: left;
-    margin-top: 10px;
+    margin: 0;
     clear: both;
+    font-size: 12px;
 }
 .cart_item .inform .CartItemDelete {
     background: #eee;
     float: right;
     width: 14px;
     height: 14px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 .cart_item .inform .price_box {
     float: left;
-    margin-top: 16px;
-    display: inline-block;
+    /* margin-top: 16px; */
+    height: 34px;
     clear: both;
+    /* background: #eee; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .cart_item .inform .price_box .price {
     color: #ed145b;
+}
+.cart_item .inform .price_box .old_price {
+    color: #7B7B7B;
+    font-size: 14px;
+    text-decoration: line-through;
 }
 .cart_item .inform .cart_control {
     width: 96px;
@@ -635,7 +655,7 @@ body {
 .cart_item .inform .bottom_cart_item {
     float: left;
     clear: both;
-    width: 550px;
+    width: 100%;
 }
 
 
