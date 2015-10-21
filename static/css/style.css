@@ -616,13 +616,16 @@ body {
     font-size: 12px;
 }
 .cart_item .inform .CartItemDelete {
-    background: #eee;
+    background: url("/static/images/cross92.png");
+    background-size: 100%;
+    opacity: 0.1;
     float: right;
     width: 14px;
     height: 14px;
     position: absolute;
     top: 0;
     right: 0;
+    cursor: pointer;
 }
 .cart_item .inform .price_box {
     float: left;
@@ -648,6 +651,7 @@ body {
     background: #ed145b;
     float: right;
     border-radius: 2px;
+    margin-top: 4px;
 }
 .cart_item .inform .cart_control .add {
     width: 12px;
@@ -656,6 +660,7 @@ body {
     background: url("/static/images/add64.png") center;
     margin: 9px 10px 0 4px;
     background-size: 100%;
+    cursor: pointer;
 }
 .cart_item .inform .cart_control .remove {
     width: 12px;
@@ -664,6 +669,7 @@ body {
     background: url("/static/images/minus24.png") center;
     margin: 9px 4px 0 10px;
     background-size: 100%;
+    cursor: pointer;
 }
 .cart_item .inform .cart_control .count {
     width: 34px;
@@ -677,7 +683,7 @@ body {
 
 .cart_item .inform .cart_sum {
     float: right;
-    margin: 5px 10px;
+    margin: 9px 10px 0 0;
 }
 .cart_item .inform .bottom_cart_item {
     float: left;
