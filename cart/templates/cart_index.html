@@ -41,11 +41,13 @@
                         <a href="/catalog/product/{{ product.product.id }}/">
                             <h3>{{ product.name }}</h3>
                         </a>
-                        {% if product.cart_color or product.cart_size %}
-                        <p class="color_and_size">
-                            {% if product.cart_color %}Цвет {{ product.cart_color }}{% endif %}
-                            {% if product.cart_size %}размер {{ product.cart_size}}{% endif %}
-                        </p>
+
+                        {% if product.cart_color%}
+                            <p class="color_and_size">Цвет: {{ product.cart_color }}</p>
+                        {% endif %}
+
+                        {% if product.cart_size %}
+                            <p class="color_and_size">Размер: {{ product.cart_size }}</p>
                         {% endif %}
 
                         <span class="CartItemDelete" data-id="{{ product.id }}"></span>
