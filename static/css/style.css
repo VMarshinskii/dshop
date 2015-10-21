@@ -628,6 +628,10 @@ body {
     float: right;
     border-radius: 2px;
 }
+.cart_item .inform .cart_sum {
+    float: right;
+    margin: 5px 10px;
+}
 
 
 .OrderBox {
