@@ -632,6 +632,11 @@ body {
     float: right;
     margin: 5px 10px;
 }
+.cart_item .inform .bottom_cart_item {
+    float: left;
+    clear: both;
+    width: 550px;
+}
 
 
 .OrderBox {
