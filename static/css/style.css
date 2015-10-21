@@ -1504,4 +1504,15 @@ label.popupBoxLoginFormZap {
         width: 375px;
         margin-top: 0;
     }
+
+    .cart_item .inform {
+        width: 305px;
+    }
+
+    .cart_item .inform {
+        width: 280px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
 }
