@@ -602,6 +602,7 @@ body {
     margin-left: 10px;
     float: left;
     width: 590px;
+    position: relative;
 }
 .cart_item .inform a {
         color: #ed145b;
@@ -648,6 +649,31 @@ body {
     float: right;
     border-radius: 2px;
 }
+.cart_item .inform .cart_control .add {
+    width: 12px;
+    height: 12px;
+    float: right;
+    background: url("/static/images/add64.png") center;
+    margin: 9px 7px;
+    background-size: 100%;
+}
+.cart_item .inform .cart_control .remove {
+    width: 12px;
+    height: 12px;
+    float: left;
+    background: url("/static/images/minus24.png") center;
+    margin: 9px 7px;
+    background-size: 100%;
+}
+.cart_item .inform .cart_control .remove {
+    width: 34px;
+    float: left;
+    background: #E084A2;
+    text-align: center;
+    line-height: 34px;
+    color: #fff;
+}
+
 .cart_item .inform .cart_sum {
     float: right;
     margin: 5px 10px;
