@@ -1509,7 +1509,7 @@ label.popupBoxLoginFormZap {
         width: 305px;
     }
 
-    .cart_item .inform {
+    .cart_item .inform h3 {
         width: 280px;
         text-overflow: ellipsis;
         white-space: nowrap;
