@@ -713,7 +713,20 @@ body {
     float: left;
 }
 .cart_login .registration_form {
-    margin: 10px 0;
+    margin: 11px 0;
+}
+.left_on_form p {
+    margin: 10px;
+    font: 13px/13pt sans-serif;
+}
+.cart_en_reg {
+    background: #eee;
+    padding: 5px 5px 7px 5px;
+    display: block;
+    width: 180px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    text-decoration: none;
 }
 
 
