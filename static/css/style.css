@@ -700,6 +700,23 @@ body {
 }
 
 
+.title_h2 {
+    float: left;
+    clear: both;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.cart_login {
+    float: left;
+}
+.cart_login .registration_form {
+    margin: 10px 0;
+}
+
+
 .OrderBox {
     padding-top: 1px;
 }
@@ -1055,25 +1072,25 @@ label.popupBoxLoginFormZap {
 }
 
 
-.ContentBoxPage table {
-    font: 14px/14pt sans-serif;
-    width: 100%;
-}
-.ContentBoxPage table p {
-    font: 14px/14pt sans-serif;
-}
-.ContentBoxPage table td {
-    border: 1px solid #E0E0E0;
-    padding: 6px;
-    vertical-align: middle;
-}
-.ContentBoxPage table td a {
-    line-height: 34px;
-}
-.ContentBoxPage table td ul {
-    list-style: inherit;
-    margin-left: 16px;
-}
+/*.ContentBoxPage table {*/
+    /*font: 14px/14pt sans-serif;*/
+    /*width: 100%;*/
+/*}*/
+/*.ContentBoxPage table p {*/
+    /*font: 14px/14pt sans-serif;*/
+/*}*/
+/*.ContentBoxPage table td {*/
+    /*border: 1px solid #E0E0E0;*/
+    /*padding: 6px;*/
+    /*vertical-align: middle;*/
+/*}*/
+/*.ContentBoxPage table td a {*/
+    /*line-height: 34px;*/
+/*}*/
+/*.ContentBoxPage table td ul {*/
+    /*list-style: inherit;*/
+    /*margin-left: 16px;*/
+/*}*/
 
 .CatalogProductBoxCont {
     float: right;
