@@ -690,6 +690,14 @@ body {
     clear: both;
     width: 100%;
 }
+.CartOrder {
+    float: right;
+    margin: 10px 0 10px 10px;
+}
+.CartSum {
+    float: right;
+    margin-top: 15px;
+}
 
 
 .OrderBox {
