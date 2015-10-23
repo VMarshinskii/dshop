@@ -31,6 +31,7 @@ def login_view(request):
             except User.DoesNotExist:
                 args['form_error'] = "Пользователя с таким email не существует!"
         args['form'] = form
+        args['next_page'] = request.GET.get('next', '')
     return render_to_response("login.html", args)
 
 

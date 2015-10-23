@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response, HttpResponse
+from account.forms import LoginForm
 from catalog.models import Product
 from cart.models import CartProduct
 from forms import CartProductForm
@@ -20,6 +21,7 @@ def cart_index_view(request):
         'user': request.user,
         'products': product_carts,
         'sum': get_sum(request),
+        'form': LoginForm()
     })
 
 

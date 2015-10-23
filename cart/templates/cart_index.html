@@ -79,8 +79,45 @@
                 </div>
             {% endfor %}
 
-            <h4 class="CartSum">Сумма заказа: <span>{{ sum }} руб.</span></h4>
-            <a class="CartOrder" href="/orders/create/">Оформить заказ</a>
+            {% if user.is_authenticated %}
+                <a class="CartOrder" href="/orders/create/">Оформить заказ</a>
+                <h4 class="CartSum">Сумма заказа: <span>{{ sum }} руб.</span></h4>
+            {% else %}
+                <h4 class="CartSum">Сумма заказа: <span>{{ sum }} руб.</span></h4>
+
+                <h2>Оформить заказ</h2>
+
+                <div class="cart_login">
+                    <form action="/login/" class="site_form registration_form" method="get">
+                        {% if form_error %}
+                            <ul class="errorlist nonfield"><li>{{ form_error }}</li></ul>
+                        {% endif %}
+                        {{ form.non_field_errors }}
+                        <table>
+                        {% for field in form %}
+                            <tr class="fieldWrapper">
+                                <td>{{ field.label_tag }}</td>
+                                <td>
+                                    {{ field }}
+                                    {{ field.errors }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </table>
+                        <input type="submit" value="Войти и офомить заказ" data-next="/orders/create/" class="my_bottom"/>
+                        <div style="clear:both;"></div>
+                    </form>
+                    <div class="left_on_form">
+                        <h3>Ещё не зарегистрированы на<br/> Darya-Shop?</h3>
+                        <a href="/registration/">Зарегистрироваться</a>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            {% endif %}
+
+
+
+
         {% else %}
             <p>Корзина пуста</p>
         {% endif %}
