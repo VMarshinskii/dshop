@@ -247,32 +247,6 @@ $(document).ready(function (){
         return false;
     });
 
-    $(".loginSubmit").live('click', function(){
-        var link = $(".login_order").attr("data-link");
-        $.post("/login/",
-            {
-                login: $("#id_login").val(),
-                password: $("#id_password").val(),
-                csrfmiddlewaretoken: $(".popupBox input[name='csrfmiddlewaretoken']").val()
-            },
-            function(data){
-                if(data == "true")
-                {
-                    if(link == undefined)
-                    {
-                        window.location.replace("http://85.143.216.11/user/orders/");
-                        window.location.href = "http://85.143.216.11/user/orders/";
-                    }
-                    else
-                    {
-                        window.location.replace(link);
-                        window.location.href = link;
-                    }
-                }
-        });
-        return false;
-    });
-
     $("#id_phone").mask("+7 (999) 999-9999");
 
     $("#id_type_delivery").live('click', function(){

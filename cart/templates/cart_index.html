@@ -89,7 +89,7 @@
                 <h2 class="title_h2">Оформить заказ</h2>
 
                 <div class="cart_login">
-                    <form action="/login/" class="site_form registration_form" method="get">
+                    <form action="/login/?next=/orders/create/" class="site_form registration_form" method="get">
                         {% if form_error %}
                             <ul class="errorlist nonfield"><li>{{ form_error }}</li></ul>
                         {% endif %}
@@ -105,7 +105,7 @@
                             </tr>
                         {% endfor %}
                         </table>
-                        <input type="submit" value="Войти и офомить заказ" data-next="/orders/create/" class="my_bottom"/>
+                        <input type="submit" value="Войти и офомить заказ" class="my_bottom"/>
                         <div style="clear:both;"></div>
                     </form>
                     <div class="left_on_form">
@@ -114,6 +114,7 @@
                     </div>
                     <div class="clear"></div>
                 </div>
+                <div class="clear"></div>
             {% endif %}
 
 
