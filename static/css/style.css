@@ -750,10 +750,6 @@ body {
     width: 300px;
     padding: 10px 20px;
 }
-.OrderBoxUserData {
-    border-right: 2px solid #eee;
-    margin-left: 10px;
-}
 .OrderBoxAddressData {
     margin-right: 10px;
 }

@@ -20,8 +20,8 @@ class Order(models.Model):
     last_name = models.CharField("Фамилия", max_length=200, default="")
     email = models.CharField("Email", max_length=200, default="")
     phone = models.CharField("Телефон", max_length=200, default="")
-    region = models.CharField("Область", max_length=200, default="")
-    city = models.CharField("Город", max_length=200, default="")
+    region = models.CharField("Область", max_length=200, default="", blank=True)
+    city = models.CharField("Город", max_length=200, default="", blank=True)
     index = models.CharField("Индекс", max_length=200, default="")
     address = models.TextField("Адрес", default="")
 

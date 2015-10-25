@@ -28,19 +28,19 @@
                 <h4>Контактная информация</h4>
 
                 {% if user_inform_error %}
-                    <span style="display:block; margin: 10px 0; color:#ff0000;">Заполните обязательные поля</span>
+                    <div style="display:block; margin: 10px 0; color:#ff0000;">{{ form.non_field_errors }}</div>
                 {% endif %}
 
-                <label>Имя <span style="color: #ff0000">{{ first_name_error }}</span></label>
+                <label>Имя <span style="color: #ff0000">{{  form.first_name.errors }}</span></label>
                 {{ form.first_name}}
 
-                <label>Фамилия <span style="color: #ff0000">{{ last_name_error }}</span></label>
+                <label>Фамилия <span style="color: #ff0000">{{ form.last_name.errors }}</span></label>
                 {{ form.last_name }}
 
-                <label>Электронная почта <span style="color: #ff0000">{{ email_error }}</span></label>
+                <label>E-mail <span style="color: #ff0000">{{ form.email.errors }}</span></label>
                 {{ form.email }}
 
-                <label>Телефон <span style="color: #ff0000">{{ phone_error }}</span></label>
+                <label>Телефон <span style="color: #ff0000">{{ form.phone.errors }}</span></label>
                 {{ form.phone }}
             </div>
 
@@ -51,16 +51,10 @@
                     <span style="display:block; margin: 10px 0; color:#ff0000;">Заполните обязательные поля</span>
                 {% endif %}
 
-                <label>Область <span style="color: #ff0000">{{ region_error }}</span></label>
-                {{ form.region }}
-
-                <label>Город <span style="color: #ff0000">{{ city_error }}</span></label>
-                {{ form.city }}
-
-                <label>Индекс <span style="color: #ff0000">{{ index_error }}</span></label>
+                <label>Индекс <span style="color: #ff0000">{{ form.index.errors }}</span></label>
                 {{ form.index }}
 
-                <label>Адрес <span style="color: #ff0000">{{ address_error }}</span></label>
+                <label>Адрес <span style="color: #ff0000">{{ form.address.errors }}</span></label>
                 {{ form.address }}
             </div>
 
