@@ -79,37 +79,6 @@
                 <div style="clear: both"></div>
             </div>
 
-            <div class="OrderBoxAddressType">
-
-                {% if register_error %}
-                    <span style="display:block; margin: 10px 0 0 25px; color:#ff0000;">Пользователь с таким email уже разегистрирован</span>
-                {% endif %}
-
-                {% if password_error %}
-                    <span style="display:block; margin: 10px 0 0 25px; color:#ff0000;">{{ password_error }}</span>
-                {% endif %}
-
-                {% if register_error or password_error %}
-                    <div class="OrderBoxAddressData OrderBoxPassword" style="margin-left: 15px; display: block">
-                {% else %}
-                    <div class="OrderBoxAddressData OrderBoxPassword" style="margin-left: 15px;">
-                {% endif %}
-                    <label>Пароль</label>
-                    <input type="password" name="password"/>
-                </div>
-
-                {% if register_error or password_error %}
-                    <div class="OrderBoxAddressData OrderBoxPassword" style="display: block">
-                {% else %}
-                    <div class="OrderBoxAddressData OrderBoxPassword">
-                {% endif %}
-                    <label>Ещё раз пароль</label>
-                    <input type="password" name="password2"/>
-                </div>
-
-                <div style="clear: both"></div>
-            </div>
-
             <div class="OrderBoxConfirmation">
                 <h4>Подьверждение заказа</h4>
 
