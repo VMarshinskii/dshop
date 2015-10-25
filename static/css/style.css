@@ -1086,25 +1086,25 @@ label.popupBoxLoginFormZap {
 }
 
 
-/*.ContentBoxPage table {*/
-    /*font: 14px/14pt sans-serif;*/
-    /*width: 100%;*/
-/*}*/
-/*.ContentBoxPage table p {*/
-    /*font: 14px/14pt sans-serif;*/
-/*}*/
-/*.ContentBoxPage table td {*/
-    /*border: 1px solid #E0E0E0;*/
-    /*padding: 6px;*/
-    /*vertical-align: middle;*/
-/*}*/
-/*.ContentBoxPage table td a {*/
-    /*line-height: 34px;*/
-/*}*/
-/*.ContentBoxPage table td ul {*/
-    /*list-style: inherit;*/
-    /*margin-left: 16px;*/
-/*}*/
+.content_table {
+    font: 14px/14pt sans-serif;
+    width: 100%;
+}
+.content_table p {
+    font: 14px/14pt sans-serif;
+}
+.content_table td {
+    border: 1px solid #E0E0E0;
+    padding: 6px;
+    vertical-align: middle;
+}
+.content_table td a {
+    line-height: 34px;
+}
+.content_table td ul {
+    list-style: inherit;
+    margin-left: 16px;
+}
 
 .CatalogProductBoxCont {
     float: right;

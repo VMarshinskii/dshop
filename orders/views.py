@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
+from django.core.mail import send_mail, EmailMultiAlternatives
 from django.shortcuts import render_to_response, HttpResponse, redirect, Http404
 from django.core.context_processors import csrf
 from django.contrib import auth
+from django.template import Context
+from django.template.loader import get_template
 from forms import OrderForm
 from dshop.additions import translit, random_str
 from models import DeliveryType, Order, OrderPhone
@@ -66,6 +69,17 @@ def create_order(request):
                 request.user.address = request.POST.get('address', "")
                 request.user.index = request.POST.get('index', "")
                 request.user.save()
+
+            email = request.POST.get('email', "")
+            t = get_template('create_order_sender.html')
+            html_content = t.render(Context({
+                'user_active': request.user.is_authenticated(),
+                'order': order,
+            }))
+
+            msg = EmailMultiAlternatives("Заказ на Darya-Shop", html_content, "daryashop112@gmail.com", [email])
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
 
             return redirect("/orders/thanks/")
 

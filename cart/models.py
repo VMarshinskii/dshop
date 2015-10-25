@@ -13,7 +13,7 @@ class CartProduct(models.Model):
 
     name = models.CharField("Название", max_length=200, blank=True)
     price = models.IntegerField("Цена", blank=True)
-    price_sale = models.IntegerField("Цена сос кидкой", blank=True)
+    price_sale = models.IntegerField("Цена со скидкой", blank=True)
     sale_status = models.BooleanField("Сделать скиду", blank=True)
     image = models.CharField("Изображение", max_length=200, blank=True)
 

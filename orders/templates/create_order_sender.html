@@ -1,0 +1,30 @@
+<h2>Спасибо за заказ на <a href="http://darya-shop.ru">darya-shop.ru</a></h2>
+<h2>Номер заказа {{ order.id }}</h2>
+
+<p>Покупатель {{ order.first_name }} {{ order.last_name }}</p>
+<p>Email {{ order.email }}</p>
+
+<p>Заказанные товары</p>
+<ul>
+    {% for product in order.products %}
+
+        <li>
+            {{ product.name }}
+            (размер: {{ product.cart_count }}, цвет: {{ product.cart_color }})
+            {% if product.sale_status %}
+                <span style="text-decoration: line-through">{{ product.price }} руб.</span>
+                <span>{{ product.price_sale }} руб.</span>
+            {% endif %}
+        </li>
+
+    {% endfor %}
+</ul>
+<br/>
+<p>Доставка {{ order.delivery }}</p>
+<p>Стоимость доставки {{ order.delivery_price }}</p>
+
+
+<h2>Итого: {{ order.sum }}</h2>
+{% if user_active %}
+<a href="http://darya-shop.ru/orders/view/{{ order.id }}/">Посмотреть информацию о заказе в личном кабинете</a>
+{% endif %} 
