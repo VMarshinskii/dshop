@@ -75,6 +75,7 @@ def create_order(request):
             html_content = t.render(Context({
                 'user_active': request.user.is_authenticated(),
                 'order': order,
+                'products': order.products.all(),
             }))
 
             msg = EmailMultiAlternatives("Заказ на Darya-Shop", html_content, "daryashop112@gmail.com", [email])
