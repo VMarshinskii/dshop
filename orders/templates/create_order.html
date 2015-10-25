@@ -22,10 +22,6 @@
                         Пожалуйста, подтвердите или обновите вашу контактную информацию. Изменения будут автоматически сохранены в вашем профиле.
                     </p>
                 </div>
-            {% else %}
-                <div class="UserInformationRed">У меня уже есть акаунт в интернет-магазине Darya-Shop -
-                    <a class="login_order" data-link="http://85.143.216.11/cart/order/" href="#">войти</a>
-                </div>
             {% endif %}
 
             <div class="OrderBoxUserData">
@@ -84,10 +80,6 @@
             </div>
 
             <div class="OrderBoxAddressType">
-                <div class="reg_client">
-                    <input type="checkbox" name="register" id="id_register"/>
-                    <label for="id_register">Зарегистрироваться как постоянный покупатель</label>
-                </div>
 
                 {% if register_error %}
                     <span style="display:block; margin: 10px 0 0 25px; color:#ff0000;">Пользователь с таким email уже разегистрирован</span>

@@ -747,10 +747,8 @@ body {
 }
 .OrderBoxUserData, .OrderBoxAddressData {
     float: left;
-    width: 259px;
-    height: 350px;
-    border-bottom: 2px solid #eee;
-    padding: 10px 40px;
+    width: 300px;
+    padding: 10px 20px;
 }
 .OrderBoxUserData {
     border-right: 2px solid #eee;
@@ -766,21 +764,28 @@ body {
 }
 
 .OrderBoxUserData label,.OrderBoxAddressData label {
-    display: block;
-    margin: 13px 0 5px 0;
+    display: inline-block;
+    float: left;
+    margin: 7px 5px 5px 5px;
+    clear: both;
+    width: 91px;
 }
 .OrderBoxUserData input,.OrderBoxAddressData input, .OrderBoxUserData textarea,.OrderBoxAddressData textarea {
-    padding: 8px;
-    width: 225px;
+    padding: 6px;
+    width: 180px;
     background: #fff;
     border: 1px solid #D7D7D7;
     border-radius: 2px;
+    float: left;
+    display: block;
+    margin: 3px 0;
 }
 .OrderBoxAddressData textarea {
     height: 60px;
 }
 .OrderBoxAddressType {
-    border-bottom: 2px solid #eee;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
     padding: 5px 10px 10px 10px;
     margin: 0 10px;
     float: left;
@@ -1552,5 +1557,17 @@ label.popupBoxLoginFormZap {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+    }
+
+    .OrderBoxUserData, .OrderBoxAddressData {
+        width: 360px;
+    }
+    .OrderBoxUserData label, .OrderBoxAddressData label {
+        margin: 7px 5px 5px 15px;
+        width: 120px;
+    }
+    .OrderBoxAddressTypeItem h5 {
+        font-size: 14px;
+        padding-top: 2px;
     }
 }
