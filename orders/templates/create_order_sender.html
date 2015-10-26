@@ -39,4 +39,10 @@
 <h2>Итого: {{ order.sum }}</h2>
 {% if user_active %}
 <a href="http://darya-shop.ru/orders/view/{{ order.id }}/">Посмотреть информацию о заказе в личном кабинете</a>
-{% endif %} 
+{% endif %}
+<style>
+    table td {
+        border: 1px solid #eee;
+        padding: 3px;
+    }
+</style>
