@@ -15,7 +15,10 @@ from account.models import User
 
 STATUSES = [
     "В обработке",
+    "Принят",
     "Ждёт оплаты",
+    "Доставлен",
+    "Отменён"
 ]
 
 
