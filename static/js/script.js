@@ -14,23 +14,6 @@ function randWDn(n){
 
 $(document).ready(function(){
 
-    $(".second_nav").hide();
-
-    $(document).on('click', '.arrow_show', function(){
-        var a = $(this).parents('a');
-        $(this).css({
-            '-webkit-transform': 'rotate(90deg)',
-            '-moz-transform': 'rotate(90deg)',
-            '-ms-transform': 'rotate(90deg)',
-            '-o-transform': 'rotate(90deg)',
-            'transform': 'rotate(90deg)'
-        });
-        var second_nav = a.siblings(".second_nav");
-        second_nav.slideUp(200);
-
-        return false;
-    });
-
     $("#top_count_cart").load("/cart/get_count_cart/");
 
 
