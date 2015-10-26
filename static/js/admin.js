@@ -232,7 +232,9 @@ $(document).ready(function(){
             mass.push(val);
         });
 
-        $(".field-products .controls").load("/admin/get_products_list/?mass_id=," + mass.join(","));
+        $("#id_products").hide();
+        $("#id_products").append('<div id="products_load"></div>');
+        $("#products_load").load("/admin/get_products_list/?mass_id=," + mass.join(","));
     }
 
 
