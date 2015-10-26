@@ -16,9 +16,15 @@
         <tr>
             <td style="border: 1px solid #eee; padding: 5px; border-collapse: collapse;">
                 {{ product.name }}
-                <p>Размер: {{ product.cart_size }}</p>
-                <p>Цвет: {{ product.cart_color }}</p>
-                <p>Модель: {{ product.cart_model }}</p>
+                {% if product.cart_size %}
+                    <span>Размер: {{ product.cart_size }}</span>
+                {% endif %}
+                {% if product.cart_color %}
+                    <span>Цвет: {{ product.cart_color }}</span>
+                {% endif %}
+                {% if product.cart_size %}
+                    <span>Модель: {{ product.cart_model }}</span>
+                {% endif %}
             </td>
             <td style="border: 1px solid #eee; padding: 5px; border-collapse: collapse;">
                 {% if product.sale_status %}
