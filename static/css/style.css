@@ -227,7 +227,8 @@ body {
 #left-block .first_li {
     float: left;
 }
-#left-block .arrow_show {
+#left-block .arrow_show,
+#left-block .arrow_hide  {
     display: inline-block;
     width: 14px;
     height: 14px;
@@ -235,6 +236,13 @@ body {
     margin: 3px 0 0 5px;
     background: url("/static/images/chevron18.png") center;
     background-size: 100%;
+}
+#left-block .arrow_hide {
+    -webkit-transform: rotate(180deg)
+    -moz-transform: rotate(180deg)
+    -ms-transform: rotate(180deg)
+    -o-transform: rotate(180deg)
+    transform: rotate(180deg)
 }
 #left-block .categories .cat-menu > ul > li > ul > li > a {
     background: #fff;
@@ -247,13 +255,6 @@ body {
     display: block;
     border: 1px solid #9c2251;
     border-top: none;
-}
-.arrow_hide {
-    -webkit-transform: rotate(180deg)
-    -moz-transform: rotate(180deg)
-    -ms-transform: rotate(180deg)
-    -o-transform: rotate(180deg)
-    transform: rotate(180deg)
 }
 
 #main-content {
