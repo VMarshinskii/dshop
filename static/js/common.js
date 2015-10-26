@@ -67,7 +67,7 @@ jQuery(window).load(function(){
     });
 });
 
-$(".CartAdd").live('click', function(){
+$(".cart_control .add").live('click', function(){
     var id = $(this).attr("data-id");
 
     $.get("/cart/change_count_product/",
@@ -82,7 +82,7 @@ $(".CartAdd").live('click', function(){
     );
 });
 
-$(".CartDelete").live('click', function(){
+$(".cart_control .remove").live('click', function(){
     var id = $(this).attr("data-id");
 
     $.get("/cart/change_count_product/",
@@ -247,7 +247,6 @@ $(document).ready(function (){
         return false;
     });
 
-    $("#id_phone").mask("+7 (999) 999-9999");
 
     $("#id_type_delivery").live('click', function(){
         var price = $(this).attr('data-price');

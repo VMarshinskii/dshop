@@ -1,36 +1,97 @@
-{% load static %}
 {% if products|length > 0 %}
-<div class="CartLabels">
-    <p class="CartTitleLabel">Наименование</p>
-    <p class="CartPriceLabel">Цена</p>
-    <p class="CartCountLabel">Кол-во</p>
-    <p class="CartSumLabel">Сумма</p>
-</div>
+    {% for product in products %}
 
-{% for product in products %}
-<div class="CartItem">
-    <img class="CartItemImage" src="/static/uploads/{{ product.image }}">
-    <h3>{{ product.name }}</h3>
-    <p class="CartItemPriceLabel">Цена:</p>
+        <div class="cart_item">
+            <div class="img_box">
+                <img src="/static/uploads/{{ product.image }}" alt="{{ product.name }}"/>
+            </div>
 
-    {% if product.sale_status %}
-        <p class="CartItemPrice">{{ product.price_sale }} р.</p>
+            <div class="inform">
+                <a href="/catalog/product/{{ product.product.id }}/">
+                    <h3>{{ product.name }}</h3>
+                </a>
+
+                {% if product.cart_color%}
+                    <p class="color_and_size">Цвет: {{ product.cart_color }}</p>
+                {% endif %}
+
+                {% if product.cart_size %}
+                    <p class="color_and_size">Размер: {{ product.cart_size }}</p>
+                {% endif %}
+
+                <span class="CartItemDelete" data-id="{{ product.id }}"></span>
+
+                <div class="bottom_cart_item">
+                    <div class="price_box">
+                        {% if product.sale_status %}
+                            <span class="price">{{ product.price_sale }} руб.</span>
+                            <span class="old_price">{{ product.price }} руб.</span>
+                        {% else %}
+                            <span class="price">{{ product.price }} руб.</span>
+                        {% endif %}
+                    </div>
+
+                    <div class="cart_control">
+                        <span class="remove" data-id="{{ product.id }}"></span>
+                        <span class="count">{{ product.cart_count }}</span>
+                        <span class="add" data-id="{{ product.id }}"></span>
+                    </div>
+
+                    <span class="cart_sum">{{ product.price_sum_new }} руб.</span>
+                    <div style="clear: both"></div>
+                </div>
+
+                <div style="clear: both"></div>
+            </div>
+
+            <div style="clear: both"></div>
+        </div>
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+        <a class="CartOrder my_bottom" href="/orders/create/">Оформить заказ</a>
+        <h4 class="CartSum">Сумма заказа: <span>{{ sum }} руб.</span></h4>
+        <div class="clear"></div>
     {% else %}
-        <p class="CartItemPrice">{{ product.price }} р.</p>
+        <h4 class="CartSum">Сумма заказа: <span>{{ sum }} руб.</span></h4>
+
+        <h2 class="title_h2">Оформить заказ</h2>
+
+        <div class="cart_login">
+            <form action="/login/?next=/orders/create/" class="site_form registration_form" method="get">
+                {% if form_error %}
+                    <ul class="errorlist nonfield"><li>{{ form_error }}</li></ul>
+                {% endif %}
+                {{ form.non_field_errors }}
+                <table>
+                {% for field in form %}
+                    <tr class="fieldWrapper">
+                        <td>{{ field.label_tag }}</td>
+                        <td>
+                            {{ field }}
+                            {{ field.errors }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </table>
+                <input type="submit" value="Войти и офомить заказ" class="my_bottom"/>
+                <div style="clear:both;"></div>
+            </form>
+            <div class="left_on_form" style="margin-top: 11px">
+                <p>Для получения персональных и сезонных скидок, а также уникальных предложений
+                    <a href="/registration/">зарегистрируйтесь в магазине</a>
+                </p>
+
+                <a href="/orders/create/" class="cart_en_reg">Купить без регистрации</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
     {% endif %}
 
-    <p class="CartItemCountLabel">Количество</p>
-    <p class="CartItemCount"><img class="CartAdd" data-id="{{ product.id }}" src="{% static "images/rounded54.png" %}">{{ product.cart_count }}<img class="CartDelete" data-id="{{ product.id }}" src="{% static "images/round56.png" %}"></p>
-    <p class="CartItemSummLabel">Сумма</p>
-    <p class="CartItemSumm">{{ product.price_sum_new }} р.</p>
-    <img class="CartItemDelete" data-id="{{ product.id }}" src="{% static "images/cross97.png" %}" />
-    <div style="clear:both"></div>
-</div>
-{% endfor %}
 
-<h4 class="CartSum">Сумма заказа: <span>{{ sum }} руб.</span></h4>
-<a class="CartOrder" href="/orders/create/">Оформить заказ</a>
+
 
 {% else %}
-<p>Корзина пуста</p>
+    <p>Корзина пуста</p>
 {% endif %}

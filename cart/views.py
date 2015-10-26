@@ -71,6 +71,7 @@ def count_product_ajax(request):
         'user': request.user,
         'products': product_carts,
         'sum': get_sum(request),
+        'form': LoginForm()
     })
 
 

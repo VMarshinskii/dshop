@@ -9,28 +9,6 @@
     <div class="ContentBoxPage" style="">
         {% if products|length > 0 %}
             {% for product in products %}
-{#                <div class="CartItem">#}
-{#                    <img class="CartItemImage" src="/static/uploads/{{ product.image }}">#}
-{#                    <a href="/catalog/product/{{ product.product.id }}/"><h3 style="text-decoration: underline">{{ product.name }}</h3></a>#}
-{#                    <p class="CartItemPriceLabel">Цена:</p>#}
-{##}
-{#                    {% if product.sale_status %}#}
-{#                        <p class="CartItemPrice">{{ product.price_sale }} р.</p>#}
-{#                    {% else %}#}
-{#                        <p class="CartItemPrice">{{ product.price }} р.</p>#}
-{#                    {% endif %}#}
-{##}
-{#                    <p class="CartItemCountLabel">Количество</p>#}
-{#                    <p class="CartItemCount">#}
-{#                        <img class="CartAdd" src="{% static "images/rounded54.png" %}">#}
-{#                        {{ product.cart_count }}#}
-{#                        <img class="CartDelete" data-id="{{ product.id }}" src="{% static "images/round56.png" %}">#}
-{#                    </p>#}
-{#                    <p class="CartItemSummLabel">Сумма</p>#}
-{#                    <p class="CartItemSumm">{{ product.price_sum_new }} р.</p>#}
-{#                    <img class="CartItemDelete" data-id="{{ product.id }}" src="{% static "images/cross97.png" %}" />#}
-{#                    <div style="clear:both"></div>#}
-{#                </div>#}
 
                 <div class="cart_item">
                     <div class="img_box">
