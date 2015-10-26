@@ -224,7 +224,7 @@ body {
 #left-block .categories .cat-menu ul li a:hover {
     text-decoration: underline;
 }
-#left-block .categories .cat-menu ul li a::before {
+#left-block .arrow_show {
     position: absolute;
     content: '';
     width: 14px;
