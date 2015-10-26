@@ -6,7 +6,10 @@
             {% for parent,childrens in mass_categ.items %}
             <li>
                 {% if childrens %}
-                <a href="/catalog/{{ parent.url }}/">{{ parent.title }}:</a>
+                <a href="/catalog/{{ parent.url }}/">
+                    <span>{{ parent.title }}</span>
+                    <span class="arrow_show"></span>
+                </a>
                 {% else %}
                 <a href="/catalog/{{ parent.url }}/">{{ parent.title }}</a>
                 {% endif %}
