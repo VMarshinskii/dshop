@@ -248,6 +248,13 @@ body {
     border: 1px solid #9c2251;
     border-top: none;
 }
+.arrow_hide {
+    -webkit-transform: rotate(180deg)
+    -moz-transform: rotate(180deg)
+    -ms-transform: rotate(180deg)
+    -o-transform: rotate(180deg)
+    transform: rotate(180deg)
+}
 
 #main-content {
     position: relative;

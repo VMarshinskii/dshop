@@ -54,16 +54,17 @@ $(document).ready(function (){
 
     $(document).on('click', '.arrow_show', function(){
         var a = $(this).parents('a');
-        $(this).css({
-            '-webkit-transform': 'rotate(90deg)',
-            '-moz-transform': 'rotate(90deg)',
-            '-ms-transform': 'rotate(90deg)',
-            '-o-transform': 'rotate(90deg)',
-            'transform': 'rotate(90deg)'
-        });
+        $(this).attr('class', 'arrow_hide');
+        var second_nav = a.siblings(".second_nav");
+        second_nav.slideDown(200);
+        return false;
+    });
+
+    $(document).on('click', '.arrow_hide', function(){
+        var a = $(this).parents('a');
+        $(this).attr('class', 'arrow_show');
         var second_nav = a.siblings(".second_nav");
         second_nav.slideUp(200);
-
         return false;
     });
 
