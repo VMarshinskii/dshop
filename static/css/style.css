@@ -210,9 +210,8 @@ body {
 }
 #left-block .categories .cat-menu > ul > li > a {
     background: #fff;
-    padding: 9px;
     height: 23px;
-    padding-left: 20px;
+    padding: 9px 9px 9px 20px;
     font-size: 18px;
     font-weight: 600;
     color: #9c2251;
@@ -220,9 +219,20 @@ body {
     display: block;
     border: 1px solid #9c2251;
     border-top: none;
+    position: relative;
 }
 #left-block .categories .cat-menu ul li a:hover {
     text-decoration: underline;
+}
+#left-block .categories .cat-menu ul li a::before {
+    position: absolute;
+    content: '';
+    width: 14px;
+    height: 14px;
+    right: -14px;
+    top: 0;
+    background: url("/static/images/chevron18.png") center;
+    background-size: 100%;
 }
 #left-block .categories .cat-menu > ul > li > ul > li > a {
     background: #fff;
