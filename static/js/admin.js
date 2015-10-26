@@ -233,7 +233,7 @@ $(document).ready(function(){
         });
 
         $("#id_products").hide();
-        $("#id_products").append('<div id="products_load"></div>');
+        $("#id_products").after('<div id="products_load"></div>');
         $("#products_load").load("/admin/get_products_list/?mass_id=," + mass.join(","));
     }
 
