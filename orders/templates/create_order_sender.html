@@ -14,6 +14,8 @@
             {% if product.sale_status %}
                 <span style="text-decoration: line-through">{{ product.price }} руб.</span>
                 <span>{{ product.price_sale }} руб.</span>
+            {% else %}
+                <span>{{ product.price }} руб.</span>
             {% endif %}
         </li>
 
