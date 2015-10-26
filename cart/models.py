@@ -20,6 +20,7 @@ class CartProduct(models.Model):
     cart_count = models.IntegerField("Количество", blank=True)
     cart_size = models.CharField("Размер", max_length=200, blank=True)
     cart_color = models.CharField("Цвет", max_length=200, blank=True)
+    cart_model = models.CharField("Модель", max_length=200, blank=True)
     cart_price = models.IntegerField("Цена при заказе", default=0)
 
     def create(self, product):

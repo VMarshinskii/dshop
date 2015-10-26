@@ -145,7 +145,8 @@ $(document).ready(function (){
                 product_id: id,
                 cart_size: '',
                 cart_count: 1,
-                cart_color: ''
+                cart_color: '',
+                cart_model: ''
             },
             function(data){
                 $(".popupBox").html(data);
@@ -169,7 +170,8 @@ $(document).ready(function (){
                 product_id: id,
                 cart_size: $(".sizes_list_active").attr('data-size'),
                 cart_count: 1,
-                cart_color: $(".product_colors").val()
+                cart_color: $(".product_colors").val(),
+                cart_model: $(".product_models").val()
             },
             function(data){
                 $(".popupBox").html(data);

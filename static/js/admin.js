@@ -34,6 +34,13 @@ $(document).ready(function(){
         });
     }
 
+    if($("select").is("#id_model"))
+    {
+        $('#id_model').selectize({
+            delimiter: ','
+        });
+    }
+
     if($("select").is("#id_parent"))
     {
         var val = $("#id_parent").val();

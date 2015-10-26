@@ -19,6 +19,10 @@
                     <p class="color_and_size">Размер: {{ product.cart_size }}</p>
                 {% endif %}
 
+                {% if product.cart_model %}
+                    <p class="color_and_size">Модель: {{ product.cart_model}}</p>
+                {% endif %}
+
                 <span class="CartItemDelete" data-id="{{ product.id }}"></span>
 
                 <div class="bottom_cart_item">

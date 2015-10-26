@@ -62,6 +62,18 @@
                     </td>
                 </tr>
                 {% endif %}
+                {% if models %}
+                <tr>
+                    <td><p>Модель: </p></td>
+                    <td>
+                         <select id="id_models" class="product_models">
+                             {% for model in models %}
+                             <option>{{ model.title }}</option>
+                             {% endfor %}
+                         </select>
+                    </td>
+                </tr>
+                {% endif %}
             </table>
 
             {% if product.brand %}

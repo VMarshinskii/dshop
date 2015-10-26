@@ -39,6 +39,7 @@ def product_view(request, id=-1):
             'sticker': sticker[int(product.status)],
             'sizes': sizes,
             'colors': product.color.all(),
+            'models': product.model.all(),
             'path': list(reversed(product.category.get_path_categ()))
         })
     else:

@@ -13,7 +13,7 @@
     <div class="ContentBoxPage">
         <h5 style="font-weight: bold">Доставка - {{ order.delivery}}</h5>
         <p>{{ order.user.name }} {{ order.user.surname }}</p>
-        <p>{{ order.index }}, {{ order.region }}, {{ order.city }}, {{ order.address }}</p>
+        <p>{{ order.index }}, {{ order.address }}</p>
 
         <table class="content_table">
             {% for product in products %}

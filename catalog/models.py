@@ -56,6 +56,17 @@ class Color(models.Model):
         return self.title
 
 
+class Model(models.Model):
+    title = models.CharField("Название", max_length=200)
+
+    class Meta:
+        verbose_name_plural = "Модели"
+        verbose_name = "Модель"
+
+    def __unicode__(self):
+        return self.title
+
+
 MARKET = (
     (0, '----'),
     (1, 'Хит'),
@@ -81,6 +92,7 @@ class Product(models.Model):
     brand = models.CharField(verbose_name="Производитель", max_length=250, blank=True)
     text = RedactorField(verbose_name="Описание", redactor_options={'upload_to': 'static/uploads'}, blank=True)
     color = models.ManyToManyField(Color, verbose_name="Цвет", max_length=200, blank=True)
+    model = models.ManyToManyField(Model, verbose_name="Модель", max_length=200, blank=True)
     size = models.CharField("Размер", max_length=200, blank=True)
     structure = models.CharField("Состав", max_length=200, blank=True)
     keywords = models.CharField("Ключевые слова", max_length=200)
