@@ -16,7 +16,9 @@
         <tr>
             <td style="border: 1px solid #eee; padding: 5px; border-collapse: collapse;">
                 {{ product.name }}
-                (размер: {{ product.cart_size }}, цвет: {{ product.cart_color }})
+                <p>Размер: {{ product.cart_size }}</p>
+                <p>Цвет: {{ product.cart_color }}</p>
+                <p>Модель: {{ product.cart_model }}</p>
             </td>
             <td style="border: 1px solid #eee; padding: 5px; border-collapse: collapse;">
                 {% if product.sale_status %}
