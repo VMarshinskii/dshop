@@ -54,21 +54,6 @@ $(document).ready(function (){
 });
 $(window).resize(function(){
     resize();
-
-    $(".second_nav").hide();
-
-    $(document).on('click', '.arrow_show', function(){
-        var a = $(this).parents('a');
-        a.css({
-            '-webkit-transform': 'rotate(30deg)',
-            '-moz-transform': 'rotate(30deg)',
-            '-ms-transform': 'rotate(30deg)',
-            '-o-transform': 'rotate(30deg)',
-            'transform': 'rotate(30deg)'
-        });
-        var second_nav = a.siblings(".second_nav");
-        second_nav.slideUp(200);
-    });
 });
 jQuery(window).load(function(){
     jQuery(".photoslider-bullets").sliderkit({
