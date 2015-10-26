@@ -13,6 +13,12 @@ from cart.models import CartProduct
 from account.models import User
 
 
+STATUSES = [
+    "В обработке",
+    "Ждёт оплаты",
+]
+
+
 def create_order(request):
     args = {
         'form': OrderForm(),
@@ -22,7 +28,7 @@ def create_order(request):
         'cart_sum': get_sum(request),
     }
     args.update(csrf(request))
-    is_valid =True
+    is_valid = True
 
     if request.user.is_authenticated():
         ord = Order()
@@ -75,6 +81,7 @@ def create_order(request):
             html_content = t.render(Context({
                 'user_active': request.user.is_authenticated(),
                 'order': order,
+                'order_status': STATUSES[order.id],
                 'products': order.products.all(),
             }))
 
@@ -89,16 +96,12 @@ def create_order(request):
 
 
 def thank_order(request):
-    return render_to_response("thank_order.html")
+    return render_to_response("thank_order.html", {
+        'user_active': request.user.is_authenticated()
+    })
 
 def reg_thank_order(request):
     return render_to_response("thank_register_order.html")
-
-
-STATUSES = [
-    "В обработке",
-    "Ждёт оплаты",
-]
 
 def orders_view(request):
     orders = []
