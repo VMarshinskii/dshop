@@ -81,7 +81,7 @@ def create_order(request):
             html_content = t.render(Context({
                 'user_active': request.user.is_authenticated(),
                 'order': order,
-                'order_status': STATUSES[order.id],
+                'order_status': STATUSES[order.status],
                 'products': order.products.all(),
             }))
 
