@@ -15,7 +15,7 @@
     {% for product in products %}
         <tr>
             <td style="border: 1px solid #eee; padding: 5px; border-collapse: collapse;">
-                {{ product.name }}
+                <p>{{ product.name }}</p>
                 {% if product.cart_size %}
                     <span>Размер: {{ product.cart_size }}</span>
                 {% endif %}
