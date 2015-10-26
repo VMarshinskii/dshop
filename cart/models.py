@@ -33,3 +33,8 @@ class CartProduct(models.Model):
         else:
             self.cart_price = product.price
         return self
+
+    def get_all_sum(self):
+        if self.sale_status:
+            return self.price_sale * self.cart_count
+        return self.price * self.cart_count
