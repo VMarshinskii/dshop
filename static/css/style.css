@@ -224,13 +224,15 @@ body {
 #left-block .categories .cat-menu ul li a:hover {
     text-decoration: underline;
 }
+#left-block .first_li {
+    float: left;
+}
 #left-block .arrow_show {
-    position: absolute;
-    content: '';
+    display: inline-block;
     width: 14px;
     height: 14px;
-    right: -14px;
-    top: 0;
+    float: left;
+    margin: 3px 0 0 5px;
     background: url("/static/images/chevron18.png") center;
     background-size: 100%;
 }
