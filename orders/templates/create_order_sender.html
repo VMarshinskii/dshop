@@ -7,18 +7,18 @@
 <p>Заказанные товары:</p>
 <table>
     <tr>
-        <td>Название</td>
-        <td>Цена</td>
-        <td>Количество</td>
-        <td>Сумма</td>
+        <td style="border: 1px solid #eee; padding: 3px; border-collapse: collapse;">Название</td>
+        <td style="border: 1px solid #eee; padding: 3px; border-collapse: collapse;">Цена</td>
+        <td style="border: 1px solid #eee; padding: 3px; border-collapse: collapse;">Количество</td>
+        <td style="border: 1px solid #eee; padding: 3px; border-collapse: collapse;">Сумма</td>
     </tr>
     {% for product in products %}
         <tr>
-            <td>
+            <td style="border: 1px solid #eee; padding: 3px; border-collapse: collapse;">
                 {{ product.name }}
                 (размер: {{ product.cart_size }}, цвет: {{ product.cart_color }})
             </td>
-            <td>
+            <td style="border: 1px solid #eee; padding: 3px; border-collapse: collapse;">
                 {% if product.sale_status %}
                     <span style="text-decoration: line-through">{{ product.price }} руб.</span>
                     <span>{{ product.price_sale }} руб.</span>
@@ -26,8 +26,8 @@
                     <span>{{ product.price }} руб.</span>
                 {% endif %}
             </td>
-            <td>{{ product.cart_count }}</td>
-            <td>{{ product.get_all_sum }}</td>
+            <td style="border: 1px solid #eee; padding: 3px; border-collapse: collapse;">{{ product.cart_count }} шт.</td>
+            <td style="border: 1px solid #eee; padding: 3px; border-collapse: collapse;">{{ product.get_all_sum }} руб.</td>
         </tr>
     {% endfor %}
 </table>
