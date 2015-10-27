@@ -349,17 +349,23 @@ body {
 {
     float: left;
     margin-top: 6px;
-    font: 15px/12pt sans-serif;
+    font: 13px/12pt sans-serif;
 }
 #center-block .goodss .good .awaiting_delivery .desc,
-#center-block .goodss .good .sold_out .desc
+#center-block .goodss .good .sold_out .icon
 {
     float: right;
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
     margin-right: 5px;
-    background: url("/static/images/sold_out.png");
+    background: url("/static/images/dilevery.png");
     background-size: 100%;
+}
+#center-block .goodss .good .sold_out .desc {
+    font: 15px/12pt sans-serif;
+}
+#center-block .goodss .good .sold_out .icon {
+    background: url("/static/images/sold_out.png");
 }
 
 #right-block {
