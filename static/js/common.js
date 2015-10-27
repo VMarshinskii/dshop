@@ -50,7 +50,7 @@ function resize_goods(number, width) {
 }
 
 $(document).ready(function (){
-    $(".second_nav").hide();
+    $(".arrow_show").parents('a').siblings('.second_nav').hide();
 
     $(document).on('click', '.arrow_show', function(){
         var a = $(this).parents('a');
