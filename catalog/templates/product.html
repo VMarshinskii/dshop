@@ -23,13 +23,27 @@
 
         <div class="CatalogPriceBox">
             {% if product.sale_status %}
-            <p class="CatalogPriceBoxPrice">Цена: <span>{{ product.price_sale }} руб.</span></p>
-            <p class="CatalogPriceOld">{{ product.price }} руб.</p>
+                <p class="CatalogPriceBoxPrice">Цена: <span>{{ product.price_sale }} руб.</span></p>
+                <p class="CatalogPriceOld">{{ product.price }} руб.</p>
             {% else %}
-            <p class="CatalogPriceBoxPrice">Цена: <span>{{ product.price }} руб.</span></p>
+                <p class="CatalogPriceBoxPrice">Цена: <span>{{ product.price }} руб.</span></p>
             {% endif %} 
 
-            <a href="#" data-id="{{ product.id }}">Купить</a>
+
+            {% if product.product_status == 0 %}
+                <a href="#" data-id="{{ product.id }}">Купить</a>
+            {% elif product.product_status == 1  %}
+                <div class="awaiting_delivery">
+                    <span class="icon"></span>
+                    <span class="desc">Ожидаем поступление</span>
+                </div>
+            {% elif product.product_status == 2  %}
+                <div class="sold_out">
+                    <span class="icon"></span>
+                    <span class="desc">Распродано</span>
+                </div>
+            {% endif %}
+
         </div>
         <div class="CatalogProductBoxContent">
 
