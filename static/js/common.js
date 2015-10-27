@@ -54,6 +54,7 @@ $(document).ready(function (){
 
     $(document).on('click', '.arrow_show', function(){
         var a = $(this).parents('a');
+        $('.arrow_hide').attr('class', 'arrow_show');
         $(this).attr('class', 'arrow_hide');
         var second_nav = a.siblings(".second_nav");
         $(".second_nav").hide(200);
