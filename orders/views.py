@@ -119,7 +119,7 @@ def orders_view(request):
 
         return render_to_response("orders.html", {
             'user': request.user,
-            'orders': orders,
+            'orders': reversed(orders),
             'user_active': request.user.is_authenticated()
         })
     else:
