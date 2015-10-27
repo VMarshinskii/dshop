@@ -351,7 +351,7 @@ body {
     margin-top: 6px;
     font: 13px/12pt sans-serif;
 }
-#center-block .goodss .good .awaiting_delivery .desc,
+#center-block .goodss .good .awaiting_delivery .icon,
 #center-block .goodss .good .sold_out .icon
 {
     float: right;
@@ -363,9 +363,12 @@ body {
 }
 #center-block .goodss .good .sold_out .desc {
     font: 15px/12pt sans-serif;
+    margin-left: 2px;
 }
 #center-block .goodss .good .sold_out .icon {
     background: url("/static/images/sold_out.png");
+    background-size: 100%;
+    margin-top: 3px;
 }
 
 #right-block {
