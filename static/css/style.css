@@ -380,8 +380,8 @@ body {
     margin-top: 0;
     border: none;
 }
-.awaiting_delivery.extended,
-.sold_out.extended
+.awaiting_delivery.extended .desc,
+.sold_out.extended .desc
 {
     float: right;
     margin-right: 8px;
