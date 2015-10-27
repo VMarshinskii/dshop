@@ -40,9 +40,23 @@
         {% else %}
         <div class="price">{{ product.price }} руб.</div>
         {% endif %}
-        <div class="good-c">
-            <a data-id="{{ product.id }}" href="#">В корзину</a>
-        </div>
+
+        {% if product.product_status == 0 %}
+            <div class="good-c">
+                <a data-id="{{ product.id }}" href="#">В корзину</a>
+            </div>
+        {% elif product.product_status == 1  %}
+            <div class="awaiting_delivery">
+                <span class="icon"></span>
+                <span class="desc">Ожидаем поступление</span>
+            </div>
+        {% elif product.product_status == 2  %}
+            <div class="sold_out">
+                <span class="icon"></span>
+                <span class="desc">Распродано</span>
+            </div>
+        {% endif %}
+
     </div>
     {% endfor %}
 </div>
