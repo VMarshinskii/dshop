@@ -134,16 +134,16 @@
             <p class="price">{{ pr.price }} руб.</p>
             {% endif %}
 
-            {% if product.product_status == 0 %}
+            {% if pr.product_status == 0 %}
                 <div class="good-c">
                     <a data-id="{{ product.id }}" href="#">В корзину</a>
                 </div>
-            {% elif product.product_status == 1  %}
+            {% elif pr.product_status == 1  %}
                 <div class="awaiting_delivery">
                     <span class="icon"></span>
-                    <span class="desc">Ожидаем поступление</span>
+                    <span class="desc" style="font-size: 10px;">Ожидаем поступление</span>
                 </div>
-            {% elif product.product_status == 2  %}
+            {% elif pr.product_status == 2  %}
                 <div class="sold_out">
                     <span class="icon"></span>
                     <span class="desc">Распродано</span>
