@@ -332,8 +332,8 @@ body {
     margin-top: 20px;
 }
 
-#center-block .goodss .good .awaiting_delivery,
-#center-block .goodss .good .sold_out
+.awaiting_delivery,
+.sold_out
 {
     float: left;
     margin-top: 13px;
@@ -344,15 +344,15 @@ body {
     border: 1px solid #ccc;
     height: 38px;
 }
-#center-block .goodss .good .awaiting_delivery .desc,
-#center-block .goodss .good .sold_out .desc
+.awaiting_delivery .desc,
+.good .sold_out .desc
 {
     float: left;
     margin-top: 6px;
     font: 13px/12pt sans-serif;
 }
-#center-block .goodss .good .awaiting_delivery .icon,
-#center-block .goodss .good .sold_out .icon
+.awaiting_delivery .icon,
+.good .sold_out .icon
 {
     float: right;
     width: 22px;
@@ -361,15 +361,26 @@ body {
     background: url("/static/images/dilevery.png");
     background-size: 100%;
 }
-#center-block .goodss .good .sold_out .desc {
+.sold_out .desc {
     font: 15px/12pt sans-serif;
     margin-left: 2px;
 }
-#center-block .goodss .good .sold_out .icon {
+.sold_out .icon {
     background: url("/static/images/sold_out.png");
     background-size: 100%;
     margin-top: 3px;
 }
+.awaiting_delivery.extended,
+.sold_out.extended
+{
+    float: right;
+    margin-top: 13px;
+    width: 200px;
+    box-sizing: border-box;
+    padding: 5px;
+    height: 38px;
+}
+
 
 #right-block {
     width: 222px;
