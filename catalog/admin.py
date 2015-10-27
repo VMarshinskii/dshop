@@ -15,7 +15,7 @@ class ProductAdmin(admin.ModelAdmin):
         ('Основное', {
             'fields': (
                 'name', 'price', 'price_sale', 'category',
-                'sale_status', 'count', 'count_status', 'brand',
+                'sale_status', 'product_status', 'brand',
                 'text', 'image', 'images', 'home_status')
         }),
         ('Дополнительные поля', {
