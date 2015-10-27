@@ -93,7 +93,7 @@ class Product(models.Model):
     sale = models.IntegerField("Скидка, %", blank=True, default=0)
     sale_status = models.BooleanField("Сделать скидку", default=False)
     count_status = models.BooleanField("Под заказ", default=False)
-    product_status = models.IntegerField("Статус наличия", blank=True, default=0, choices=PRODUCT_STATUS)
+    product_status = models.IntegerField("Статус наличия", default=0, choices=PRODUCT_STATUS)
     count = models.IntegerField("Товар в наличии")
     status = models.IntegerField("Рекламные метки", default=0, choices=MARKET)
     brand = models.CharField(verbose_name="Производитель", max_length=250, blank=True)
