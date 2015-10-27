@@ -139,12 +139,12 @@
                     <a data-id="{{ product.id }}" href="#">В корзину</a>
                 </div>
             {% elif pr.product_status == 1  %}
-                <div class="awaiting_delivery">
+                <div class="awaiting_delivery" style="margin-top: 10px;">
                     <span class="icon"></span>
                     <span class="desc" style="font-size: 10px;">Ожидаем поступление</span>
                 </div>
             {% elif pr.product_status == 2  %}
-                <div class="sold_out">
+                <div class="sold_out" style="margin-top: 10px;">
                     <span class="icon"></span>
                     <span class="desc">Распродано</span>
                 </div>
