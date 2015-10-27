@@ -56,6 +56,7 @@ $(document).ready(function (){
         var a = $(this).parents('a');
         $(this).attr('class', 'arrow_hide');
         var second_nav = a.siblings(".second_nav");
+        $(".second_nav").hide(200);
         second_nav.slideDown(200);
         return false;
     });
@@ -64,6 +65,7 @@ $(document).ready(function (){
         var a = $(this).parents('a');
         $(this).attr('class', 'arrow_show');
         var second_nav = a.siblings(".second_nav");
+        $(".second_nav").hide(200);
         second_nav.slideUp(200);
         return false;
     });

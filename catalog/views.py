@@ -14,6 +14,7 @@ def index_view(request):
         products.append(product)
 
     return render_to_response("index.html", {
+        'user': request.user,
         'products': products
     })
 
@@ -33,6 +34,7 @@ def product_view(request, id=-1):
                 sizes.append(size)
 
         return render_to_response("product.html", {
+            'user': request.user,
             'product': product,
             'images': images,
             'related_products': product.related_products.all(),
@@ -58,7 +60,12 @@ def category_view(request, url="none"):
         path = list(reversed(categ.get_path_categ()))
     except Category.DoesNotExist:
         return Http404
-    return render_to_response("category.html", {'path': path, 'categ': categ, 'products': products})
+    return render_to_response("category.html", {
+        'user': request.user,
+        'path': path,
+        'categ': categ,
+        'products': products
+    })
 
 
 def update_sort_products(request):

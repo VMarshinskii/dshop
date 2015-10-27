@@ -36,6 +36,7 @@ def add_product_ajax(request):
             cart_product.cart = cart
             cart_product.save()
             return render_to_response("add_in_cart.html", {
+                'user': request.user,
                 'sum': get_sum(request),
                 'count': get_count(request)
             })

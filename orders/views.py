@@ -24,9 +24,9 @@ STATUSES = [
 
 def create_order(request):
     args = {
+        'user': request.user,
         'form': OrderForm(),
         'delivery_mass': DeliveryType.objects.all(),
-        'user': request.user,
         'user_active': request.user.is_authenticated(),
         'cart_sum': get_sum(request),
     }
@@ -100,11 +100,14 @@ def create_order(request):
 
 def thank_order(request):
     return render_to_response("thank_order.html", {
+        'user': request.user,
         'user_active': request.user.is_authenticated()
     })
 
 def reg_thank_order(request):
-    return render_to_response("thank_register_order.html")
+    return render_to_response("thank_register_order.html", {
+        'user': request.user,
+    })
 
 def orders_view(request):
     orders = []
@@ -115,6 +118,7 @@ def orders_view(request):
             orders.append(order)
 
     return render_to_response("orders.html", {
+        'user': request.user,
         'orders': orders,
         'user_active': request.user.is_authenticated()
     })
@@ -131,6 +135,7 @@ def order_view(request, id=-1):
             products.append(product)
 
         return render_to_response("order.html", {
+            'user': request.user,
             'order': order,
             'products': products
         })
@@ -139,7 +144,7 @@ def order_view(request, id=-1):
 
 
 def create_order_phone(request):
-    args = {}
+    args = {'user': request.user}
     is_valid = True
     if request.GET:
         if request.GET.get('name', "") == "":

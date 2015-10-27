@@ -238,11 +238,11 @@ body {
     background-size: 100%;
 }
 #left-block .arrow_hide {
-    -webkit-transform: rotate(180deg)
-    -moz-transform: rotate(180deg)
-    -ms-transform: rotate(180deg)
-    -o-transform: rotate(180deg)
-    transform: rotate(180deg)
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 #left-block .categories .cat-menu > ul > li > ul > li > a {
     background: #fff;

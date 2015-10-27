@@ -11,5 +11,8 @@ def page_view(request, url="None"):
         page = Page.objects.get(url=url)
     except Page.DoesNotExist:
         raise Http404
-    return render_to_response("page.html", {'page': page})
+    return render_to_response("page.html", {
+        'user': request.user,
+        'page': page
+    })
 

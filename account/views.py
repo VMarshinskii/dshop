@@ -13,7 +13,10 @@ from django.utils.translation import ugettext_lazy as _
 
 
 def login_view(request):
-    args = {'form': LoginForm()}
+    args = {
+        'user': request.user,
+        'form': LoginForm()
+    }
     if request.GET:
         form = LoginForm(request.GET)
         if form.is_valid():
@@ -41,7 +44,10 @@ def logout_view(request):
 
 
 def registration_view(request):
-    args = {'form': RegistrationForm()}
+    args = {
+        'form': RegistrationForm(),
+        'user': request.user,
+    }
     args.update(csrf(request))
     if request.POST:
         form = RegistrationForm(request.POST)
@@ -87,7 +93,7 @@ def email_confirmation_view(request):
         user = auth.authenticate(username=email_confirmation.user.username, password=email_confirmation.ps)
         auth.login(request, user)
         email_confirmation.delete()
-        return render_to_response("email_confirmation.html")
+        return render_to_response("email_confirmation.html", {'user': request.user,})
     except EmailConfirmation.DoesNotExist:
         raise Http404
 
