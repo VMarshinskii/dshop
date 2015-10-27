@@ -378,6 +378,13 @@ body {
     padding: 5px;
     height: 38px;
     margin-top: 0;
+    border: none;
+}
+.awaiting_delivery.extended,
+.sold_out.extended
+{
+    float: right;
+    margin-right: 8px;
 }
 
 
@@ -1251,6 +1258,7 @@ label.popupBoxLoginFormZap {
 
 .sizes_list_table {
     margin-bottom: 10px;
+    width: 100%;
 }
 .sizes_list_table td {
     vertical-align: middle;
