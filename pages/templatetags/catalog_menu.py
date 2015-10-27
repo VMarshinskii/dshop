@@ -3,10 +3,12 @@ from catalog.models import Category
 register = template.Library()
 
 @register.inclusion_tag('templatetags/catalog_menu.html')
-def catalog_menu():
+def catalog_menu(active_categ=None):
     parents = Category.objects.filter(parent=None)
     mass_categ = {}
     for parent in parents:
+        if active_categ and parent.id == active_categ.id:
+            parent.active = True
         mass_categories = []
         childrens = Category.objects.filter(parent=parent)
         for child in childrens:

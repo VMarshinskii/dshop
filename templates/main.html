@@ -32,7 +32,13 @@
 
         <div id="left-block">
             {% banner_head %}
-            {% catalog_menu %}
+            {% if categ %}
+                {% if categ.parent %}
+                    {% catalog_menu categ.parent %}
+                {% else %}
+                    {% catalog_menu categ %}
+                {% endif %}
+            {% endif %}
         </div>
 
         {% block center_block %}

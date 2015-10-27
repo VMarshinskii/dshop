@@ -8,7 +8,7 @@
                 {% if childrens %}
                     <a href="/catalog/{{ parent.url }}/">
                         <span class="first_li">{{ parent.title }}</span>
-                        <span class="arrow_show"></span>
+                        <span class="{% if parent.active %}arrow_hide{% else %}arrow_show{% endif %}"></span>
                     </a>
                     <ul class="second_nav">
                         {% for child in childrens %}
