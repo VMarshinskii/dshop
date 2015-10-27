@@ -117,11 +117,13 @@ def orders_view(request):
             order.status_name = STATUSES[order.status]
             orders.append(order)
 
-    return render_to_response("orders.html", {
-        'user': request.user,
-        'orders': orders,
-        'user_active': request.user.is_authenticated()
-    })
+        return render_to_response("orders.html", {
+            'user': request.user,
+            'orders': orders,
+            'user_active': request.user.is_authenticated()
+        })
+    else:
+        return redirect('/login/')
 
 def order_view(request, id=-1):
     try:
