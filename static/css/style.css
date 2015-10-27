@@ -332,6 +332,35 @@ body {
     margin-top: 20px;
 }
 
+#center-block .goodss .good .awaiting_delivery,
+#center-block .goodss .good .sold_out
+{
+    float: left;
+    margin-top: 13px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    height: 38px;
+}
+#center-block .goodss .good .awaiting_delivery .desc,
+#center-block .goodss .good .sold_out .desc
+{
+    float: left;
+    margin-top: 6px;
+    font: 15px/12pt sans-serif;
+}
+#center-block .goodss .good .awaiting_delivery .desc,
+#center-block .goodss .good .sold_out .desc
+{
+    float: right;
+    width: 26px;
+    height: 26px;
+    margin-right: 5px;
+    background: url("/static/images/sold_out.png");
+    background-size: 100%;
+}
 
 #right-block {
     width: 222px;
