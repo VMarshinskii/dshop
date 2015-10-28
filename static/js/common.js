@@ -324,7 +324,7 @@ $(document).ready(function (){
     });
 
 
-   $(".id_categ_sort").on('click', function(){
+   $("#id_categ_sort").change(function(){
         var sort_option = $(this).val();
         document.cookie = "sort=" + sort_option;
         location.reload();

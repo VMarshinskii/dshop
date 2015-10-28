@@ -1508,7 +1508,21 @@ label.popupBoxLoginFormZap {
     background-color: #eee;
 }
 
-
+.categ_sort {
+    float: left;
+    clear: both;
+    color: #fff;
+    font-size: 14px;
+}
+.categ_sort select {
+    padding: 2px;
+    background: #fff;
+    margin-left: 3px;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    font: 13px/12px sans-serif;
+    color: #4A4A4A;
+}
 
 @media screen and (max-width:1347px) {
     #center-block {

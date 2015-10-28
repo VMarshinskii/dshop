@@ -14,13 +14,14 @@ def index_view(request):
         product.sticker = sticker[int(product.status)]
         products.append(product)
 
-    sort = request.COOKIES.get('sort', '')
+    sort = request.COOKIES.get('sort', 'by_newest')
     if sort:
         products = sorted_product(products, sort)
 
     return render_to_response("index.html", {
         'user': request.user,
-        'products': products
+        'products': products,
+        'sort_option': sort
     })
 
 
@@ -65,7 +66,7 @@ def category_view(request, url="none"):
             product.sticker = sticker[int(product.status)]
             products.append(product)
 
-        sort = request.COOKIES.get('sort', '')
+        sort = request.COOKIES.get('sort', 'by_newest')
         if sort:
             products = sorted_product(products, sort)
 
