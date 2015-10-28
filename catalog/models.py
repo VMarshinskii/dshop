@@ -110,7 +110,7 @@ class Product(models.Model):
     related_products = models.ManyToManyField("self", verbose_name="Сопутствующие товары", max_length=200, blank=True)
     home_status = models.BooleanField("На главной")
     sort = models.CharField("Сортировка", max_length=200, default='')
-    date = models.DateTimeField(verbose_name="Дата создания", default=timezone.now())
+    date = models.DateTimeField(verbose_name="Дата создания", auto_now_add=True)
 
     class Meta:
         verbose_name_plural = u"Товары"
