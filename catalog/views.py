@@ -38,6 +38,9 @@ def product_view(request, id=-1):
             if size != '':
                 sizes.append(size)
 
+        product.popularity += 1
+        product.save()
+
         return render_to_response("product.html", {
             'user': request.user,
             'product': product,

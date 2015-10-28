@@ -111,6 +111,7 @@ class Product(models.Model):
     home_status = models.BooleanField("На главной")
     sort = models.CharField("Сортировка", max_length=200, default='')
     date = models.DateTimeField(verbose_name="Дата создания", auto_now_add=True)
+    popularity = models.IntegerField(verbose_name="Популярность", default=0)
 
     class Meta:
         verbose_name_plural = u"Товары"

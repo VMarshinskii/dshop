@@ -15,6 +15,8 @@ def sorted_product(products, field):
             return sorted(products, key=lambda product: product.get_price())
         if field == 'descending_prices':
             return sorted(products, key=lambda product: product.get_price(), reverse=True)
+        if field == 'by_popularity':
+            return sorted(products, key=lambda product: product.popularity)
         if field == 'by_newest':
             return sorted(products, key=lambda product: product.date)
         if field == 'by_sale':
