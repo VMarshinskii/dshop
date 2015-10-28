@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response, redirect
 from django.http import Http404, HttpResponse
+from catalog.additions import sorted_product
 from catalog.models import Product, Category
 
 sticker = ['нет', 'Хит', 'Новинка', 'Акция', 'Распродажа', 'Товар дня', 'Товар недели', 'Товар месяца', 'Хит сезона']
@@ -12,6 +13,10 @@ def index_view(request):
     for product in reversed(Product.objects.filter(home_status=True).order_by('sort')):
         product.sticker = sticker[int(product.status)]
         products.append(product)
+
+    sort = request.GET.get('sort', '')
+    if sort:
+        products = sorted_product(products, sort)
 
     return render_to_response("index.html", {
         'user': request.user,
@@ -56,6 +61,10 @@ def category_view(request, url="none"):
         for product in categ.get_all_product():
             product.sticker = sticker[int(product.status)]
             products.append(product)
+
+        sort = request.GET.get('sort', '')
+        if sort:
+            products = sorted_product(products, sort)
 
         path = list(reversed(categ.get_path_categ()))
     except Category.DoesNotExist:

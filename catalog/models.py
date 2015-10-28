@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from redactor.fields import RedactorField
+from datetime import datetime
 
 
 class Category(models.Model):
@@ -109,6 +110,7 @@ class Product(models.Model):
     related_products = models.ManyToManyField("self", verbose_name="Сопутствующие товары", max_length=200, blank=True)
     home_status = models.BooleanField("На главной")
     sort = models.CharField("Сортировка", max_length=200, default='')
+    date = models.DateTimeField(verbose_name="Дата создания", auto_now_add=True, default=datetime.now())
 
     class Meta:
         verbose_name_plural = u"Товары"
@@ -122,6 +124,11 @@ class Product(models.Model):
         if not self.sort:
             self.sort = "{0:0=12}".format(int(self.id))
             self.save()
+
+    def get_price(self):
+        if self.sale_status:
+            return self.price_sale
+        return self.price
 
     def admin_sort(self):
         return '<span class="admin_sort" id="' + str(self.id) + '" sort_value="' + str(self.sort) + '"></span>'
