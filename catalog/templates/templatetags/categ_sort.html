@@ -1,0 +1,8 @@
+<div class="categ_sort">
+    <label for="id_categ_sort">Сортировать по:</label>
+    <select id="id_categ_sort">
+    {% for sorted_option, name_option in sorted_options.items %}
+        <option value="{{ sorted_option }}" {% if selected == sorted_option %}selected{% endif %}>{{ name_option }}</option>
+    {% endfor %}
+    </select>
+</div>

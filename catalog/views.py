@@ -14,7 +14,7 @@ def index_view(request):
         product.sticker = sticker[int(product.status)]
         products.append(product)
 
-    sort = request.GET.get('sort', '')
+    sort = request.COOKIES.get('sort', '')
     if sort:
         products = sorted_product(products, sort)
 
@@ -65,7 +65,7 @@ def category_view(request, url="none"):
             product.sticker = sticker[int(product.status)]
             products.append(product)
 
-        sort = request.GET.get('sort', '')
+        sort = request.COOKIES.get('sort', '')
         if sort:
             products = sorted_product(products, sort)
 

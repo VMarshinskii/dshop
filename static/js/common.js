@@ -324,14 +324,10 @@ $(document).ready(function (){
     });
 
 
-    $(".login_order").live('click', function(){
-        $.get("/login/", function(data){
-            $(".popupBox").html(data);
-            $(".background").css('display', 'block');
-            $(".popupBox").css('display', 'block');
-            $("#id_login").mask("+7 (999) 999-9999");
-        });
-        return false;
+   $(".id_categ_sort").on('click', function(){
+        var sort_option = $(this).val();
+        document.cookie = "sort=" + sort_option;
+        location.reload();
     });
 
 });

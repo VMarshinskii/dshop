@@ -997,8 +997,9 @@ body {
 }
 .catalogCategPath li {
     float: left;
-    margin-right: 10px;
+    margin-right: 5px;
     color: #ffffff;
+    font-size: 14px;
 }
 .catalogCategPath a {
     color: #ffffff;

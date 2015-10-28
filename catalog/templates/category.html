@@ -1,5 +1,6 @@
 {% extends "main.html" %}
 {% load staticfiles %}
+{% load categ_sort %}
 
 
 {% block head %}
@@ -15,6 +16,9 @@
     <li><a href="/catalog/{{ cat.url }}/">{{ cat.title }}</a></li>
     {% endfor %}
 </ul>
+
+{% categ_sort %}
+
 {% if categ.text %}
 <div class="ContentBox" style="margin-top: 0">
     <div class="ContentBoxPage">
