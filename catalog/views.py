@@ -76,7 +76,8 @@ def category_view(request, url="none"):
         'user': request.user,
         'path': path,
         'categ': categ,
-        'products': products
+        'products': products,
+        'sort_option': sort
     })
 
 
