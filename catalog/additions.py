@@ -2,6 +2,7 @@
 from models import Product
 
 SORTED_PRODUCT_OPTION = {
+    'default': 'по умолчанию',
     'ascending_prices': 'по возростанию цены',
     'descending_prices': 'по убыванию цены',
     'by_popularity': 'по популярности',
