@@ -20,5 +20,5 @@ def sorted_product(products, field):
         if field == 'by_newest':
             return sorted(products, key=lambda product: product.date)
         if field == 'by_sale':
-            return sorted(products, key=lambda product: product.sale_status)
+            return sorted(products, key=lambda product: product.sale_status, reverse=True)
     return products
