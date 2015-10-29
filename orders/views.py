@@ -88,7 +88,7 @@ def create_order(request):
                 'products': order.products.all(),
             }))
 
-            msg = EmailMultiAlternatives("Заказ на Darya-Shop", html_content, "daryashop112@gmail.com", [email])
+            msg = EmailMultiAlternatives("Заказ на Darya-Shop", html_content, "daryashop112@gmail.com", [email, "darya-a-shop@yandex.ru"])
             msg.attach_alternative(html_content, "text/html")
             msg.send()
 
