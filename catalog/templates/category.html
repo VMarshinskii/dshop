@@ -17,12 +17,13 @@
     {% endfor %}
 </ul>
 
-<h1>{{ categ.title }}</h1>
+<h1 class="categ_h1">{{ categ.title }}</h1>
 
 <div class="children">
     {% for child in children %}
         <a href="#">{{ child.title }}</a>
     {% endfor %}
+    <div class="clear"></div>
 </div>
 
 
