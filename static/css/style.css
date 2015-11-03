@@ -1019,7 +1019,7 @@ body {
 }
 .children a {
     float: left;
-    margin-right: 10px;
+    margin: 0 10px 5px 0;
     color: #fff;
     font-size: 13px;
 }
