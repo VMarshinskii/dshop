@@ -78,7 +78,8 @@ def category_view(request, url="none"):
         'path': path,
         'categ': categ,
         'products': products,
-        'sort_option': sort
+        'sort_option': sort,
+        'children': Category.objects.filter(parent=categ)
     })
 
 
