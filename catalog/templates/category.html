@@ -17,17 +17,18 @@
     {% endfor %}
 </ul>
 
-<h1 class="categ_h1">{{ categ.title }}</h1>
+<div class="categ_top">
+    <h1 class="categ_h1">{{ categ.title }}</h1>
 
-<div class="children">
-    {% for child in children %}
-        <a href="/catalog/{{ child.url }}/">{{ child.title }}</a>
-    {% endfor %}
-    <div class="clear"></div>
+    <div class="children">
+        {% for child in children %}
+            <a href="/catalog/{{ child.url }}/">{{ child.title }}</a>
+        {% endfor %}
+        <div class="clear"></div>
+    </div>
+
+    {% categ_sort sort_option %}
 </div>
-
-
-{% categ_sort sort_option %}
 
 {% if categ.text %}
 <div class="ContentBox" style="margin-top: 0">
