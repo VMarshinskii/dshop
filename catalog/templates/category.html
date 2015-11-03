@@ -21,7 +21,7 @@
 
 <div class="children">
     {% for child in children %}
-        <a href="#">{{ child.title }}</a>
+        <a href="/catalog/{{ child.url }}/">{{ child.title }}</a>
     {% endfor %}
     <div class="clear"></div>
 </div>

@@ -1015,6 +1015,7 @@ body {
 .children {
     float: left;
     clear: both;
+    margin: 5px 0;
 }
 .children a {
     float: left;
