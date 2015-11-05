@@ -16,8 +16,8 @@ class Post(models.Model):
     lookbook = models.BooleanField(verbose_name="Публиковать в LookBook", default=False)
     send = models.BooleanField(verbose_name="Разослать подписчикам", default=False)
 
-    lookbook_datetime = models.DateTimeField(verbose_name="Дата публикации", blank=True, null=True)
-    send_datetime = models.DateTimeField(verbose_name="Дата рассылки", blank=True, null=True)
+    lookbook_datetime = models.DateTimeField(verbose_name="Дата публикации", editable=False, null=True)
+    send_datetime = models.DateTimeField(verbose_name="Дата рассылки", editable=False, null=True)
 
     class Meta:
         verbose_name = 'Пост'
@@ -34,4 +34,5 @@ class Post(models.Model):
             msg = EmailMultiAlternatives(self.title, text, DEFAULT_FROM_EMAIL, ["marshinskii@gmail.com"])
             msg.attach_alternative(text, "text/html")
             msg.send()
+            self.send_datetime = datetime.now()
         super(Post, self).save(*args, **kwargs)
