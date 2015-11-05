@@ -19,6 +19,10 @@
                 <a href="/blog/{{ post.url }}/" class="more">Читать..</a>
                 <div style="clear: both"></div>
             </div>
+        {% empty %}
+            <div class="post">
+            <p>Записей ещё нет</p>
+            </div>
         {% endfor %}
     </div>
 </div>
