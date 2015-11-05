@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMultiAlternatives
 from django.db import models
 from redactor.fields import RedactorField
 from datetime import datetime
@@ -31,4 +31,7 @@ class Post(models.Model):
             self.lookbook_datetime = datetime.now()
         if self.send and self.send_datetime is None:
             send_mail(self.title, self.text, DEFAULT_FROM_EMAIL, ["marshinskii@gmail.com"])
+            msg = EmailMultiAlternatives(self.title, self.text, DEFAULT_FROM_EMAIL, ["marshinskii@gmail.com"])
+            msg.attach_alternative(self.text, "text/html")
+            msg.send()
         super(Post, self).save(*args, **kwargs)

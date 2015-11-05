@@ -143,7 +143,7 @@ def change_password(request):
         old_password = request.GET.get('old_password', '')
         new_password = request.GET.get('new_password', '')
 
-        if new_password == '' :
+        if new_password:
             return HttpResponse("Новый пароль не может быть пустым")
         elif request.user.check_password(old_password):
             username = request.user.username
