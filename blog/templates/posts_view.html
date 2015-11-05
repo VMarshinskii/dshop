@@ -3,7 +3,7 @@
 
 
 {% block head %}
-    <title>Darya-Shop | LookBook</title>
+    <title>LookBook | Darya-Shop</title>
 {% endblock %}
 
 {% block content %}
@@ -14,9 +14,9 @@
     <div class="ContentBoxPage">
         {% for post in posts %}
             <div class="post">
-                <a href="/blog/post/{{ post.id }}/" class="title"><h4>{{ post.title }}</h4></a>
+                <a href="/blog/post/{{ post.url }}/" class="title"><h4>{{ post.title }}</h4></a>
                 <div class="text">{{ post.text|safe|truncatewords_html:80 }}</div>
-                <a href="/blog/{{ post.id }}/" class="more">Читать..</a>
+                <a href="/blog/{{ post.url }}/" class="more">Читать..</a>
                 <div style="clear: both"></div>
             </div>
         {% endfor %}

@@ -3,5 +3,5 @@ from django.contrib import admin
 
 urlpatterns = patterns('',
     url(r'^$', 'blog.views.posts_view'),
-    url(r'^post/(?P<id>\d+)/$', 'blog.views.post_view'),
+    url(r'^post/(?P<url>[\-\w]+)/$', 'blog.views.post_view'),
 )

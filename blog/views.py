@@ -10,9 +10,9 @@ def posts_view(request):
     })
 
 
-def post_view(request, id=-1):
+def post_view(request, url):
     try:
-        post = Post.objects.get(id=int(id))
+        post = Post.objects.get(url=url)
         return render_to_response("post_view.html", {
             'user': request.user,
             'post': post

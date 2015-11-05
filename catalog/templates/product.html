@@ -3,7 +3,9 @@
 
 
 {% block head %}
-    <title>Darya-Shop | {{ product.name }}</title>
+    <title>{{ product.name }} | Darya-Shop</title>
+    <meta name="Description" content="{{ product.description }}">
+    <meta name="Keywords" content="{{ product.keywords }}">
 {% endblock %}
 
 
