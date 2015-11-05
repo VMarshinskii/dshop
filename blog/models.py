@@ -30,8 +30,8 @@ class Post(models.Model):
         if self.lookbook and self.lookbook_datetime is None:
             self.lookbook_datetime = datetime.now()
         if self.send and self.send_datetime is None:
-            send_mail(self.title, self.text, DEFAULT_FROM_EMAIL, ["marshinskii@gmail.com"])
-            msg = EmailMultiAlternatives(self.title, self.text, DEFAULT_FROM_EMAIL, ["marshinskii@gmail.com"])
-            msg.attach_alternative(self.text, "text/html")
+            text = self.text.replace('src="', 'style="width:100%" src="http://darya-shop.ru')
+            msg = EmailMultiAlternatives(self.title, text, DEFAULT_FROM_EMAIL, ["marshinskii@gmail.com"])
+            msg.attach_alternative(text, "text/html")
             msg.send()
         super(Post, self).save(*args, **kwargs)
