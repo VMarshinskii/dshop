@@ -68,6 +68,18 @@ class Model(models.Model):
         return self.title
 
 
+class ProductVideo(models.Model):
+    code = models.TextField("Код видео", null=True)
+    video = models.FileField(verbose_name="Видео файл", upload_to="/static/video/", null=True)
+
+    class Meta:
+        verbose_name_plural = "Видео для товаров"
+        verbose_name = "Видео для товара"
+
+    def __unicode__(self):
+        return self.title
+
+
 MARKET = (
     (0, '----'),
     (1, 'Хит'),
@@ -95,7 +107,7 @@ class Product(models.Model):
     sale_status = models.BooleanField("Сделать скидку", default=False)
     count_status = models.BooleanField("Под заказ", default=False)
     product_status = models.IntegerField("Статус наличия", default=0, choices=PRODUCT_STATUS)
-    count = models.IntegerField("Товар в наличии")
+    count = models.IntegerField("Товар в наличии", null=True, blank=True)
     status = models.IntegerField("Рекламные метки", default=0, choices=MARKET)
     brand = models.CharField(verbose_name="Производитель", max_length=250, blank=True)
     text = RedactorField(verbose_name="Описание", redactor_options={'upload_to': 'static/uploads'}, blank=True)
