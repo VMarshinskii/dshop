@@ -6,9 +6,9 @@ from redactor.fields import RedactorField
 from django.utils import timezone
 
 
-class Category(models.Model):
+class Category(MPTTModel):
     title = models.CharField(max_length=250, verbose_name="Название")
-    parent = models.ForeignKey("self", verbose_name="Родительская категория", blank=True, null=True, default="-1")
+    parent = TreeForeignKey("self", verbose_name="Родительская категория", blank=True, null=True, default="-1")
     text = RedactorField(verbose_name="Описание", redactor_options={'upload_to': 'static/uploads'}, blank=True)
     url = models.CharField("Url", max_length=200, unique=True)
     description = models.CharField("Description", max_length=200, blank=True)
