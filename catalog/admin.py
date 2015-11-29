@@ -30,7 +30,7 @@ class ProductAdmin(admin.ModelAdmin):
     )
 
 
-class CategoryAdmin(DjangoMpttAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"url": ("title",)}
     #
     # def changelist_view(self, request, extra_context=None):
