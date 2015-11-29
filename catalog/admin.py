@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 from catalog.models import Product, Category, Color, Model
+from django_mptt_admin.admin import DjangoMpttAdmin
 from django.shortcuts import render_to_response
 from django.utils.encoding import smart_str
 
@@ -73,6 +74,6 @@ def select_res(categoryes):
     return str_res
 
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(Category, DjangoMpttAdmin)
 admin.site.register(Color)
 admin.site.register(Model)

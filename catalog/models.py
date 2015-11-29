@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from mptt.models import MPTTModel
 from redactor.fields import RedactorField
 from django.utils import timezone
 
 
-class Category(models.Model):
+class Category(MPTTModel):
     title = models.CharField(max_length=250, verbose_name="Название")
     parent = models.ForeignKey("self", verbose_name="Родительская категория", blank=True, null=True, default="-1")
     text = RedactorField(verbose_name="Описание", redactor_options={'upload_to': 'static/uploads'}, blank=True)
