@@ -32,6 +32,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"url": ("title",)}
+    list_display = ('id', 'title')
     #
     # def changelist_view(self, request, extra_context=None):
     #     list_category = sort_list()
