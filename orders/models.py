@@ -15,6 +15,14 @@ STATUSES = (
     (4, "Отменён"),
 )
 
+STATUSES_LIST = [
+    "В обработке",
+    "Принят",
+    "Ждёт оплаты",
+    "Доставлен",
+    "Отменён"
+]
+
 
 class Order(models.Model):
     user = models.ForeignKey(User, verbose_name="Пользователь", blank=True, null=True)
@@ -55,7 +63,7 @@ class Order(models.Model):
                     'hello': 'Обновлён статус заказа на <a href="http://darya-shop.ru">darya-shop.ru</a>!',
                     'user_active': True,
                     'order': self,
-                    'order_status': STATUSES[self.status].encode('utf-8'),
+                    'order_status': STATUSES_LIST[self.status],
                     'products': self.products.all(),
                 }))
 

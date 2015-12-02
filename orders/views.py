@@ -13,7 +13,7 @@ from cart.models import CartProduct
 from account.models import User
 
 
-STATUSES = [
+STATUSES_LIST = [
     "В обработке",
     "Принят",
     "Ждёт оплаты",
@@ -85,7 +85,7 @@ def create_order(request):
                 'hello': 'Спасибо за заказ на <a href="http://darya-shop.ru">darya-shop.ru</a>!',
                 'user_active': request.user.is_authenticated(),
                 'order': order,
-                'order_status': STATUSES[order.status].encode('utf-8'),
+                'order_status': STATUSES_LIST[order.status],
                 'products': order.products.all(),
             }))
 
