@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
+from django.core.mail import EmailMultiAlternatives
 from django.db import models
+from django.template.loader import get_template
 from account.models import User
 from cart.models import CartProduct
+from django.template import Context
 
 
 STATUSES = (
@@ -27,6 +30,7 @@ class Order(models.Model):
     city = models.CharField("Город", max_length=200, default="", blank=True)
     index = models.CharField("Индекс", max_length=200, default="")
     address = models.TextField("Адрес", default="")
+    metro = models.CharField("Метро", max_length=200, default="", blank=True)
 
     delivery = models.CharField("Доставка", max_length=200, default="")
     delivery_price = models.IntegerField("Стоимость доставки")
@@ -39,6 +43,23 @@ class Order(models.Model):
     class Meta:
         verbose_name = "Заказ"
         verbose_name_plural = "Заказы"
+
+    def save(self, *args, **kwargs):
+        self.ac_total = self.period_duration()
+        super(Order, self).save(*args, **kwargs)
+
+        if Order.objects.get(id=self.id).status != self.id:
+            t = get_template('create_order_sender.html')
+            html_content = t.render(Context({
+                'user_active': True,
+                'order': self,
+                'order_status': STATUSES[self.status],
+                'products': self.products.all(),
+            }))
+
+            msg = EmailMultiAlternatives("Обновлён статус заказа на Darya-Shop", html_content, "daryashop112@gmail.com", [self.email])
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
 
 
 class DeliveryType(models.Model):

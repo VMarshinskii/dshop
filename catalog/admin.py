@@ -33,14 +33,14 @@ class ProductAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"url": ("title",)}
     list_display = ('id', 'title')
-    #
-    # def changelist_view(self, request, extra_context=None):
-    #     list_category = sort_list()
-    #     select_res(list_category)
-    #     vars = {'categories': list_category}
-    #     html = render_to_response('admin/result_content_list.html', vars).content
-    #     mass = {'result_content': html}
-    #     return super(CategoryAdmin, self).changelist_view(request, extra_context=mass)
+
+    def changelist_view(self, request, extra_context=None):
+        list_category = sort_list()
+        select_res(list_category)
+        vars = {'categories': list_category}
+        html = render_to_response('admin/result_content_list.html', vars).content
+        mass = {'result_content': html}
+        return super(CategoryAdmin, self).changelist_view(request, extra_context=mass)
 
     def save_model(self, request, obj, form, change):
         if obj.parent is None:
