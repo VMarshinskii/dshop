@@ -138,9 +138,9 @@ class Product(models.Model):
 
 
 class ProductVideo(models.Model):
-    product = models.ForeignKey(Product, verbose_name="Товар", null=True)
-    code = models.TextField("Код видео", null=True)
-    video = models.FileField(verbose_name="Видео файл", upload_to="/static/video/", null=True)
+    product = models.ForeignKey(Product, verbose_name="Товар", null=True, blank=True)
+    code = models.TextField("Код видео", null=True, blank=True)
+    video = models.FileField(verbose_name="Видео файл", upload_to="/static/video/", null=True, blank=True)
 
     class Meta:
         verbose_name_plural = "Видео для товаров"

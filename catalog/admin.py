@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 from catalog.models import Product, Category, Color, Model, ProductVideo
-from django_mptt_admin.admin import DjangoMpttAdmin
 from django.shortcuts import render_to_response
 from django.utils.encoding import smart_str
 
 
 class ProductVideoInline(admin.StackedInline):
     model = ProductVideo
+    extra = 1
 
 
 class ProductAdmin(admin.ModelAdmin):
