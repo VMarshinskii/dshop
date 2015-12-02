@@ -82,9 +82,10 @@ def create_order(request):
             email = request.POST.get('email', "")
             t = get_template('create_order_sender.html')
             html_content = t.render(Context({
+                'hello': 'Спасибо за заказ на <a href="http://darya-shop.ru">darya-shop.ru</a>!',
                 'user_active': request.user.is_authenticated(),
                 'order': order,
-                'order_status': STATUSES[order.status],
+                'order_status': STATUSES[order.status].encode('utf-8'),
                 'products': order.products.all(),
             }))
 

@@ -40,6 +40,8 @@ class Order(models.Model):
 
     products = models.ManyToManyField(CartProduct, verbose_name="Товары", blank=True)
 
+    admin_comment = models.TextField("Комментарий администратора", null=True, editable=False)
+
     class Meta:
         verbose_name = "Заказ"
         verbose_name_plural = "Заказы"
@@ -50,9 +52,10 @@ class Order(models.Model):
             if old_order.status != self.status:
                 t = get_template('create_order_sender.html')
                 html_content = t.render(Context({
+                    'hello': 'Обновлён статус заказа на <a href="http://darya-shop.ru">darya-shop.ru</a>!',
                     'user_active': True,
                     'order': self,
-                    'order_status': STATUSES[self.status],
+                    'order_status': STATUSES[self.status].encode('utf-8'),
                     'products': self.products.all(),
                 }))
 
