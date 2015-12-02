@@ -146,9 +146,6 @@ class ProductVideo(models.Model):
         verbose_name_plural = "Видео для товаров"
         verbose_name = "Видео для товара"
 
-    def __unicode__(self):
-        return self.title
-
     def get_video(self):
         if self.video:
             return 'тут код плеера'
