@@ -101,6 +101,11 @@
             {% endif %}
 
             {{ product.text|safe }}
+
+            {% for video in videos %}
+                {{ video.get_video|safe }}
+            {% endfor %}
+
         </div>
         <div style="clear: both"></div>
     </div>

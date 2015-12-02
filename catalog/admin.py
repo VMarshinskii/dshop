@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from catalog.models import Product, Category, Color, Model
+from catalog.models import Product, Category, Color, Model, ProductVideo
 from django_mptt_admin.admin import DjangoMpttAdmin
 from django.shortcuts import render_to_response
 from django.utils.encoding import smart_str
+
+
+class ProductVideoInline(admin.TabularInline):
+    model = ProductVideo
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -11,6 +15,11 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ['category', 'home_status']
     search_fields = ['name']
     ordering = ('-sort',)
+    list_editable = ('home_status',)
+
+    inlines = [
+        ProductVideoInline,
+    ]
 
     fieldsets = (
         ('Основное', {

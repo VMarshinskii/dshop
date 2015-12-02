@@ -115,7 +115,7 @@ def orders_view(request):
     if request.user.is_authenticated():
         for order in Order.objects.filter(user=request.user):
             order.products = order.products.all()
-            order.status_name = STATUSES[order.status]
+            order.status_name = STATUSES_LIST[order.status]
             orders.append(order)
 
         return render_to_response("orders.html", {

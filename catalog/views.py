@@ -2,7 +2,7 @@
 from django.shortcuts import render_to_response, redirect
 from django.http import Http404, HttpResponse
 from catalog.additions import sorted_product
-from catalog.models import Product, Category
+from catalog.models import Product, Category, ProductVideo
 
 sticker = ['нет', 'Хит', 'Новинка', 'Акция', 'Распродажа', 'Товар дня', 'Товар недели', 'Товар месяца', 'Хит сезона']
 
@@ -51,7 +51,8 @@ def product_view(request, id=-1):
             'sizes': sizes,
             'colors': product.color.all(),
             'models': product.model.all(),
-            'path': list(reversed(product.category.get_path_categ()))
+            'path': list(reversed(product.category.get_path_categ())),
+            'videos': ProductVideo.objects.filter(product=product)
         })
     else:
         return Http404

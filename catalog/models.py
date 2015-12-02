@@ -68,18 +68,6 @@ class Model(models.Model):
         return self.title
 
 
-class ProductVideo(models.Model):
-    code = models.TextField("Код видео", null=True)
-    video = models.FileField(verbose_name="Видео файл", upload_to="/static/video/", null=True)
-
-    class Meta:
-        verbose_name_plural = "Видео для товаров"
-        verbose_name = "Видео для товара"
-
-    def __unicode__(self):
-        return self.title
-
-
 MARKET = (
     (0, '----'),
     (1, 'Хит'),
@@ -147,3 +135,22 @@ class Product(models.Model):
         return '<span class="admin_sort" id="' + str(self.id) + '" sort_value="' + str(self.sort) + '"></span>'
     admin_sort.allow_tags = True
     admin_sort.short_description = ''
+
+
+class ProductVideo(models.Model):
+    product = models.ForeignKey(Product, verbose_name="Товар")
+    code = models.TextField("Код видео", null=True)
+    video = models.FileField(verbose_name="Видео файл", upload_to="/static/video/", null=True)
+
+    class Meta:
+        verbose_name_plural = "Видео для товаров"
+        verbose_name = "Видео для товара"
+
+    def __unicode__(self):
+        return self.title
+
+    def get_video(self):
+        if self.video:
+            return 'тут код плеера'
+        else:
+            return 'тут встроенное видео'
