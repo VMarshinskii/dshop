@@ -6,7 +6,7 @@ from django.shortcuts import render_to_response
 from django.utils.encoding import smart_str
 
 
-class ProductVideoInline(admin.TabularInline):
+class ProductVideoInline(admin.StackedInline):
     model = ProductVideo
 
 
