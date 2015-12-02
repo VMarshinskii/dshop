@@ -40,7 +40,7 @@ class Order(models.Model):
 
     products = models.ManyToManyField(CartProduct, verbose_name="Товары", blank=True)
 
-    admin_comment = models.TextField("Комментарий администратора", null=True, editable=False)
+    admin_comment = models.TextField("Комментарий администратора", null=True, blank=True)
 
     class Meta:
         verbose_name = "Заказ"
