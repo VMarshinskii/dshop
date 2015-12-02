@@ -45,20 +45,24 @@ class Order(models.Model):
         verbose_name_plural = "Заказы"
 
     def save(self, *args, **kwargs):
+        try:
+            old_order = Order.objects.get(id=self.id)
+            if old_order.status != self.status:
+                t = get_template('create_order_sender.html')
+                html_content = t.render(Context({
+                    'user_active': True,
+                    'order': self,
+                    'order_status': STATUSES[self.status],
+                    'products': self.products.all(),
+                }))
+
+                msg = EmailMultiAlternatives("Обновлён статус заказа на Darya-Shop", html_content, "daryashop112@gmail.com", [self.email])
+                msg.attach_alternative(html_content, "text/html")
+                msg.send()
+        except Order.DoesNotExist:
+            pass
+
         super(Order, self).save(*args, **kwargs)
-
-        if Order.objects.get(id=self.id).status != self.id:
-            t = get_template('create_order_sender.html')
-            html_content = t.render(Context({
-                'user_active': True,
-                'order': self,
-                'order_status': STATUSES[self.status],
-                'products': self.products.all(),
-            }))
-
-            msg = EmailMultiAlternatives("Обновлён статус заказа на Darya-Shop", html_content, "daryashop112@gmail.com", [self.email])
-            msg.attach_alternative(html_content, "text/html")
-            msg.send()
 
 
 class DeliveryType(models.Model):
