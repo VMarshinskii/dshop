@@ -45,7 +45,6 @@ class Order(models.Model):
         verbose_name_plural = "Заказы"
 
     def save(self, *args, **kwargs):
-        self.ac_total = self.period_duration()
         super(Order, self).save(*args, **kwargs)
 
         if Order.objects.get(id=self.id).status != self.id:
