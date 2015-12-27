@@ -213,7 +213,7 @@ body {
     background: #fff;
     height: 23px;
     padding: 13px 9px 4px 20px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     color: #9c2251;
     text-decoration: none;
@@ -234,7 +234,7 @@ body {
     width: 14px;
     height: 14px;
     float: left;
-    margin: 3px 0 0 5px;
+    margin: 1px 0 0 5px;
     background: url("/static/images/chevron18.png") center;
     background-size: 100%;
 }
