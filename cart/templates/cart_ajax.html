@@ -8,7 +8,12 @@
 
             <div class="inform">
                 <a href="/catalog/product/{{ product.product.id }}/">
-                    <h3>{{ product.name }}</h3>
+                    <h3>
+                        {{ product.name }}
+                        {% if product.product.product_status == 3 %}
+                            (под заказ)
+                        {% endif %}
+                    </h3>
                 </a>
 
                 {% if product.cart_color%}
