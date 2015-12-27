@@ -44,6 +44,8 @@
                     <span class="icon"></span>
                     <span class="desc">Распродано</span>
                 </div>
+            {% elif product.product_status == 3  %}
+                <a href="#" data-id="{{ product.id }}">Сделать предзаказ</a>
             {% endif %}
 
         </div>
@@ -155,9 +157,10 @@
                     <span class="icon"></span>
                     <span class="desc">Распродано</span>
                 </div>
-            {% else %}
-                <div class="good-c">
-                    <a data-id="{{ product.id }}" href="#">Сделать предзаказ</a>
+            {% elif product.product_status == 3  %}
+                <div class="sold_out">
+                    <span class="icon"></span>
+                    <span class="desc">Под заказ</span>
                 </div>
             {% endif %}
 
