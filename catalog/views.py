@@ -3,12 +3,17 @@ from django.shortcuts import render_to_response, redirect
 from django.http import Http404, HttpResponse
 from catalog.additions import sorted_product
 from catalog.models import Product, Category, ProductVideo
+from banners.models import Slider
 
 sticker = ['нет', 'Хит', 'Новинка', 'Акция', 'Распродажа', 'Товар дня', 'Товар недели', 'Товар месяца', 'Хит сезона']
 
 
 def index_view(request):
     products = []
+
+    for slider in Slider.objects.all():
+        slider.order = slider.id
+        slider.save()
 
     for product in reversed(Product.objects.filter(home_status=True).order_by('sort')):
         product.sticker = sticker[int(product.status)]
