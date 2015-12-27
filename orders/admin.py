@@ -3,6 +3,7 @@ from models import Order, DeliveryType, OrderPhone
 
 
 class OrderAdmin(admin.ModelAdmin):
+    readonly_fields = ['id']
     list_display = ('id', 'last_name', 'first_name', 'status', 'date_now')
 
 
