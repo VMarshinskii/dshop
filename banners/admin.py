@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 from banners.models import RightBanner, Slider
+from suit.admin import SortableModelAdmin
 
-# Register your models here.
+
+class SliderAdmin(SortableModelAdmin):
+    sortable = 'order'
+
+
 admin.site.register(RightBanner)
 admin.site.register(Slider)

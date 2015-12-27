@@ -20,6 +20,7 @@ class Slider(models.Model):
     title = models.CharField("Название", max_length=200)
     link = models.CharField("Ссылка", max_length=200)
     image = models.ImageField(verbose_name="Изображение", upload_to="static/uploads/")
+    order = models.PositiveIntegerField(verbose_name="Сортировка")
 
     class Meta:
         verbose_name_plural = u"Слайдер"
