@@ -3,7 +3,7 @@ from django.core.mail import send_mail, EmailMultiAlternatives
 from django.db import models
 from redactor.fields import RedactorField
 from datetime import datetime
-from dshop.settings import DEFAULT_FROM_EMAIL
+from account.models import User, Fun
 
 
 
@@ -30,8 +30,12 @@ class Post(models.Model):
         if self.lookbook and self.lookbook_datetime is None:
             self.lookbook_datetime = datetime.now()
         if self.send and self.send_datetime is None:
+            user_emails = User.objects.all().distinct('email')
+            for email in Fun.objects.all().distinct('email'):
+                if email not in user_emails:
+                    user_emails.append(email)
             text = self.text.replace('src="', 'style="width:100%" src="http://darya-shop.ru')
-            msg = EmailMultiAlternatives(self.title, text, DEFAULT_FROM_EMAIL, ["marshinskii@gmail.com"])
+            msg = EmailMultiAlternatives(self.title, text, 'daryashop112@gmail.com', user_emails)
             msg.attach_alternative(text, "text/html")
             msg.send()
             self.send_datetime = datetime.now()
