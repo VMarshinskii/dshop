@@ -31,6 +31,7 @@ class Post(models.Model):
             self.lookbook_datetime = datetime.now()
         if self.send and self.send_datetime is None:
             user_emails = User.objects.all().values_list('email', flat=True).distinct()
+            print user_emails
             for email in Fun.objects.all().values_list('email', flat=True).distinct():
                 if email not in user_emails:
                     user_emails.append(email)
