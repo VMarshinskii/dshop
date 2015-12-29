@@ -30,8 +30,8 @@ class Post(models.Model):
         if self.lookbook and self.lookbook_datetime is None:
             self.lookbook_datetime = datetime.now()
         if self.send and self.send_datetime is None:
-            user_emails = User.objects.all().distinct('email')
-            for email in Fun.objects.all().distinct('email'):
+            user_emails = User.objects.all().values_list('email', flat=True)
+            for email in Fun.objects.all().values_list('email', flat=True):
                 if email not in user_emails:
                     user_emails.append(email)
             text = self.text.replace('src="', 'style="width:100%" src="http://darya-shop.ru')
