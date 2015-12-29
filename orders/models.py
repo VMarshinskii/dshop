@@ -51,8 +51,8 @@ class Order(models.Model):
     admin_comment = models.TextField("Комментарий администратора", null=True, blank=True)
 
     class Meta:
-        verbose_name = "Заказ"
-        verbose_name_plural = "Заказы"
+        verbose_name = u"Заказ"
+        verbose_name_plural = u"Заказы"
 
     def save(self, *args, **kwargs):
         try:
@@ -74,6 +74,9 @@ class Order(models.Model):
             pass
 
         super(Order, self).save(*args, **kwargs)
+
+    def __unicode__(self):
+        return u'Заказ ' + str(self.id)
 
 
 class DeliveryType(models.Model):
