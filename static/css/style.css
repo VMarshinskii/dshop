@@ -300,7 +300,7 @@ body {
     text-align: center;
 }
 #center-block .goodss .good .goods-img img {
-    height: 100%;
+    width: 100%;
 }
 #center-block .goodss .good .about-goods {
     height: 44px;
