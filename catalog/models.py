@@ -6,18 +6,9 @@ from django.utils import timezone
 
 class Category(models.Model):
     title = models.CharField(max_length=250, verbose_name="Название")
+    public = models.BooleanField("Опубликовать", default=True)
     parent = models.ForeignKey("self", verbose_name="Родительская категория", blank=True, null=True, default="-1")
-    text = RedactorField(verbose_name="Описание", redactor_options={
-        'upload_to': 'static/uploads',
-
-
-        'clipboardImageUpload ': 'true',
-        'multipleImageUpload': 'true',
-
-
-
-
-    }, blank=True)
+    text = RedactorField(verbose_name="Описание", redactor_options={ 'upload_to': 'static/uploads', 'clipboardImageUpload ': 'true', 'multipleImageUpload': 'true', }, blank=True)
     url = models.CharField("Url", max_length=200, unique=True)
     description = models.CharField("Description", max_length=200, blank=True)
     keywords = models.CharField("Ключевые слова", max_length=200, blank=True)
@@ -34,10 +25,10 @@ class Category(models.Model):
         mass_product = []
 
         def rec_category(obj):
-            product = Product.objects.filter(category=obj)
+            product = Product.objects.filter(public=True, category=obj)
             for product in product:
                 mass_product.append(product)
-            categories = Category.objects.filter(parent=obj)
+            categories = Category.objects.filter(public=True, parent=obj)
             for category in categories:
                 rec_category(category)
 
@@ -99,6 +90,7 @@ PRODUCT_STATUS = (
 
 class Product(models.Model):
     name = models.CharField("Название", max_length=200)
+    public = models.BooleanField("Опубликовать", default=True)
     price = models.IntegerField("Цена")
     price_sale = models.IntegerField("Цена со скидкой", default=0)
     category = models.ForeignKey(Category, verbose_name="Категория", blank=True, null=True)

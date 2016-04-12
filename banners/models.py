@@ -18,6 +18,7 @@ class RightBanner(models.Model):
 
 class Slider(models.Model):
     title = models.CharField("Название", max_length=200)
+    public = models.BooleanField("Опубликовать", default=True)
     link = models.CharField("Ссылка", max_length=200)
     image = models.ImageField(verbose_name="Изображение", upload_to="static/uploads/")
     order = models.PositiveIntegerField(verbose_name="Сортировка")
