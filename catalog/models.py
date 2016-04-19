@@ -160,11 +160,12 @@ class ProductVideo(models.Model):
 														'>iframe").css("position","static");</script>'
 		else:
 			if self.video:
-				id = 'id_video_' + re.sub(r'^.+/', '', str(self.video))
+				id = 'id_video_' + re.sub(r'(^.+/)|(\..+$)', '', str(self.video))
 				result += '<div class="player" id="' + id + '">' \
 									'</div></div><script type="text/javascript">' \
 									'this.player = new Uppod({m:"video",uid:"'+id+'",' \
-									'file:"/' + unicode(self.video) + '",poster:""});</script>'
+									'file:"/' + unicode(self.video) + '",poster:""});' \
+									'$("#'+id+'").css("height","200px").find("iframe").css("height","200px");</script>'
 			else:
 				return ''
 		return result
