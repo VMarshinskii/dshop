@@ -2,6 +2,7 @@
 from django.db import models
 from redactor.fields import RedactorField
 from django.utils import timezone
+from djangosphinx.models import SphinxSearch
 
 
 class Category(models.Model):
