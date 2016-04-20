@@ -1,5 +1,7 @@
+.idea/
+static/uploads/
+*/migrations/
+
 db.sqlite3
 dshop/settings.py
 *.pyc
-static/uploads/
-.idea/
