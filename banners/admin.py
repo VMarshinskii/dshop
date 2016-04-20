@@ -10,4 +10,5 @@ class SliderAdmin(SortableModelAdmin):
 
 
 admin.site.register(RightBanner)
-admin.site.register(Slider, SliderAdmin)
+admin.site.register(Slider)
+#, SliderAdmin

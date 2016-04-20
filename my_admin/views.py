@@ -23,12 +23,12 @@ def video_upload(request):
 
 def sort_list():
     mass_object = []
-    roots = Category.objects.filter(parent=None)
+    roots = Category.objects.filter(parent=None, public=True)
 
     def rec_list(obj):
         obj.title = smart_str("— "*obj.step) + smart_str(obj.title)
         mass_object.append(obj)
-        children = Category.objects.filter(parent=obj)
+        children = Category.objects.filter(parent=obj, public=True)
 
         for child in children:
             rec_list(child)

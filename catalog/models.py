@@ -1,82 +1,77 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.shortcuts import render_to_response
 from redactor.fields import RedactorField
 from django.utils import timezone
 from djangosphinx.models import SphinxSearch
+import re
 
 
 class Category(models.Model):
-    title = models.CharField(max_length=250, verbose_name="Название")
-    parent = models.ForeignKey("self", verbose_name="Родительская категория", blank=True, null=True, default="-1")
-    text = RedactorField(verbose_name="Описание", redactor_options={
-        'upload_to': 'static/uploads',
+	title = models.CharField(max_length=250, verbose_name="Название")
+	public = models.BooleanField("Опубликовать", default=True)
+	parent = models.ForeignKey("self", verbose_name="Родительская категория", blank=True, null=True, default="-1")
+	text = RedactorField(verbose_name="Описание",
+											 redactor_options={'upload_to': 'static/uploads', 'clipboardImageUpload ': 'true',
+																				 'multipleImageUpload': 'true',}, blank=True)
+	url = models.CharField("Url", max_length=200, unique=True)
+	description = models.CharField("Description", max_length=200, blank=True)
+	keywords = models.CharField("Ключевые слова", max_length=200, blank=True)
+	step = models.IntegerField("Вложенность", blank=True)
 
+	class Meta:
+		verbose_name_plural = u"Категории"
+		verbose_name = u"Категория"
 
-        'clipboardImageUpload ': 'true',
-        'multipleImageUpload': 'true',
+	def __unicode__(self):
+		return self.title
 
+	def get_all_product(self):
+		mass_product = []
 
+		def rec_category(obj):
+			product = Product.objects.filter(public=True, category=obj)
+			for product in product:
+				mass_product.append(product)
+			categories = Category.objects.filter(public=True, parent=obj)
+			for category in categories:
+				rec_category(category)
 
+		rec_category(self)
+		return reversed(sorted(mass_product, key=lambda x: x.sort))
 
-    }, blank=True)
-    url = models.CharField("Url", max_length=200, unique=True)
-    description = models.CharField("Description", max_length=200, blank=True)
-    keywords = models.CharField("Ключевые слова", max_length=200, blank=True)
-    step = models.IntegerField("Вложенность", blank=True)
+	def get_path_categ(self):
+		mass_pass = []
 
-    class Meta:
-        verbose_name_plural = u"Категории"
-        verbose_name = u"Категория"
+		def rec_path(obj):
+			if obj is not None:
+				mass_pass.append(obj)
+				rec_path(obj.parent)
 
-    def __unicode__(self):
-        return self.title
-
-    def get_all_product(self):
-        mass_product = []
-
-        def rec_category(obj):
-            product = Product.objects.filter(category=obj)
-            for product in product:
-                mass_product.append(product)
-            categories = Category.objects.filter(parent=obj)
-            for category in categories:
-                rec_category(category)
-
-        rec_category(self)
-        return reversed(sorted(mass_product, key=lambda x: x.sort))
-
-    def get_path_categ(self):
-        mass_pass = []
-
-        def rec_path(obj):
-            if obj is not None:
-                mass_pass.append(obj)
-                rec_path(obj.parent)
-
-        rec_path(self)
-        return mass_pass
+		rec_path(self)
+		return mass_pass
 
 
 class Color(models.Model):
-    title = models.CharField("Название", max_length=200)
+	title = models.CharField("Название", max_length=200)
 
-    class Meta:
-        verbose_name_plural = "Цвета"
-        verbose_name = "Цвет"
+	class Meta:
+		verbose_name_plural = "Цвета"
+		verbose_name = "Цвет"
 
-    def __unicode__(self):
-        return self.title
+	def __unicode__(self):
+		return self.title
 
 
 class Model(models.Model):
-    title = models.CharField("Название", max_length=200)
+	title = models.CharField("Название", max_length=200)
 
-    class Meta:
-        verbose_name_plural = "Модели"
-        verbose_name = "Модель"
+	class Meta:
+		verbose_name_plural = "Модели"
+		verbose_name = "Модель"
 
-    def __unicode__(self):
-        return self.title
+	def __unicode__(self):
+		return self.title
 
 
 MARKET = (
@@ -168,8 +163,19 @@ class ProductVideo(models.Model):
         verbose_name_plural = "Видео для товаров"
         verbose_name = "Видео для товара"
 
-    def get_video(self):
-        if self.video:
-            return 'тут код плеера'
-        else:
-            return 'тут встроенное видео'
+	def get_video(self):
+		result = '<div class="video-responsive">'
+		if self.code:
+			result += self.code + '</div><script>$(".video-responsive' \
+														'>iframe").css("position","static");</script>'
+		else:
+			if self.video:
+				id = 'id_video_' + re.sub(r'(^.+/)|(\..+$)', '', str(self.video))
+				result += '<div class="player" id="' + id + '">' \
+									'</div></div><script type="text/javascript">' \
+									'this.player = new Uppod({m:"video",uid:"'+id+'",' \
+									'file:"/' + unicode(self.video) + '",poster:""});' \
+									'$("#'+id+'").css("height","200px").find("iframe").css("height","200px");</script>'
+			else:
+				return ''
+		return result

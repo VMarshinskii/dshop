@@ -1,5 +1,5 @@
 db.sqlite3
 dshop/settings.py
 *.pyc
-static/
+static/uploads/
 .idea/

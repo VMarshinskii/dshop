@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response, HttpResponse
 from django.http import Http404
-from django.shortcuts import render
 from pages.models import Page
 from catalog.models import Product
 

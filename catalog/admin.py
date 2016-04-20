@@ -11,11 +11,11 @@ class ProductVideoInline(admin.StackedInline):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'category', 'admin_sort', 'home_status')
+    list_display = ('id', 'name', 'category', 'admin_sort','public', 'home_status')
     list_filter = ['category', 'home_status']
     search_fields = ['name']
     ordering = ('-sort',)
-    list_editable = ('home_status',)
+    list_editable = ('public','home_status',)
 
     inlines = [
         ProductVideoInline,
@@ -24,7 +24,7 @@ class ProductAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Основное', {
             'fields': (
-                'name', 'price', 'price_sale', 'category',
+                'name', 'public', 'price', 'price_sale', 'category',
                 'sale_status', 'product_status', 'brand',
                 'text', 'image', 'images', 'home_status')
         }),
@@ -41,7 +41,9 @@ class ProductAdmin(admin.ModelAdmin):
 
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"url": ("title",)}
-    list_display = ('id', 'title')
+    list_display = ('id', 'title','public',)
+    search_fields = ['url']
+    list_editable = ('public', )
 
     def changelist_view(self, request, extra_context=None):
         list_category = sort_list()
