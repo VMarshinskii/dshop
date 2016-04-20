@@ -97,6 +97,7 @@ PRODUCT_STATUS = (
     (3, 'Под заказ'),
 )
 
+
 class Product(models.Model):
     name = models.CharField("Название", max_length=200)
     price = models.IntegerField("Цена")
@@ -123,6 +124,15 @@ class Product(models.Model):
     sort = models.CharField("Сортировка", max_length=200, default='')
     date = models.DateTimeField(verbose_name="Дата создания", auto_now_add=True)
     popularity = models.IntegerField(verbose_name="Популярность", default=0)
+
+    search = SphinxSearch(
+        index='product',
+        weights={
+            'name': 100,
+            'keywords': 90,
+            'text': 80,
+        }
+    )
 
     class Meta:
         verbose_name_plural = u"Товары"
