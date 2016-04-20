@@ -7,7 +7,7 @@ from catalog.models import Product
 
 def search_view(request):
     q = request.GET.get('q', '')
-    for product in Product.seqrch.query(q):
+    for product in Product.search.query(q):
         print product.id
     return HttpResponse("ok")
 
