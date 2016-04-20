@@ -377,7 +377,7 @@ body {
 }
 .awaiting_delivery.extended,
 .sold_out.extended,
-.custom.extended,
+.custom.extended
 {
     float: right;
     width: 202px;
@@ -673,7 +673,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 200px;
 }
 
 .cart_item {

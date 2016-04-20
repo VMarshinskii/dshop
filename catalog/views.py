@@ -11,11 +11,12 @@ sticker = ['нет', 'Хит', 'Новинка', 'Акция', 'Распрода
 def index_view(request):
     products = []
 
-    for slider in Slider.objects.all():
+    for slider in Slider.objects.filter(public=True):
         slider.order = slider.id
         slider.save()
 
-    for product in reversed(Product.objects.filter(home_status=True).order_by('sort')):
+    # строка "category__public=True" отключает возможность отобразить товар неотображаемой категории (не сезон)
+    for product in reversed(Product.objects.filter(public=True, home_status=True, category__public=True).order_by('sort')):
         product.sticker = sticker[int(product.status)]
         products.append(product)
 
@@ -65,7 +66,7 @@ def product_view(request, id=-1):
 
 def category_view(request, url="none"):
     try:
-        categ = Category.objects.get(url=url)
+        categ = Category.objects.filter(public=True).get(url=url)
         products = []
 
         for product in categ.get_all_product():
@@ -85,7 +86,7 @@ def category_view(request, url="none"):
         'categ': categ,
         'products': products,
         'sort_option': sort,
-        'children': Category.objects.filter(parent=categ)
+        'children': Category.objects.filter(public=True, parent=categ)
     })
 
 
