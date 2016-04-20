@@ -11,11 +11,11 @@ class ProductVideoInline(admin.StackedInline):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'category', 'admin_sort','public', 'home_status')
+    list_display = ('id', 'name', 'category', 'admin_sort', 'public', 'home_status')
     list_filter = ['category', 'home_status']
     search_fields = ['name']
     ordering = ('-sort',)
-    list_editable = ('public','home_status',)
+    list_editable = ('public', 'home_status',)
 
     inlines = [
         ProductVideoInline,
@@ -26,7 +26,7 @@ class ProductAdmin(admin.ModelAdmin):
             'fields': (
                 'name', 'public', 'price', 'price_sale', 'category',
                 'sale_status', 'product_status', 'brand',
-                'text', 'image', 'images', 'home_status')
+                'text', 'image', 'images', 'home_status', 'public')
         }),
         ('Дополнительные поля', {
             # 'classes': ('collapse',),

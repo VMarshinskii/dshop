@@ -118,6 +118,7 @@ class Product(models.Model):
     sort = models.CharField("Сортировка", max_length=200, default='')
     date = models.DateTimeField(verbose_name="Дата создания", auto_now_add=True)
     popularity = models.IntegerField(verbose_name="Популярность", default=0)
+    public = models.BooleanField("Опубликовать", default=True)
 
     search = SphinxSearch(
         index='product',
