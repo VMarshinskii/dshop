@@ -6,7 +6,7 @@ from suit.admin import SortableModelAdmin
 
 class SliderAdmin(SortableModelAdmin):
     sortable = 'order'
-    list_editable = ('title', 'order')
+    # list_editable = ('title', 'order')
 
 
 admin.site.register(RightBanner)
