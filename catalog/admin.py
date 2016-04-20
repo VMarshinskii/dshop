@@ -24,7 +24,7 @@ class ProductAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Основное', {
             'fields': (
-                'name', 'public', 'price', 'price_sale', 'category',
+                'name', 'price', 'price_sale', 'category',
                 'sale_status', 'product_status', 'brand',
                 'text', 'image', 'images', 'home_status', 'public')
         }),
