@@ -1,11 +1,18 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, HttpResponse
 from django.http import Http404
 from django.shortcuts import render
 from pages.models import Page
+from catalog.models import Product
 
 
-# Create your views here.
+def search_view(request):
+    q = request.GET.get('q', '')
+    for product in Product.seqrch.query(q):
+        print product.id
+    return HttpResponse("ok")
+
+
 def page_view(request, url="None"):
     try:
         page = Page.objects.get(url=url)
