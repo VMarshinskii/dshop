@@ -48,6 +48,14 @@ class Category(models.Model):
         rec_path(self)
         return mass_pass
 
+# проверка: является ли категория отображаемой (вклюая родительские)
+    def public_check(self):
+        if not self.public:
+            return False
+        if self.parent is None:
+            return self.public
+        return self.parent.public_check()
+
 
 class Color(models.Model):
     title = models.CharField("Название", max_length=200)

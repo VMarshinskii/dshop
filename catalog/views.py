@@ -17,8 +17,10 @@ def index_view(request):
 
     # строка "category__public=True" отключает возможность отобразить товар неотображаемой категории (не сезон)
     for product in reversed(Product.objects.filter(public=True, home_status=True, category__public=True).order_by('sort')):
-        product.sticker = sticker[int(product.status)]
-        products.append(product)
+        # не даёт возможности отобразить товар отключённой категории (включая отключённые родительские категории)
+        if product.category.public_check():
+            product.sticker = sticker[int(product.status)]
+            products.append(product)
 
     sort = request.COOKIES.get('sort', 'default')
     if sort:
@@ -33,7 +35,14 @@ def index_view(request):
 
 def product_view(request, id=-1):
     if id != -1:
-        product = Product.objects.get(id=id)
+        product = Product.objects.filter(public=True, category__public=True, id=id)
+
+        # при попытке отобразить страницу непубликуемого товара или товара непубликуемой категории/подкатегории
+        if product.count() == 0 or not product[0].category.public_check():
+            return Http404
+
+        product=product[0]
+
         images = []
         images_mass = product.images.split(";")
         for img in images_mass:
