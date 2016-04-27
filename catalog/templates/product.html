@@ -105,7 +105,29 @@
             {{ product.text|safe }}
 
             {% for video in videos %}
-                {{ video.get_video|safe }}
+							{% if video.code %}
+								<div class="video-responsive">
+									{{ video.code|safe }}
+								</div>
+								<script>
+{#									$(".video-responsive>iframe").css("position","static");#}
+								</script>
+							{% elif video.video %}
+								<div class="video-responsive" id="video{{ forloop.counter }}"></div>
+								<script type="text/javascript">
+									$(document).ready ( function(){
+										this.player = new Uppod(
+												{
+													m:"video",
+													uid:"video{{ forloop.counter }}",
+													file:"/{{ video.video }}",
+													poster:""
+												}
+										);
+										$("#video{{ forloop.counter }}").css("height","100%").find("iframe").css("height","100%");
+									});
+								</script>
+							{% endif %}
             {% endfor %}
 
         </div>

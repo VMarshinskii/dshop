@@ -2,7 +2,6 @@
 from django.db import models
 from redactor.fields import RedactorField
 from djangosphinx.models import SphinxSearch
-import re
 
 
 class Category(models.Model):
@@ -162,21 +161,3 @@ class ProductVideo(models.Model):
     class Meta:
         verbose_name_plural = "Видео для товаров"
         verbose_name = "Видео для товара"
-
-    def get_video(self):
-        result = '<div class="video-responsive">'
-        if self.code:
-            result += self.code + '</div><script>$(".video-responsive' \
-                                  '>iframe").css("position","static");</script>'
-        else:
-            if self.video:
-                id = 'id_video_' + re.sub(r'(^.+/)|(\..+$)', '', str(self.video))
-                result += '<div class="player" id="' + id + '">' \
-                                                            '</div></div><script type="text/javascript">' \
-                                                            'this.player = new Uppod({m:"video",uid:"' + id + '",' \
-                                                                                                              'file:"/' + unicode(
-                    self.video) + '",poster:""});' \
-                                  '$("#' + id + '").css("height","200px").find("iframe").css("height","200px");</script>'
-            else:
-                return ''
-        return result
