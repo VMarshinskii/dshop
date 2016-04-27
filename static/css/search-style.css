@@ -1,0 +1,77 @@
+*{
+	margin: 0;
+	padding: 0;
+	border:none;
+}
+
+@font-face {
+	font-family: 'search-icon';
+	src:    url('/static/fonts/search-icon.eot?5dql7c');
+	src:    url('/static/fonts/search-icon.eot?5dql7c#iefix') format('embedded-opentype'),
+	url('/static/fonts/search-icon.ttf?5dql7c') format('truetype'),
+	url('/static/fonts/search-icon.woff?5dql7c') format('woff'),
+	url('/static/fonts/search-icon.svg?5dql7c#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+#search-block-form .form-actions .icon-search {
+	font-family: 'search-icon' !important;
+}
+
+#search-block{
+	z-index: 999;
+
+	position: absolute;
+	width: 1000px;
+	margin: 0 auto;
+}
+
+
+#search-block-form{
+	z-index: 999;
+
+	width: 260px;
+	height: 28px;
+
+	border-radius: 2px;
+	background: url("../images/btn-c.png") 0 0 repeat-x;
+}
+#search-block-form input{
+	display: block;
+	outline: none;
+	background: none;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#search-block-form .form-actions{
+	position: absolute;
+	top: 4px;
+	left: 3px;
+}
+
+#search-block-form .form-actions .icon-search,
+#search-block-form .form-item input{
+	font-size: 18px;
+}
+
+#search-block-form .form-actions input{
+	color: #fff;
+}
+
+#search-block-form .form-actions input:hover{
+	cursor: pointer;
+}
+
+#search-block-form .form-item{
+	height: 100%;
+	width: 225px;
+	padding: 0 5px;
+
+}
+#search-block-form .form-item input{
+	color:#fff;
+	height: auto !important;
+	padding: 2px 0 2px 28px;
+}
