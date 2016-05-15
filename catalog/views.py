@@ -35,13 +35,11 @@ def index_view(request):
 
 def product_view(request, id=-1):
     if id != -1:
-        product = Product.objects.filter(public=True, category__public=True, id=id)
+        product = Product.objects.get(public=True, category__public=True, id=id)
 
         # при попытке отобразить страницу непубликуемого товара или товара непубликуемой категории/подкатегории
-        if product.count() == 0 or not product[0].category.public_check():
+        if product.category.public_check():
             return Http404
-
-        product=product[0]
 
         images = []
         images_mass = product.images.split(";")
@@ -79,8 +77,9 @@ def category_view(request, url="none"):
         products = []
 
         for product in categ.get_all_product():
-            product.sticker = sticker[int(product.status)]
-            products.append(product)
+            if product.public:
+                product.sticker = sticker[int(product.status)]
+                products.append(product)
 
         sort = request.COOKIES.get('sort', 'default')
         if sort:
@@ -108,6 +107,13 @@ def update_sort_products(request):
 def search_view(request):
     q = request.GET.get('q', '')
     sort = request.COOKIES.get('sort', 'default')
+
+    prs = []
+
+    for pr in Product.search.query(q):
+        if pr.public:
+            pr.sticker = sticker[int(pr.status)]
+            prs.append(pr)
 
     return render_to_response("search.html", {
         'user': request.user,

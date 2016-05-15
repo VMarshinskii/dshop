@@ -48,7 +48,7 @@ class Category(models.Model):
         rec_path(self)
         return mass_pass
 
-# проверка: является ли категория отображаемой (вклюая родительские)
+    # проверка: является ли категория отображаемой (вклюая родительские)
     def public_check(self):
         if not self.public:
             return False
