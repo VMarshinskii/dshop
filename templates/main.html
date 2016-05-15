@@ -4,6 +4,7 @@
 {% load main_slider %}
 {% load top_menu %}
 {% load header %}
+{% load search %}
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -28,16 +29,6 @@
 </div>
 
 <div id="all-content">
-		<div id="search-block">
-			<form action="/search/" method="get" id="search-block-form">
-				<div class="form-item">
-					<input type="text" name="q" size="15" maxlength="250" placeholder="Найти...">
-				</div>
-				<div class="form-actions">
-					<input type="submit" id="edit-submit" value="s" class="icon-search">
-				</div>
-			</form>
-		</div>
     {% header_show %}
 
     <div id="main-content">
@@ -59,6 +50,7 @@
 
         <div id="center-block">
             {% top_menu %}
+            {% search %}
             {% block content %}{% endblock %}
         </div>
         {% endblock %}
