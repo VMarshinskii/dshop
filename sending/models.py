@@ -19,6 +19,10 @@ class EmailSender(models.Model):
         SenderThread(self).start()
         super(EmailSender, self).save(*args, **kwargs)
 
+    class Meta:
+        verbose_name_plural = "Рассылки"
+        verbose_name = "Рассылка"
+
 
 class SenderThread(threading.Thread):
     def __init__(self, param):
