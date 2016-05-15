@@ -1,0 +1,77 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+{% load categ_sort %}
+
+
+{% block head %}
+    <title>{{ categ.title }} | Darya-Shop</title>
+{% endblock %}
+
+
+{% block content %}
+<ul class="catalogCategPath">
+    <li><a href="/">Главная</a></li>
+    <li>></li>
+    <li><a href="/search/">Поик</a></li>
+</ul>
+
+<div class="categ_top">
+    {% if q %}
+        <h1 class="categ_h1">Результаты поиска по запросу: {{ q }}</h1>
+    {% endif %}
+
+    {% categ_sort sort_option %}
+</div>
+
+{% if products.count == 0 %}
+<div class="ContentBox" style="margin-top: 0">
+    <div class="ContentBoxPage">
+        <p>Ничего не найдено..</p>
+    </div>
+</div>
+{% endif %}
+<div class="goodss">
+    {% for product in products %}
+    <div class="good">
+        {% if product.status != 0 %}
+        <div class="action_sticker">{{ product.sticker }}</div>
+        {% endif %}
+        <a href="/catalog/product/{{ product.id }}/">
+            <div class="goods-img">
+                <img src="/static/uploads/{{ product.image }}" alt="img"/>
+            </div>
+            <div class="about-goods">{{ product.name }}</div>
+        </a>
+        {% if product.sale_status %}
+        <div class="price">{{ product.price_sale }} руб.</div>
+        <div class="price" style="float: right; color: #999; text-decoration: line-through">{{ product.price }} руб.</div>
+        {% else %}
+        <div class="price">{{ product.price }} руб.</div>
+        {% endif %}
+
+        {% if product.product_status == 0 %}
+            <div class="good-c">
+                <a data-id="{{ product.id }}" href="#">В корзину</a>
+            </div>
+        {% elif product.product_status == 1  %}
+            <div class="awaiting_delivery">
+                <span class="icon"></span>
+                <span class="desc">Ожидаем поступление</span>
+            </div>
+        {% elif product.product_status == 2  %}
+            <div class="sold_out">
+                <span class="icon"></span>
+                <span class="desc">Распродано</span>
+            </div>
+        {% elif product.product_status == 3  %}
+            <div class="custom">
+                <span class="icon"></span>
+                <span class="desc">Товар под заказ</span>
+            </div>
+        {% endif %}
+
+    </div>
+    {% endfor %}
+</div>
+<div style="clear: both"></div>
+{% endblock %}

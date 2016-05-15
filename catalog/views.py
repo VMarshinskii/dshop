@@ -111,8 +111,7 @@ def search_view(request):
 
     return render_to_response("category.html", {
         'user': request.user,
-        # 'path': path,
-        # 'categ': categ,
+        'q': q,
         'products': Product.search.query(q),
         'sort_option': sort
     })
