@@ -1559,6 +1559,11 @@ label.popupBoxLoginFormZap {
     color: #4A4A4A;
 }
 
+.search-box {
+    width: 100%;
+    background: #FFFFFF;
+}
+
 @media screen and (max-width:1347px) {
     #center-block {
         width: 395px
