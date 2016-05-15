@@ -7,7 +7,7 @@ from django.utils.encoding import smart_str
 
 class ProductVideoInline(admin.StackedInline):
     model = ProductVideo
-    extra = 1
+    extra = 0
 
 
 class ProductAdmin(admin.ModelAdmin):

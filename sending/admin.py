@@ -4,7 +4,8 @@ from sending.models import EmailSender
 
 
 class EmailSenderAdmin(admin.ModelAdmin):
-	list_display = ('title', 'description', 'date',)
-	search_fields = ('title', 'description', 'date',)
+    list_display = ('title', 'description', 'date',)
+    search_fields = ('title', 'description', 'date',)
+
 
 admin.site.register(EmailSender, EmailSenderAdmin)
