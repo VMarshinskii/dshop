@@ -46,7 +46,11 @@
 
         <div id="center-block">
             {% top_menu %}
-            {% search %}
+            {% if q %}
+                {% search q %}
+            {% else %}
+                {% search %}
+            {% endif %}
             {% block content %}{% endblock %}
         </div>
         {% endblock %}

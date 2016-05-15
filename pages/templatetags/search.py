@@ -4,5 +4,5 @@ register = template.Library()
 
 
 @register.inclusion_tag('templatetags/search.html')
-def search():
-    return {}
+def search(q=None):
+    return {'q': q or ''}
