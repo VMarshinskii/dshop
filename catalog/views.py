@@ -107,7 +107,6 @@ def update_sort_products(request):
 def search_view(request):
     q = request.GET.get('q', '')
     sort = request.COOKIES.get('sort', 'default')
-
     prs = []
 
     for pr in Product.search.query(q):
@@ -115,10 +114,13 @@ def search_view(request):
             pr.sticker = sticker[int(pr.status)]
             prs.append(pr)
 
+    if sort:
+        prs = sorted_product(prs, sort)
+
     return render_to_response("search.html", {
         'user': request.user,
         'q': q,
-        'products': Product.search.query(q),
+        'products': prs,
         'sort_option': sort
     })
 
