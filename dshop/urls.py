@@ -18,5 +18,6 @@ urlpatterns = [
     url(r'^logout/', 'account.views.logout_view'),
     url(r'^email_confirmation/', 'account.views.email_confirmation_view'),
     url(r'^redactor/', include('redactor.urls')),
+    url(r'^search/', 'catalog.views.search_view'),
     url(r'', include('pages.urls')),
 ]

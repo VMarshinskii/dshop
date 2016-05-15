@@ -1559,19 +1559,41 @@ label.popupBoxLoginFormZap {
     color: #4A4A4A;
 }
 
-.search-box {
+.search-block {
     width: 100%;
-    background: #FFFFFF;
+    background: #fff;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.search-block input[type="text"]
+{
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #ADADAD;
+    width: 300px;
+    float: left;
+    margin-right: 2px;
+}
+.search-block input[type="submit"]
+{
+    padding: 4px 20px;
+    border-radius: 2px;
+    background: #00CE00;
+    border: 1px solid #02B302;
+    color: #fff;
+    font-size: 15px;
 }
 
 @media screen and (max-width:1347px) {
     #center-block {
         width: 395px
     }
+
     .CartItem {
         width: 370px;
         margin: 2px 0;
     }
+
     .CartItem h3 {
         width: 130px;
         font: 14px/30px sans-serif;
@@ -1579,49 +1601,62 @@ label.popupBoxLoginFormZap {
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+
     .CartItem p {
         font: 15px/40px sans-serif;
     }
+
     .CartItemPrice {
         display: none;
     }
+
     .CartItemPrice, .CartItemSumm, .CartItemCount {
         width: 75px;
         height: 40px;
     }
+
     .CartItemPriceLabel, .CartItemSummLabel, .CartItemCountLabel {
         display: none;
     }
+
     .ContentBoxHead {
         padding: 10px;
     }
+
     .ContentBoxPage {
         padding: 10px;
     }
+
     .CartItemImage {
         float: left;
         width: 36px;
         height: 40px;
     }
+
     .CartItemDelete {
         width: 12px !important;
         top: 14px;
         right: 8px;
     }
+
     .CartLabels p {
         display: inline;
         color: #999999;
         font: 14px/14pt sans-serif;
     }
+
     p.CartTitleLabel {
         margin-left: 0;
     }
+
     p.CartPriceLabel {
         display: none;
     }
+
     p.CartCountLabel {
         margin-left: 81px;
     }
+
     p.CartSumLabel {
         margin-left: 30px;
     }
@@ -1633,9 +1668,11 @@ label.popupBoxLoginFormZap {
     .CatalogProductBoxCont {
         width: 375px;
     }
+
     .CatalogPriceBox {
         width: 353px;
     }
+
     .galeryBox {
         width: 301px;
     }
@@ -1650,6 +1687,7 @@ label.popupBoxLoginFormZap {
         line-height: 17px;
         height: 27px;
     }
+
     #main-menu ul li a {
         height: 12px;
         display: block;
@@ -1661,16 +1699,18 @@ label.popupBoxLoginFormZap {
     .CartSum {
         margin: 7px 0 0 120px;
     }
+
     .CartOrder {
         margin-top: 10px;
     }
+
     #center-block .goodss .good .price {
         font-size: 15px;
     }
+
     .CatalogProductBoxContent {
         max-width: 375px;
     }
-
 
     .left_on_form,
     .left_on_form.reg {
@@ -1692,12 +1732,18 @@ label.popupBoxLoginFormZap {
     .OrderBoxUserData, .OrderBoxAddressData {
         width: 360px;
     }
+
     .OrderBoxUserData label, .OrderBoxAddressData label {
         margin: 7px 5px 5px 15px;
         width: 120px;
     }
+
     .OrderBoxAddressTypeItem h5 {
         font-size: 14px;
         padding-top: 2px;
+    }
+
+    .search-block input[type="text"] {
+        width: 280px;
     }
 }

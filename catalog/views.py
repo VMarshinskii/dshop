@@ -104,3 +104,16 @@ def update_sort_products(request):
         product.save()
     return HttpResponse("ok")
 
+
+def search_view(request):
+    q = request.GET.get('q', '')
+    sort = request.COOKIES.get('sort', 'default')
+
+    return render_to_response("category.html", {
+        'user': request.user,
+        # 'path': path,
+        # 'categ': categ,
+        'products': Product.search.query(q),
+        'sort_option': sort
+    })
+
