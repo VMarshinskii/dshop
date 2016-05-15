@@ -38,8 +38,8 @@ def product_view(request, id=-1):
         product = Product.objects.get(public=True, category__public=True, id=id)
 
         # при попытке отобразить страницу непубликуемого товара или товара непубликуемой категории/подкатегории
-        if product.category.public_check():
-            return Http404
+        if not product.category.public_check():
+            raise Http404
 
         images = []
         images_mass = product.images.split(";")
