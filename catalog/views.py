@@ -109,7 +109,7 @@ def search_view(request):
     q = request.GET.get('q', '')
     sort = request.COOKIES.get('sort', 'default')
 
-    return render_to_response("category.html", {
+    return render_to_response("search.html", {
         'user': request.user,
         'q': q,
         'products': Product.search.query(q),
