@@ -37,7 +37,7 @@
 <script>
     $(document).ready(function () {
         $(".category_sort_up").on('click', function () {
-            $.get("/admin/update_category_sort", {
+            $.get("/admin/update_category_sort/", {
                 'category_id': $(this).attr('data-id'),
                 'sort_type': "up"
             });
