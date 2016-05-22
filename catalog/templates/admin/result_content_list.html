@@ -9,18 +9,10 @@
 						</span>
 					</div>
 				</th>
-				<th scope="col">
-					ID
-				</th>
-                <th scope="col">
-					Сортировка
-				</th>
-				<th scope="col">
-					Название
-				</th>
-				<th scope="col">
-					Url
-				</th>
+				<th scope="col">ID</th>
+                <th scope="col">Сортировка</th>
+				<th scope="col">Название</th>
+				<th scope="col">Url</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -28,7 +20,7 @@
 			<tr class="{% cycle 'row1' 'row2' %}" style="height: 34px;">
 				<td class="action-checkbox"><input class="action-select" name="_selected_action" type="checkbox" value="{{ category.id }}"></td>
 				<td colspan=""><a href="/admin/catalog/category/{{ category.id }}/">{{ category.id }}</a></td>
-				<td colspan="">{{ category.admin_sort }}</td>
+				<td colspan="">{{ category.admin_sort|safe }}</td>
 				<td colspan=""><a href="/admin/catalog/category/{{ category.id }}/">{{ category.title }}</a></td>
 				<td colspan="">{{ category.url }}</td>
 			</tr>
