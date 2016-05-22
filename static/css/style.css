@@ -1582,6 +1582,7 @@ label.popupBoxLoginFormZap {
     border: 1px solid #02B302;
     color: #fff;
     font-size: 15px;
+    cursor: pointer;
 }
 
 @media screen and (max-width:1347px) {
