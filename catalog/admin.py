@@ -74,6 +74,7 @@ def sort_list():
             rec_list(child)
 
     for root in roots:
+        root.is_root = True
         rec_list(root)
 
     return mass_object

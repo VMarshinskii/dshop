@@ -10,7 +10,7 @@
 					</div>
 				</th>
 				<th scope="col">ID</th>
-                <th scope="col">Сортировка</th>
+                <th scope="col"></th>
 				<th scope="col">Название</th>
 				<th scope="col">Url</th>
 			</tr>
@@ -21,8 +21,10 @@
 				<td class="action-checkbox"><input class="action-select" name="_selected_action" type="checkbox" value="{{ category.id }}"></td>
 				<td colspan=""><a href="/admin/catalog/category/{{ category.id }}/">{{ category.id }}</a></td>
 				<td colspan="">
-                    <span class="category_sort_up" data-id="{{ category.id }}"></span>
-                    <span class="category_sort_down" data-id="{{ category.id }}"></span>
+                    {% if category.is_root %}
+                        <span class="category_sort_up" data-id="{{ category.id }}"></span>
+                        <span class="category_sort_down" data-id="{{ category.id }}"></span>
+                    {% endif %}
                 </td>
 				<td colspan=""><a href="/admin/catalog/category/{{ category.id }}/">{{ category.title }}</a></td>
 				<td colspan="">{{ category.url }}</td>
