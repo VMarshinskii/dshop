@@ -629,6 +629,26 @@ a.append-icon i{margin-left:5px}
     display: none;
 }
 
+.category_sort_up,
+.category_sort_down {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.category_sort_up:hover,
+.category_sort_down:hover {
+    opacity: 1;
+}
+.category_sort_up {
+    background: url("/static/suit/img/sort-up.png") no-repeat center;
+    background-size: 100%;
+}
+.category_sort_down {
+    background: url("/static/suit/img/sort-down.png") no-repeat center;
+    background-size: 100%;
+}
+
 @media screen and (max-width:1200px) {
     .save-box {
         /*display: none;*/

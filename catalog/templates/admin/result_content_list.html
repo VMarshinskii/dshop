@@ -20,7 +20,10 @@
 			<tr class="{% cycle 'row1' 'row2' %}" style="height: 34px;">
 				<td class="action-checkbox"><input class="action-select" name="_selected_action" type="checkbox" value="{{ category.id }}"></td>
 				<td colspan=""><a href="/admin/catalog/category/{{ category.id }}/">{{ category.id }}</a></td>
-				<td colspan="">{{ category.admin_sort|safe }}</td>
+				<td colspan="">
+                    <span class="category_sort_up" data-id="{{ category.id }}"></span>
+                    <span class="category_sort_down" data-id="{{ category.id }}"></span>
+                </td>
 				<td colspan=""><a href="/admin/catalog/category/{{ category.id }}/">{{ category.title }}</a></td>
 				<td colspan="">{{ category.url }}</td>
 			</tr>

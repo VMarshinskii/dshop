@@ -57,11 +57,6 @@ class Category(models.Model):
             return self.public
         return self.parent.public_check()
 
-    def admin_sort(self):
-        return '<span class="admin_sort" id="' + str(self.id) + '" sort_value="' + str(self.sort) + '"></span>'
-    admin_sort.allow_tags = True
-    admin_sort.short_description = ''
-
 
 class Color(models.Model):
     title = models.CharField("Название", max_length=200)
