@@ -41,7 +41,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"url": ("title",)}
-    list_display = ('id', 'title','public',)
+    list_display = ('id', 'admin_sort', 'title', 'public',)
     search_fields = ['url']
     list_editable = ('public', )
 
@@ -63,7 +63,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 def sort_list():
     mass_object = []
-    roots = Category.objects.filter(parent=None)
+    roots = Category.objects.filter(parent=None).order_by('sort')
 
     def rec_list(obj):
         obj.title = smart_str("— "*obj.step) + smart_str(obj.title)
