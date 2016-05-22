@@ -20,7 +20,6 @@ def video_upload(request):
     return HttpResponse("no")
 
 
-
 def sort_list():
     mass_object = []
     roots = Category.objects.filter(parent=None, public=True)
@@ -111,8 +110,30 @@ def update_product_sort(request):
 
 def update_category_sort(request):
     if request.user.is_superuser:
-        for category in Category.objects.all():
-            category.sort = category.id
-            category.save()
-        return HttpResponse("Yes")
+        try:
+            category = Category.objects.get(id=int(request.POST.get('category_id')))
+            sort_type = request.GET.get('sort_type')
+
+            if sort_type == "up":
+                category_prev = None
+                for root in Category.objects.filter(parent=None).order_by('sort'):
+                    if category.id == root.id:
+                        if category_prev:
+                            category_prev.sort, category.sort = category.sort, category_prev.sort
+                            category_prev.save()
+                            category.save()
+                        return HttpResponse(json.dumps({'error': False}))
+
+            if sort_type == "down":
+                category_prev = None
+                for root in reversed(Category.objects.filter(parent=None).order_by('sort')):
+                    if category.id == root.id:
+                        if category_prev:
+                            category_prev.sort, category.sort = category.sort, category_prev.sort
+                            category_prev.save()
+                            category.save()
+                        return HttpResponse(json.dumps({'error': False}))
+
+        except Category.DoesNotExist:
+            return HttpResponse(json.dumps({'error': True}))
     raise Http404()
