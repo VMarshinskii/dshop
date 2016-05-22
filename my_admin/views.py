@@ -111,7 +111,7 @@ def update_product_sort(request):
 def update_category_sort(request):
     if request.user.is_superuser:
         try:
-            category = Category.objects.get(id=int(request.POST.get('category_id')))
+            category = Category.objects.get(id=int(request.GET.get('category_id')))
             sort_type = request.GET.get('sort_type')
 
             if sort_type == "up":
