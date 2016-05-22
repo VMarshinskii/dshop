@@ -15,6 +15,7 @@ class Category(models.Model):
     description = models.CharField("Description", max_length=200, blank=True)
     keywords = models.CharField("Ключевые слова", max_length=200, blank=True)
     step = models.IntegerField("Вложенность", blank=True)
+    sort = models.IntegerField(verbose_name="Сортировка", default=0)
 
     class Meta:
         verbose_name_plural = u"Категории"

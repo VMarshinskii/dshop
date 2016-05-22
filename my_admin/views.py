@@ -107,3 +107,12 @@ def update_product_sort(request):
         return HttpResponse('ok')
 
     raise Http404()
+
+
+def update_category_sort(request):
+    if request.user.is_superuser:
+        for category in Category.objects.all():
+            category.sort = category.id
+            category.save()
+        return HttpResponse("Yes")
+    raise Http404()

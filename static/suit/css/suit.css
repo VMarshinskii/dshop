@@ -622,13 +622,16 @@ a.append-icon i{margin-left:5px}
 .mobil-save-box {
     display: none;
 }
+.mobil-save-box button {
+    margin-right: 5px;
+}
 .mobil-save-box button[name="_continue"] {
     display: none;
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1200px) {
     .save-box {
-        display: none;
+        /*display: none;*/
     }
     .mobil-save-box {
         display: block;
