@@ -631,10 +631,11 @@ a.append-icon i{margin-left:5px}
 
 .category_sort_up,
 .category_sort_down {
-    width: 24px;
-    height: 24px;
+    display: inline-block;
+    width: 13px;
+    height: 13px;
     cursor: pointer;
-    opacity: 0.8;
+    opacity: 0.4;
 }
 .category_sort_up:hover,
 .category_sort_down:hover {
