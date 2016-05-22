@@ -312,19 +312,3 @@ a.append-icon i{margin-left:5px}
 
 
 .table td, .table th{vertical-align: middle}
-
-.mobil-save-box {
-    display: none;
-}
-.mobil-save-box button[name="_continue"] {
-    display: none;
-}
-
-@media screen and (max-width:1024px) {
-    .save-box {
-        display: none;
-    }
-    .mobil-save-box {
-        display: block;
-    }
-}

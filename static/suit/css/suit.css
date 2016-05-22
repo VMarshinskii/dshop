@@ -618,3 +618,19 @@ a.append-icon i{margin-left:5px}
     border-bottom: 1px solid #6E6E6E;
     border-top: 1px solid #6E6E6E;
 }
+
+.mobil-save-box {
+    display: none;
+}
+.mobil-save-box button[name="_continue"] {
+    display: none;
+}
+
+@media screen and (max-width:1024px) {
+    .save-box {
+        display: none;
+    }
+    .mobil-save-box {
+        display: block;
+    }
+}
