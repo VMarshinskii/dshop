@@ -40,6 +40,8 @@
             $.get("/admin/update_category_sort/", {
                 'category_id': $(this).attr('data-id'),
                 'sort_type': "up"
+            }, function(){
+                location.reload();
             });
         });
 
@@ -47,6 +49,8 @@
             $.get("/admin/update_category_sort", {
                 'category_id': $(this).attr('data-id'),
                 'sort_type': "down"
+            }, function(){
+                location.reload();
             });
         });
     });
