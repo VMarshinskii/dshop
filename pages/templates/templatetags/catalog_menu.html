@@ -3,16 +3,16 @@
     <div class="categ-list">По категориям:</div>
     <div class="cat-menu">
         <ul>
-            {% for parent,childrens in mass_categ.items %}
+            {% for parent in mass_parents %}
             <li>
-                {% if childrens %}
+                {% if parent.get_child_categories.count > 0 %}
                     <a href="/catalog/{{ parent.url }}/">
                         <span class="first_li">{{ parent.title }}</span>
                         <span class="{% if parent.active %}arrow_hide{% else %}arrow_show{% endif %}"></span>
                     </a>
                     <ul class="second_nav">
-                        {% for child in childrens %}
-                        <li><a href="/catalog/{{ child.url }}/">{{ child.title }}</a></li>
+                        {% for child in parent.get_child_categories %}
+                            <li><a href="/catalog/{{ child.url }}/">{{ child.title }}</a></li>
                         {% endfor %}
                     </ul>
                 {% else %}

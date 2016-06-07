@@ -57,6 +57,9 @@ class Category(models.Model):
             return self.public
         return self.parent.public_check()
 
+    def get_child_categories(self):
+        return Category.objects.filter(parent=self)
+
 
 class Color(models.Model):
     title = models.CharField("Название", max_length=200)
