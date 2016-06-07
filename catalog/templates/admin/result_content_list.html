@@ -46,7 +46,7 @@
         });
 
         $(".category_sort_down").on('click', function () {
-            $.get("/admin/update_category_sort", {
+            $.get("/admin/update_category_sort/", {
                 'category_id': $(this).attr('data-id'),
                 'sort_type': "down"
             }, function(){
