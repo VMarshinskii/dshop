@@ -123,6 +123,7 @@ def update_category_sort(request):
                             category_prev.save()
                             category.save()
                         return HttpResponse(json.dumps({'error': False}))
+                    category_prev = root
 
             if sort_type == "down":
                 category_prev = None
@@ -133,6 +134,7 @@ def update_category_sort(request):
                             category_prev.save()
                             category.save()
                         return HttpResponse(json.dumps({'error': False}))
+                    category_prev = root
 
         except Category.DoesNotExist:
             return HttpResponse(json.dumps({'error': True}))
