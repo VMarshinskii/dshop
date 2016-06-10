@@ -87,7 +87,7 @@ def category_view(request, url="none"):
 
         path = list(reversed(categ.get_path_categ()))
     except Category.DoesNotExist:
-        return Http404
+        raise Http404
     return render_to_response("category.html", {
         'user': request.user,
         'path': path,
