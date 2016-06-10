@@ -68,7 +68,7 @@ def product_view(request, id=-1):
             'videos': ProductVideo.objects.filter(product=product)
         })
     else:
-        return Http404
+        raise Http404
 
 
 def category_view(request, url="none"):
