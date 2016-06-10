@@ -33,8 +33,8 @@ def index_view(request):
     })
 
 
-def product_view(request, id=-1):
-    if id != -1:
+def product_view(request, id):
+    try:
         product = Product.objects.get(public=True, category__public=True, id=id)
 
         # при попытке отобразить страницу непубликуемого товара или товара непубликуемой категории/подкатегории
@@ -67,7 +67,7 @@ def product_view(request, id=-1):
             'path': list(reversed(product.category.get_path_categ())),
             'videos': ProductVideo.objects.filter(product=product)
         })
-    else:
+    except Product.DoesNotExist:
         raise Http404
 
 
