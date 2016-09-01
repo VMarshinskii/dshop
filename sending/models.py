@@ -19,7 +19,7 @@ class EmailSender(models.Model):
     def save(self, *args, **kwargs):
         # SenderThread(self).start()
 
-        text = unicode(self.param.content.replace('src="', 'style="width:100%" src="http://darya-shop.ru'))
+        text = unicode(self.content.replace('src="', 'style="width:100%" src="http://darya-shop.ru'))
 
         send_mail(unicode(self.title), text, 'daryashop112@gmail.com',
                   ['marshinskii@gmail.com'], fail_silently=False)
