@@ -16,7 +16,13 @@ class EmailSender(models.Model):
         return u'%s %s' % (self.title, self.description)
 
     def save(self, *args, **kwargs):
-        SenderThread(self).start()
+        # SenderThread(self).start()
+        user_emails = list(Fun.objects.all().values_list('email', flat=True).distinct())
+        text = unicode(self.param.content.replace('src="', 'style="width:100%" src="http://darya-shop.ru'))
+
+        print user_emails
+        print text
+
         super(EmailSender, self).save(*args, **kwargs)
 
     class Meta:
