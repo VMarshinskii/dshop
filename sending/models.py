@@ -18,7 +18,7 @@ class EmailSender(models.Model):
     def save(self, *args, **kwargs):
         # SenderThread(self).start()
         user_emails = list(Fun.objects.all().values_list('email', flat=True).distinct())
-        text = unicode(self.param.content.replace('src="', 'style="width:100%" src="http://darya-shop.ru'))
+        text = unicode(self.content.replace('src="', 'style="width:100%" src="http://darya-shop.ru'))
 
         print user_emails
         print text
