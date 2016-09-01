@@ -18,8 +18,8 @@ class EmailSender(models.Model):
     def save(self, *args, **kwargs):
         # SenderThread(self).start()
 
-        text = unicode(self.param.content.replace('src="', 'style="width:100%" src="http://darya-shop.ru'))
-        msg = EmailMultiAlternatives(unicode(self.param.title), text, 'DaryaShop', ['marshinskii@gmail.com'])
+        text = unicode(self.content.replace('src="', 'style="width:100%" src="http://darya-shop.ru'))
+        msg = EmailMultiAlternatives(unicode(self.title), text, 'DaryaShop', ['marshinskii@gmail.com'])
         msg.attach_alternative(text, "text/html")
         msg.send()
 
