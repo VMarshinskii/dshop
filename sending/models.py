@@ -21,8 +21,8 @@ class EmailSender(models.Model):
 
         text = unicode(self.content.replace('src="', 'style="width:100%" src="http://darya-shop.ru'))
 
-        send_mail(unicode(self.title), text, 'daryashop112@gmail.com',
-                  ['marshinskii@gmail.com'], fail_silently=False)
+        send_mail(unicode(self.title), text, 'DaryaShop - магазин модной, молодежной одежды, обуви и аксессуаров',
+                  ['marshinskii@gmail.com'], fail_silently=False, html_message='text/html')
 
         super(EmailSender, self).save(*args, **kwargs)
 
