@@ -4,6 +4,7 @@ from django.db import models
 from redactor.fields import RedactorField
 from account.models import Fun
 import threading
+from django.core.mail import send_mail
 
 
 class EmailSender(models.Model):
@@ -16,13 +17,7 @@ class EmailSender(models.Model):
         return u'%s %s' % (self.title, self.description)
 
     def save(self, *args, **kwargs):
-        # SenderThread(self).start()
-        user_emails = list(Fun.objects.all().values_list('email', flat=True).distinct())
-        text = unicode(self.content.replace('src="', 'style="width:100%" src="http://darya-shop.ru'))
-
-        print user_emails
-        print text
-
+        SenderThread(self).start()
         super(EmailSender, self).save(*args, **kwargs)
 
     class Meta:
@@ -39,6 +34,6 @@ class SenderThread(threading.Thread):
     def run(self):
         user_emails = list(Fun.objects.all().values_list('email', flat=True).distinct())
         text = unicode(self.param.content.replace('src="', 'style="width:100%" src="http://darya-shop.ru'))
-        msg = EmailMultiAlternatives(unicode(self.param.title), text, 'daryashop112@gmail.com', user_emails)
-        msg.attach_alternative(text, "text/html")
-        msg.send()
+
+        send_mail(unicode(self.param.title), text, 'daryashop112@gmail.com',
+                  ['marshinskii@gmail.com'], fail_silently=False)
