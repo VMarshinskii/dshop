@@ -1,5 +1,5 @@
-/.idea
-/mysite/local_settings.py
+.idea
+dshop/local_settings.py
 
 migrations
 db.sqlite3
